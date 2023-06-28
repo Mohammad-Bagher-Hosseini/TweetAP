@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="506.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="506.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tweetap.client.controller.SignInPageController">
    <children>
       <AnchorPane layoutX="-24.0" prefHeight="400.0" prefWidth="186.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 25;">
          <children>
@@ -24,8 +24,8 @@
       </AnchorPane>
       <AnchorPane layoutX="134.0" layoutY="39.0" prefHeight="322.0" prefWidth="348.0" style="-fx-background-radius: 25; -fx-background-color: transparent;">
          <children>
-            <PasswordField layoutX="129.0" layoutY="149.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-border-width: 0px 0px 2px 0px; -fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2);" />
-            <TextField layoutX="129.0" layoutY="103.0" promptText="User Name" style="-fx-background-color: transparent; -fx-border-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-border-width: 0px 0px 2px 0px; -fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2);" />
+            <PasswordField fx:id="signInPasswordTextField" layoutX="129.0" layoutY="149.0" onKeyPressed="#signInPasswordTextFieldOnKeyPressed" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-border-width: 0px 0px 2px 0px; -fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2);" />
+            <TextField fx:id="signInUserNameTextField" layoutX="129.0" layoutY="103.0" onKeyPressed="#signInUserNameTextFieldOnKeyPressed" promptText="User Name" style="-fx-background-color: transparent; -fx-border-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-border-width: 0px 0px 2px 0px; -fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2);" />
             <FontAwesomeIconView glyphName="USER" layoutX="102.0" layoutY="110.0" size="20" wrappingWidth="12.0" />
             <FontAwesomeIconView glyphName="KEY" layoutX="98.0" layoutY="159.0" size="20" />
             <FontAwesomeIconView glyphName="USERS" layoutX="174.0" layoutY="32.0" size="30" />
@@ -34,12 +34,12 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Button layoutX="155.0" layoutY="208.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-text-fill: BOLD;" text="SignIn" textFill="#fdfffd">
+            <Button fx:id="signInSignInButton" layoutX="155.0" layoutY="208.0" mnemonicParsing="false" onAction="#signInSignInButtonOnAction" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-text-fill: BOLD;" text="SignIn" textFill="#fdfffd">
                <font>
                   <Font size="17.0" />
                </font>
             </Button>
-            <Hyperlink layoutX="110.0" layoutY="296.0" prefHeight="24.0" prefWidth="186.0" text="Don't have an account? SignUp." />
+            <Hyperlink fx:id="signInSignUpHyperLink" layoutX="110.0" layoutY="296.0" onAction="#signInSignUpHyperLinkOnAction" prefHeight="24.0" prefWidth="186.0" text="Don't have an account? SignUp." />
          </children>
       </AnchorPane>
    </children>
