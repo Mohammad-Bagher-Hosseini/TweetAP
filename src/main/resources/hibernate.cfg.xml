@@ -1,0 +1,41 @@
+<!--
+ ~ Hibernate Search, full-text search for your domain model
+ ~
+ ~ License: GNU Lesser General Public License (LGPL), version 2.1 or later
+ ~ See the lgpl.txt file in the root directory or <http://www.gnu.org/licenses/lgpl-2.1.html>.
+   -->
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.driver_class">org.postgresql.Driver</property>
+        <property name="connection.url">jdbc:postgresql://localhost:5432/postgres</property>
+        <property name="connection.username">postgres</property>
+        <property name="connection.password">13831383</property>
+        <!--  JDBC connection pool (use the built-in)  -->
+        <property name="connection.pool_size">1</property>
+        <!--  SQL dialect  -->
+        <property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <!--  Enable Hibernate's automatic session context management  -->
+        <property name="current_session_context_class">thread</property>
+        <!--  Disable the second-level cache   -->
+        <property name="show_sql">false</property>
+        <!--  Drop and re-create the database schema on startup  -->
+        <property name="hbm2ddl.auto">update</property>
+        <!--mapping classes -->
+        <mapping class = "com.tweetap.entities.user.User"/>
+        <mapping class= "com.tweetap.entities.image.Header"/>
+        <mapping class= "com.tweetap.entities.image.Avatar"/>
+        <mapping class="com.tweetap.entities.user.follow.FollowRelation"/>
+        <mapping class="com.tweetap.entities.tweet.Reply"/>
+        <mapping class="com.tweetap.entities.tweet.Retweet"/>
+        <mapping class="com.tweetap.entities.tweet.Tweet"/>
+        <mapping class="com.tweetap.entities.tweet.Quote"/>
+        <mapping class="com.tweetap.entities.tweet.content.hashtag.Hashtag"/>
+        <mapping class="com.tweetap.entities.tweet.content.hashtag.Hashtags"/>
+        <mapping class="com.tweetap.entities.tweet.content.TextContent"/>
+        <mapping class="com.tweetap.entities.tweet.content.ImageContent"/>
+        <mapping class="com.tweetap.entities.image.ImageContentData"/>
+        <mapping class="com.tweetap.entities.user.MiniUser"/>
+        <mapping class="com.tweetap.entities.tweet.LikeRelation"/>
+        <mapping class="com.tweetap.entities.user.BlockRelation"/>
+    </session-factory>
+</hibernate-configuration>
