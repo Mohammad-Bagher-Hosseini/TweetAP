@@ -3,6 +3,7 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
@@ -14,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="400.0" maxWidth="506.0" minHeight="400.0" minWidth="506.0" prefHeight="400.0" prefWidth="506.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="400.0" maxWidth="506.0" minHeight="400.0" minWidth="506.0" prefHeight="400.0" prefWidth="506.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tweetap.client.controller.SignUpPageController">
    <children>
       <AnchorPane layoutX="-21.0" prefHeight="400.0" prefWidth="186.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 25;">
          <children>
@@ -41,59 +42,65 @@
                            <children>
                               <AnchorPane prefHeight="50.0" prefWidth="235.0">
                                  <children>
-                                    <TextField layoutX="42.0" layoutY="20.0" prefHeight="28.0" prefWidth="152.0" promptText="User Name" style="-fx-border-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-border-width: 0px 0px 2px 0px; -fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2);" />
+                                    <TextField fx:id="signUpUserNameTextField" layoutX="42.0" layoutY="20.0" onKeyPressed="#signUpUserNameTextFieldOnKeyPressed" prefHeight="28.0" prefWidth="152.0" promptText="User Name" style="-fx-border-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-border-width: 0px 0px 2px 0px; -fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2);" />
                                     <FontAwesomeIconView glyphName="USER" layoutX="21.0" layoutY="27.0" size="20" wrappingWidth="12.0" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane layoutX="10.0" layoutY="60.0" prefHeight="50.0" prefWidth="235.0">
                                  <children>
-                                    <TextField layoutX="42.0" layoutY="20.0" prefHeight="28.0" prefWidth="152.0" promptText="Name" style="-fx-border-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-border-width: 0px 0px 2px 0px; -fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2);" />
+                                    <TextField fx:id="signUpNameTextField" layoutX="42.0" layoutY="20.0" onKeyPressed="#signUpNameTextFieldOnKeyPressed" prefHeight="28.0" prefWidth="152.0" promptText="Name" style="-fx-border-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-border-width: 0px 0px 2px 0px; -fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2);" />
                                     <FontAwesomeIconView glyphName="USER" layoutX="21.0" layoutY="27.0" size="20" wrappingWidth="12.0" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane layoutX="10.0" layoutY="111.0" prefHeight="50.0" prefWidth="235.0">
                                  <children>
-                                    <TextField layoutX="42.0" layoutY="20.0" prefHeight="28.0" prefWidth="152.0" promptText="Family" style="-fx-border-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-border-width: 0px 0px 2px 0px; -fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2);" />
+                                    <TextField fx:id="signUpFamilyTextField" layoutX="42.0" layoutY="20.0" onKeyPressed="#signUpFamilyTextFieldOnKeyPressed" prefHeight="28.0" prefWidth="152.0" promptText="Family" style="-fx-border-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-border-width: 0px 0px 2px 0px; -fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2);" />
                                     <FontAwesomeIconView glyphName="USER" layoutX="21.0" layoutY="27.0" size="20" wrappingWidth="12.0" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane layoutX="10.0" layoutY="161.0" prefHeight="50.0" prefWidth="235.0">
                                  <children>
-                                    <TextField layoutX="42.0" layoutY="20.0" prefHeight="28.0" prefWidth="152.0" promptText="Email" style="-fx-border-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-border-width: 0px 0px 2px 0px; -fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2);" />
+                                    <TextField fx:id="signUpEmailTextField" layoutX="42.0" layoutY="20.0" onKeyPressed="#signUpEmailTextFieldOnKeyPressed" prefHeight="28.0" prefWidth="152.0" promptText="Email" style="-fx-border-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-border-width: 0px 0px 2px 0px; -fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2);" />
                                     <FontAwesomeIconView glyphName="ENVELOPE" layoutX="14.0" layoutY="27.0" size="20" wrappingWidth="12.0" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane layoutX="10.0" layoutY="161.0" prefHeight="50.0" prefWidth="235.0">
                                  <children>
-                                    <TextField layoutX="42.0" layoutY="20.0" prefHeight="28.0" prefWidth="152.0" promptText="Phone" style="-fx-border-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-border-width: 0px 0px 2px 0px; -fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2);" />
+                                    <TextField fx:id="signUpPhoneTextField" layoutX="42.0" layoutY="20.0" onKeyPressed="#signUpPhoneTextFieldOnKeyPressed" prefHeight="28.0" prefWidth="152.0" promptText="Phone" style="-fx-border-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-border-width: 0px 0px 2px 0px; -fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2);" />
                                     <FontAwesomeIconView glyphName="PHONE" layoutX="21.0" layoutY="27.0" size="20" wrappingWidth="12.0" />
                                  </children>
                               </AnchorPane>
-                              <AnchorPane layoutX="10.0" layoutY="212.0" prefHeight="50.0" prefWidth="235.0">
+                              <AnchorPane layoutX="10.0" layoutY="212.0" prefHeight="37.0" prefWidth="204.0">
                                  <children>
-                                    <TextField layoutX="42.0" layoutY="20.0" prefHeight="28.0" prefWidth="152.0" promptText="Country" style="-fx-border-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-border-width: 0px 0px 2px 0px; -fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2);" />
                                     <FontAwesomeIconView glyphName="MAP_MARKER" layoutX="21.0" layoutY="27.0" size="20" wrappingWidth="12.0" />
+                                    <ComboBox fx:id="signUpCountryComboText" editable="true" layoutX="40.0" layoutY="17.0" onKeyPressed="#signUpCountryComboTextOnKeyPressed" prefHeight="28.0" prefWidth="158.0" promptText="Country" style="-fx-border-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-border-width: 0px 0px 2px 0px; -fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2);" visibleRowCount="5" />
                                  </children>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
                               </AnchorPane>
-                              <AnchorPane prefHeight="54.0" prefWidth="204.0">
+                              <AnchorPane prefHeight="11.0" prefWidth="204.0">
                                  <children>
-                                    <DatePicker editable="false" layoutX="38.0" layoutY="26.0" prefHeight="28.0" prefWidth="158.0" promptText="Birth Day" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2); -fx-border-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-border-width: 0px 0px 2px 0px;" />
+                                    <DatePicker fx:id="signUpBirthDayDatePicker" editable="false" layoutX="38.0" layoutY="26.0" onKeyPressed="#signUpBirthDatePickerOnKeyPressed" prefHeight="28.0" prefWidth="158.0" promptText="Birth Day" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2); -fx-border-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-border-width: 0px 0px 2px 0px;" />
                                     <FontAwesomeIconView glyphName="CALENDAR" layoutX="14.0" layoutY="30.0" size="20" />
                                  </children>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
                               </AnchorPane>
-                              <AnchorPane prefHeight="50.0" prefWidth="235.0">
+                              <AnchorPane prefHeight="25.0" prefWidth="204.0">
                                  <children>
                                     <FontAwesomeIconView glyphName="KEY" layoutX="14.0" layoutY="30.0" size="20" wrappingWidth="12.0" />
-                                    <PasswordField layoutX="38.0" layoutY="23.0" prefHeight="28.0" prefWidth="160.0" promptText="Password" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2); -fx-border-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-border-width: 0px 0px 2px 0px;" />
+                                    <PasswordField fx:id="signUpPasswordField" layoutX="38.0" layoutY="23.0" onKeyPressed="#signUpPasswordFieldOnKeyPressed" prefHeight="28.0" prefWidth="160.0" promptText="Password" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2); -fx-border-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-border-width: 0px 0px 2px 0px;" />
                                  </children>
                               </AnchorPane>
-                              <AnchorPane prefHeight="50.0" prefWidth="235.0">
+                              <AnchorPane prefHeight="30.0" prefWidth="204.0">
                                  <children>
                                     <FontAwesomeIconView glyphName="KEY" layoutX="14.0" layoutY="30.0" size="20" wrappingWidth="12.0" />
-                                    <PasswordField layoutX="38.0" layoutY="23.0" prefHeight="28.0" prefWidth="160.0" promptText="Confirm Password" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2); -fx-border-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-border-width: 0px 0px 2px 0px;" />
+                                    <PasswordField fx:id="signUpConfirmPasswordField" layoutX="38.0" layoutY="23.0" onKeyPressed="#signUpConfirmPasswordFieldOnKeyPressed" prefHeight="28.0" prefWidth="160.0" promptText="Confirm Password" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2); -fx-border-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-border-width: 0px 0px 2px 0px;" />
                                  </children>
                               </AnchorPane>
-                              <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="78.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3);" text="SignUp" textFill="WHITE">
+                              <Button fx:id="signUpSignUpButton" mnemonicParsing="false" onAction="#signUpSignUpButtonOnAction" prefHeight="34.0" prefWidth="78.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3);" text="SignUp" textFill="WHITE">
                                  <VBox.margin>
                                     <Insets top="20.0" />
                                  </VBox.margin>
