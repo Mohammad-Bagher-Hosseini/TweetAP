@@ -18,10 +18,14 @@ import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
+import javax.swing.text.Style;
 import java.io.IOException;
 
 public class SignInPageController
 {
+    private static final String redTextStyle = "-fx-border-color: linear-gradient( to right top,#ff5757, #ff7429); " +
+            "-fx-border-width: 0px 0px 2px 0px; " +
+            "-fx-background-color: linear-gradient( to right top,#ff0404, #f26f47);";
 
     @FXML
     public TextField signInUserNameTextField;
@@ -56,35 +60,63 @@ public class SignInPageController
         // TODO : process input variables and show result and switch in timelineScene
         String username = signInUserNameTextField.getText();
         String password = signInPasswordTextField.getText();
+
+        if (username.equals(""))
+        {
+            signInUserNameTextField.setStyle(redTextStyle);
+            return;
+        }
+        if (password.equals(""))
+        {
+            signInPasswordTextField.setStyle(redTextStyle);
+            return;
+        }
+
         try
         {
             ControllerCommands.signIn(username, password);
-        }
-        catch (UserNotFoundException e)
+            goToTimeLine();
+        } catch (UserNotFoundException e)
         {
             // TODO: warn the user that username or password was incorrect
-        }
-        catch (ServerException e)
+            signInUserNameTextField.setStyle(redTextStyle);
+            signInPasswordTextField.setStyle(redTextStyle);
+            signInUserNameLabel.setText("username or password not found!");
+        } catch (ServerException e)
         {
             // TODO: warn that something happened with the server side
-        }
-        catch (UnknownException e)
+        } catch (UnknownException e)
         {
             // TODO: warn that some unknown error happened
-        }
-        catch (TwitException e)
+        } catch (TwitException e)
         {
             // TODO: warn that some unexpected error happened
         }
     }
 
-    private void goToTimeLine()
-    {
-
-    }
-
+    @FXML
     public void signInSignUpHyperLinkOnAction(ActionEvent actionEvent)
     {
         // TODO : switch to signUpScene
+    }
+
+    private void goToTimeLine()
+    {
+        try
+        {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("timeline.fxml"));
+            Parent root = fxmlLoader.load();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e)
+        {
+            // TODO
+        }
+    }
+
+    public void setStage(Stage stage)
+    {
+        this.stage = stage;
     }
 }
