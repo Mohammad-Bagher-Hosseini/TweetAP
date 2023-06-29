@@ -6,8 +6,19 @@ import com.tweetap.entities.exception.io.server.ServerException;
 import com.tweetap.entities.exception.io.server.UserNotFoundException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class SignInPageController
 {
@@ -24,6 +35,8 @@ public class SignInPageController
     public Label signInUserNameLabel;
     @FXML
     public Label signInPasswordLabel;
+
+    private Stage stage;
 
     @FXML
     public void signInUserNameTextFieldOnKeyPressed(KeyEvent keyEvent)

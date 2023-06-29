@@ -1,6 +1,7 @@
 package com.tweetap;
 
 import com.tweetap.client.controller.Program;
+import com.tweetap.client.controller.SignInPageController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -21,9 +22,14 @@ public class MainClient extends Application
     {
         // TODO : specify state of sign up of user
         //if (isUserSignUp(user)) do something
-        Parent root = new FXMLLoader(getClass().getResource("signinpage.fxml")).load();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("signinpage.fxml"));
+        Parent root = fxmlLoader.load();
         stage.setTitle("TweetAP");
         stage.setScene(new Scene(root));
+
+        SignInPageController signInPageController = fxmlLoader.getController();
+        signInPageController.setStage(stage);
+
         stage.show();
     }
 }
