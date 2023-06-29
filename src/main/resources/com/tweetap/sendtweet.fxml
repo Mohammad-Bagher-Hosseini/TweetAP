@@ -1,24 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="514.0" prefWidth="463.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="514.0" prefWidth="463.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tweetap.client.controller.SendTweetController">
     <children>
         <AnchorPane layoutX="-1.0" layoutY="-4.0" prefHeight="407.0" prefWidth="129.0">
             <children>
                 <VBox alignment="TOP_CENTER" layoutX="-1.0" layoutY="3.0" prefHeight="514.0" prefWidth="130.0" style="-fx-background-color: linear-gradient(#ff4a32, #ffffff);">
                     <children>
-                        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="47.0" prefWidth="105.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 15;" text="   HOME" textFill="WHITE">
+                        <Button fx:id="sendTweetHomeButton" alignment="CENTER" mnemonicParsing="false" onAction="#sendTweetHomeButtonOnAction" prefHeight="47.0" prefWidth="105.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 15;" text="   HOME" textFill="WHITE">
                             <VBox.margin>
                                 <Insets top="50.0" />
                             </VBox.margin>
@@ -29,7 +24,7 @@
                                 <FontAwesomeIconView glyphName="HOME" size="20" wrappingWidth="14.0" />
                             </graphic>
                         </Button>
-                        <Button layoutX="23.0" layoutY="60.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="105.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 15;" text=" SEARCH" textFill="WHITE">
+                        <Button fx:id="sendTweetSearchButton" layoutX="23.0" layoutY="60.0" mnemonicParsing="false" onAction="#sendTweetSearchButtonOnAction" prefHeight="47.0" prefWidth="105.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 15;" text=" SEARCH" textFill="WHITE">
                             <VBox.margin>
                                 <Insets top="50.0" />
                             </VBox.margin>
@@ -40,7 +35,7 @@
                                 <Font size="14.0" />
                             </font>
                         </Button>
-                        <Button layoutX="23.0" layoutY="108.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="105.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 15;" text=" PROFILE" textFill="WHITE">
+                        <Button fx:id="sendTweetProfileButton" layoutX="23.0" layoutY="108.0" mnemonicParsing="false" onAction="#sendTweetProfileButtonOnAction" prefHeight="47.0" prefWidth="105.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 15;" text=" PROFILE" textFill="WHITE">
                             <VBox.margin>
                                 <Insets top="50.0" />
                             </VBox.margin>
@@ -62,7 +57,7 @@
                                 <Font size="14.0" />
                             </font>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="80.0" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2); -fx-background-radius: 15;" text="EXIT" textFill="#d91515">
+                        <Button fx:id="sendTweetExitButton" mnemonicParsing="false" onAction="#sendTweetExitButtonOnAction" prefHeight="35.0" prefWidth="80.0" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2); -fx-background-radius: 15;" text="EXIT" textFill="#d91515">
                             <VBox.margin>
                                 <Insets top="80.0" />
                             </VBox.margin>
@@ -80,17 +75,25 @@
         <AnchorPane layoutX="128.0" prefHeight="514.0" prefWidth="335.0">
             <children>
                 <Separator layoutX="-3.0" orientation="VERTICAL" prefHeight="514.0" prefWidth="0.0" style="-fx-background-color: #000000;" />
-            <Label layoutX="140.0" layoutY="108.0" prefHeight="22.0" prefWidth="102.0" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2); -fx-background-radius: 8;" text="Label">
+            <Label fx:id="sendTweetUserNameLabel" layoutX="116.0" layoutY="25.0" prefHeight="22.0" prefWidth="102.0" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2); -fx-background-radius: 8;" text="Label">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextArea layoutX="5.0" layoutY="157.0" prefHeight="135.0" prefWidth="327.0" />
-            <ImageView fitHeight="169.0" fitWidth="269.0" layoutX="33.0" layoutY="338.0" pickOnBounds="true" preserveRatio="true" />
-            <TextField layoutX="80.0" layoutY="305.0" promptText="Image path" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2);" />
-            <Button layoutX="230.0" layoutY="304.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="36.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3);" />
+            <TextArea fx:id="sendTweetInputTextArea" layoutX="5.0" layoutY="157.0" prefHeight="135.0" prefWidth="327.0" />
+            <ImageView fx:id="sendTweetInputImageView" fitHeight="169.0" fitWidth="269.0" layoutX="33.0" layoutY="338.0" pickOnBounds="true" preserveRatio="true" />
+            <TextField fx:id="sendTweetImagePathTextFiled" layoutX="80.0" layoutY="305.0" promptText="Image path" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2);" />
+            <Button fx:id="sendTweetSearchImagePathButton" layoutX="230.0" layoutY="304.0" mnemonicParsing="false" onAction="#sendTweetSearchImagePathButtonOnAction" prefHeight="26.0" prefWidth="36.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3);" />
             <FontAwesomeIconView glyphName="SEARCH" layoutX="241.0" layoutY="322.0" size="15" text="" />
-            <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="22.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="sendTweetAvatarImageView" fitHeight="100.0" fitWidth="100.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+            <Button fx:id="sendTweetSendTweetButton" layoutX="116.0" layoutY="66.0" mnemonicParsing="false" onAction="#sendTweetSendTweetButtonOnAction" prefHeight="47.0" prefWidth="137.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 15;" text="  SendTweet" textFill="WHITE">
+               <graphic>
+                  <FontAwesomeIconView glyphName="SEND" size="20" />
+               </graphic>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
             </children>
         </AnchorPane>
     </children>
