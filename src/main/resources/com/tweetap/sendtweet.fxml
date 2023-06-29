@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.Avatar?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
@@ -81,7 +80,6 @@
         <AnchorPane layoutX="128.0" prefHeight="514.0" prefWidth="335.0">
             <children>
                 <Separator layoutX="-3.0" orientation="VERTICAL" prefHeight="514.0" prefWidth="0.0" style="-fx-background-color: #000000;" />
-            <Avatar layoutX="29.0" layoutY="37.0" radius="50.0" style="-fx-border-color: linear-gradient( to right top,#5effb1, #47d2f2);" />
             <Label layoutX="140.0" layoutY="108.0" prefHeight="22.0" prefWidth="102.0" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2); -fx-background-radius: 8;" text="Label">
                <font>
                   <Font size="14.0" />
@@ -92,6 +90,7 @@
             <TextField layoutX="80.0" layoutY="305.0" promptText="Image path" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2);" />
             <Button layoutX="230.0" layoutY="304.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="36.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3);" />
             <FontAwesomeIconView glyphName="SEARCH" layoutX="241.0" layoutY="322.0" size="15" text="" />
+            <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="22.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" />
             </children>
         </AnchorPane>
     </children>
