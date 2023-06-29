@@ -24,7 +24,7 @@ public class ModelCommands
 
     }
 
-    public void signUp(User user) throws ServerRespondFailedException, ServerConnectionFailedException, ServerInvalidObjectException, DatabaseFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static void signUp(User user) throws ServerRespondFailedException, ServerConnectionFailedException, ServerInvalidObjectException, DatabaseFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         try (ServerConnectionHandler serverConnectionHandler = new ServerConnectionHandler())
         {
@@ -38,7 +38,7 @@ public class ModelCommands
         }
     }
 
-    public User signIn(String userName, Password passwordHash) throws ServerRespondFailedException, ServerConnectionFailedException, ServerInvalidObjectException, DatabaseFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static User signIn(String userName, Password passwordHash) throws ServerRespondFailedException, ServerConnectionFailedException, ServerInvalidObjectException, DatabaseFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         try (ServerConnectionHandler serverConnectionHandler = new ServerConnectionHandler())
         {
@@ -52,7 +52,7 @@ public class ModelCommands
         }
     }
 
-    public void setAvatar(String userName, Avatar avatar) throws ServerRespondFailedException, ServerConnectionFailedException, ServerInvalidObjectException, DatabaseFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static void setAvatar(String userName, Avatar avatar) throws ServerRespondFailedException, ServerConnectionFailedException, ServerInvalidObjectException, DatabaseFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         try (ServerConnectionHandler serverConnectionHandler = new ServerConnectionHandler())
         {
@@ -64,7 +64,7 @@ public class ModelCommands
         }
     }
 
-    public void setHeader(String userName, Header header) throws ServerRespondFailedException, ServerConnectionFailedException, ServerInvalidObjectException, DatabaseFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static void setHeader(String userName, Header header) throws ServerRespondFailedException, ServerConnectionFailedException, ServerInvalidObjectException, DatabaseFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         try (ServerConnectionHandler serverConnectionHandler = new ServerConnectionHandler())
         {
@@ -76,7 +76,7 @@ public class ModelCommands
         }
     }
 
-    public void changePassword(String userName, Password newPasswordHash) throws ServerRespondFailedException, ServerConnectionFailedException, ServerInvalidObjectException, DatabaseFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static void changePassword(String userName, Password newPasswordHash) throws ServerRespondFailedException, ServerConnectionFailedException, ServerInvalidObjectException, DatabaseFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         try (ServerConnectionHandler serverConnectionHandler = new ServerConnectionHandler())
         {
@@ -88,7 +88,7 @@ public class ModelCommands
         }
     }
 
-    public void changeName(String userName, String name) throws ServerRespondFailedException, ServerConnectionFailedException, ServerInvalidObjectException, DatabaseFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static void changeName(String userName, String name) throws ServerRespondFailedException, ServerConnectionFailedException, ServerInvalidObjectException, DatabaseFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         try (ServerConnectionHandler serverConnectionHandler = new ServerConnectionHandler())
         {
@@ -100,7 +100,7 @@ public class ModelCommands
         }
     }
 
-    public void changeFamily(String userName, String family) throws ServerRespondFailedException, ServerConnectionFailedException, ServerInvalidObjectException, DatabaseFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static void changeFamily(String userName, String family) throws ServerRespondFailedException, ServerConnectionFailedException, ServerInvalidObjectException, DatabaseFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         try (ServerConnectionHandler serverConnectionHandler = new ServerConnectionHandler())
         {
@@ -112,7 +112,7 @@ public class ModelCommands
         }
     }
 
-    public void changeEmail(String userName, String email) throws ServerRespondFailedException, ServerConnectionFailedException, ServerInvalidObjectException, DatabaseFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static void changeEmail(String userName, String email) throws ServerRespondFailedException, ServerConnectionFailedException, ServerInvalidObjectException, DatabaseFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         try (ServerConnectionHandler serverConnectionHandler = new ServerConnectionHandler())
         {
@@ -124,7 +124,7 @@ public class ModelCommands
         }
     }
 
-    public void changePhoneNumber(String userName, String phoneNumber) throws ServerRespondFailedException, ServerConnectionFailedException, ServerInvalidObjectException, DatabaseFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static void changePhoneNumber(String userName, String phoneNumber) throws ServerRespondFailedException, ServerConnectionFailedException, ServerInvalidObjectException, DatabaseFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         try (ServerConnectionHandler serverConnectionHandler = new ServerConnectionHandler())
         {
@@ -136,7 +136,7 @@ public class ModelCommands
         }
     }
 
-    public void changeBirthDate(String userName, LocalDate birthDate) throws ServerRespondFailedException, ServerConnectionFailedException, ServerInvalidObjectException, DatabaseFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static void changeBirthDate(String userName, LocalDate birthDate) throws ServerRespondFailedException, ServerConnectionFailedException, ServerInvalidObjectException, DatabaseFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         try (ServerConnectionHandler serverConnectionHandler = new ServerConnectionHandler())
         {
@@ -148,7 +148,7 @@ public class ModelCommands
         }
     }
 
-    public void changeCountry(String userName, String country) throws ServerRespondFailedException, ServerConnectionFailedException, ServerInvalidObjectException, DatabaseFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static void changeCountry(String userName, String country) throws ServerRespondFailedException, ServerConnectionFailedException, ServerInvalidObjectException, DatabaseFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         try (ServerConnectionHandler serverConnectionHandler = new ServerConnectionHandler())
         {
@@ -160,7 +160,7 @@ public class ModelCommands
         }
     }
 
-    public void changeBio(String userName, Bio bio) throws ServerRespondFailedException, ServerConnectionFailedException, ServerInvalidObjectException, DatabaseFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static void changeBio(String userName, Bio bio) throws ServerRespondFailedException, ServerConnectionFailedException, ServerInvalidObjectException, DatabaseFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         try (ServerConnectionHandler serverConnectionHandler = new ServerConnectionHandler())
         {
@@ -172,7 +172,7 @@ public class ModelCommands
         }
     }
 
-    public void changeLocation(String userName, String location) throws ServerRespondFailedException, ServerConnectionFailedException, ServerInvalidObjectException, DatabaseFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static void changeLocation(String userName, String location) throws ServerRespondFailedException, ServerConnectionFailedException, ServerInvalidObjectException, DatabaseFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         try (ServerConnectionHandler serverConnectionHandler = new ServerConnectionHandler())
         {
@@ -184,7 +184,7 @@ public class ModelCommands
         }
     }
 
-    public void changeWebsite(String userName, String website) throws ServerRespondFailedException, ServerConnectionFailedException, ServerInvalidObjectException, DatabaseFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static void changeWebsite(String userName, String website) throws ServerRespondFailedException, ServerConnectionFailedException, ServerInvalidObjectException, DatabaseFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         try (ServerConnectionHandler serverConnectionHandler = new ServerConnectionHandler())
         {
@@ -196,7 +196,7 @@ public class ModelCommands
         }
     }
 
-    public Followers showFollowers(String userName) throws ServerConnectionFailedException, ServerInvalidObjectException, ServerRespondFailedException, DatabaseFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static Followers showFollowers(String userName) throws ServerConnectionFailedException, ServerInvalidObjectException, ServerRespondFailedException, DatabaseFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         try (ServerConnectionHandler serverConnectionHandler = new ServerConnectionHandler())
         {
@@ -208,7 +208,7 @@ public class ModelCommands
         }
     }
 
-    public Followings showFollowings(String userName) throws ServerConnectionFailedException, ServerInvalidObjectException, ServerRespondFailedException, DatabaseFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static Followings showFollowings(String userName) throws ServerConnectionFailedException, ServerInvalidObjectException, ServerRespondFailedException, DatabaseFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         try (ServerConnectionHandler serverConnectionHandler = new ServerConnectionHandler())
         {
@@ -220,7 +220,7 @@ public class ModelCommands
         }
     }
 
-    public void follow(String userName, String followedUserName) throws ServerConnectionFailedException, ServerInvalidObjectException, ServerRespondFailedException, DatabaseFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static void follow(String userName, String followedUserName) throws ServerConnectionFailedException, ServerInvalidObjectException, ServerRespondFailedException, DatabaseFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         try (ServerConnectionHandler serverConnectionHandler = new ServerConnectionHandler())
         {
@@ -232,7 +232,7 @@ public class ModelCommands
         }
     }
 
-    public void unfollow(String userName, String followedUserName) throws ServerConnectionFailedException, ServerInvalidObjectException, ServerRespondFailedException, DatabaseFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static void unfollow(String userName, String followedUserName) throws ServerConnectionFailedException, ServerInvalidObjectException, ServerRespondFailedException, DatabaseFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         try (ServerConnectionHandler serverConnectionHandler = new ServerConnectionHandler())
         {
@@ -244,7 +244,7 @@ public class ModelCommands
         }
     }
 
-    public MiniUser showUser(String miniUserUsername) throws ServerConnectionFailedException, ServerInvalidObjectException, ServerRespondFailedException, DatabaseFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static MiniUser showUser(String miniUserUsername) throws ServerConnectionFailedException, ServerInvalidObjectException, ServerRespondFailedException, DatabaseFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         try (ServerConnectionHandler serverConnectionHandler = new ServerConnectionHandler())
         {
@@ -256,7 +256,7 @@ public class ModelCommands
         }
     }
 
-    public void sendTweet(Tweet tweet) throws ServerConnectionFailedException, ServerInvalidObjectException, ServerRespondFailedException, DatabaseFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static void sendTweet(Tweet tweet) throws ServerConnectionFailedException, ServerInvalidObjectException, ServerRespondFailedException, DatabaseFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         try (ServerConnectionHandler serverConnectionHandler = new ServerConnectionHandler())
         {
@@ -267,7 +267,7 @@ public class ModelCommands
         }
     }
 
-    public void sendRetweet(Long id, String userName) throws ServerConnectionFailedException, ServerInvalidObjectException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, DatabaseFailedException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static void sendRetweet(Long id, String userName) throws ServerConnectionFailedException, ServerInvalidObjectException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, DatabaseFailedException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         try (ServerConnectionHandler serverConnectionHandler = new ServerConnectionHandler())
         {
@@ -279,7 +279,7 @@ public class ModelCommands
         }
     }
 
-    public void sendQuote(Long id, Quote quote) throws ServerConnectionFailedException, ServerInvalidObjectException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, DatabaseFailedException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static void sendQuote(Long id, Quote quote) throws ServerConnectionFailedException, ServerInvalidObjectException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, DatabaseFailedException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         try (ServerConnectionHandler serverConnectionHandler = new ServerConnectionHandler())
         {
@@ -291,7 +291,7 @@ public class ModelCommands
         }
     }
 
-    public void sendReply(Long id, Reply reply) throws ServerConnectionFailedException, ServerInvalidObjectException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, DatabaseFailedException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static void sendReply(Long id, Reply reply) throws ServerConnectionFailedException, ServerInvalidObjectException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, DatabaseFailedException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         try (ServerConnectionHandler serverConnectionHandler = new ServerConnectionHandler())
         {
@@ -303,7 +303,7 @@ public class ModelCommands
         }
     }
 
-    public void likeTweet(Tweet tweet, String userName) throws ServerConnectionFailedException, ServerInvalidObjectException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, DatabaseFailedException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static void likeTweet(Tweet tweet, String userName) throws ServerConnectionFailedException, ServerInvalidObjectException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, DatabaseFailedException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         try (ServerConnectionHandler serverConnectionHandler = new ServerConnectionHandler())
         {
@@ -315,7 +315,7 @@ public class ModelCommands
         }
     }
 
-    public void dislikeTweet(Tweet tweet, String userName) throws ServerConnectionFailedException, ServerInvalidObjectException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, DatabaseFailedException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static void dislikeTweet(Tweet tweet, String userName) throws ServerConnectionFailedException, ServerInvalidObjectException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, DatabaseFailedException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         try (ServerConnectionHandler serverConnectionHandler = new ServerConnectionHandler())
         {
@@ -327,7 +327,7 @@ public class ModelCommands
         }
     }
 
-    public TimeLine showTimeLine(String userName) throws ServerConnectionFailedException, ServerInvalidObjectException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, DatabaseFailedException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static TimeLine showTimeLine(String userName) throws ServerConnectionFailedException, ServerInvalidObjectException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, DatabaseFailedException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         try (ServerConnectionHandler serverConnectionHandler = new ServerConnectionHandler())
         {
@@ -339,7 +339,7 @@ public class ModelCommands
         }
     }
 
-    public void block(String blocker, String blocked) throws ServerConnectionFailedException, ServerInvalidObjectException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, DatabaseFailedException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static void block(String blocker, String blocked) throws ServerConnectionFailedException, ServerInvalidObjectException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, DatabaseFailedException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         try (ServerConnectionHandler serverConnectionHandler = new ServerConnectionHandler())
         {
@@ -351,7 +351,7 @@ public class ModelCommands
         }
     }
 
-    public void unblock(String blocker, String blocked) throws ServerConnectionFailedException, ServerInvalidObjectException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, DatabaseFailedException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static void unblock(String blocker, String blocked) throws ServerConnectionFailedException, ServerInvalidObjectException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, DatabaseFailedException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         try (ServerConnectionHandler serverConnectionHandler = new ServerConnectionHandler())
         {
@@ -363,7 +363,7 @@ public class ModelCommands
         }
     }
 
-    public BlackList showBlackList(String userName) throws ServerConnectionFailedException, ServerInvalidObjectException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, DatabaseFailedException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static BlackList showBlackList(String userName) throws ServerConnectionFailedException, ServerInvalidObjectException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, DatabaseFailedException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         try (ServerConnectionHandler serverConnectionHandler = new ServerConnectionHandler())
         {

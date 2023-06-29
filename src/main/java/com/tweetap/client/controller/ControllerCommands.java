@@ -30,14 +30,7 @@ import java.util.Iterator;
 
 public class ControllerCommands
 {
-    protected final ModelCommands modelCommands;
-
-    public ControllerCommands()
-    {
-        modelCommands = new ModelCommands();
-    }
-
-    private User getCurrentUser() throws PermissionDeniedException
+    private static User getCurrentUser() throws PermissionDeniedException
     {
         User user = Data.getInstance().getUser();
         if (user == null || Data.getInstance().getProgramState() == ProgramState.LOGGED_OUT)
@@ -46,7 +39,7 @@ public class ControllerCommands
         return user;
     }
 
-    public void signUp(String userName, String name, String family,
+    public static void signUp(String userName, String name, String family,
                        String email, String phoneNumber, String password, String passwordConfirm,
                        String country, int year, int month, int day)
             throws EmailOrPhoneRequiredException, PasswordConfirmException, EmailFormatException, PasswordFormatException,
@@ -70,50 +63,50 @@ public class ControllerCommands
         user.setSignUpDate(LocalDate.now());
         user.setLastChangeDate(LocalDate.now());
 
-        modelCommands.signUp(user);
+        ModelCommands.signUp(user);
     }
 
-    public User signIn(String userName, String password) throws PasswordHashException, ServerConnectionFailedException, ServerRespondFailedException, DatabaseFailedException, ServerInvalidObjectException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static User signIn(String userName, String password) throws PasswordHashException, ServerConnectionFailedException, ServerRespondFailedException, DatabaseFailedException, ServerInvalidObjectException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         Password passwordHash = new Password(password);
 
-        User user = modelCommands.signIn(userName, passwordHash);
+        User user = ModelCommands.signIn(userName, passwordHash);
 
         Data.getInstance().setUser(user);
         Data.getInstance().setProgramState(ProgramState.MAIN_MENU);
         return user;
     }
 
-    public void signOut() throws PermissionDeniedException
+    public static void signOut() throws PermissionDeniedException
     {
         getCurrentUser();
         Data.getInstance().setUser(null);
         Data.getInstance().setProgramState(ProgramState.LOGGED_OUT);
     }
 
-    public Avatar setAvatar(String path)
+    public static Avatar setAvatar(String path)
             throws FileSizeException, FileNotExistException, FileNotImageException, ImageSizeException, ServerConnectionFailedException, ServerRespondFailedException, DatabaseFailedException, ServerInvalidObjectException, UnknownException, InvalidPasswordException, TextTooLongException, PermissionDeniedException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         User user = getCurrentUser();
         Avatar avatar = new Avatar(path);
-        modelCommands.setAvatar(user.getUserName(), avatar);
+        ModelCommands.setAvatar(user.getUserName(), avatar);
 
         user.setAvatar(new Avatar(path));
         return avatar;
     }
 
-    public Header setHeader(String path)
+    public static Header setHeader(String path)
             throws ImageSizeException, FileSizeException, FileNotExistException, FileNotImageException, ServerConnectionFailedException, ServerRespondFailedException, DatabaseFailedException, ServerInvalidObjectException, UnknownException, InvalidPasswordException, TextTooLongException, PermissionDeniedException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         User user = getCurrentUser();
         Header header = new Header(path);
-        modelCommands.setHeader(user.getUserName(), header);
+        ModelCommands.setHeader(user.getUserName(), header);
 
         user.setHeader(new Header(path));
         return header;
     }
 
-    public void changePassword(String oldPassword, String newPassword, String newPasswordConfirm) throws PermissionDeniedException, PasswordFormatException, PasswordHashException, InvalidPasswordException, ServerConnectionFailedException, ServerRespondFailedException, UnknownException, TextTooLongException, DatabaseFailedException, ServerInvalidObjectException, PasswordConfirmException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static void changePassword(String oldPassword, String newPassword, String newPasswordConfirm) throws PermissionDeniedException, PasswordFormatException, PasswordHashException, InvalidPasswordException, ServerConnectionFailedException, ServerRespondFailedException, UnknownException, TextTooLongException, DatabaseFailedException, ServerInvalidObjectException, PasswordConfirmException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         User user = getCurrentUser();
 
@@ -123,90 +116,90 @@ public class ControllerCommands
         if (!newPassword.equals(newPasswordConfirm))
             throw new PasswordConfirmException();
 
-        modelCommands.changePassword(user.getUserName(), new Password(newPassword));
+        ModelCommands.changePassword(user.getUserName(), new Password(newPassword));
 
         user.setPassword(new Password(newPassword));
     }
 
-    public void changeName(String newName) throws PermissionDeniedException, ServerConnectionFailedException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, DatabaseFailedException, ServerInvalidObjectException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static void changeName(String newName) throws PermissionDeniedException, ServerConnectionFailedException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, DatabaseFailedException, ServerInvalidObjectException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         User user = getCurrentUser();
-        modelCommands.changeName(user.getUserName(), newName);
+        ModelCommands.changeName(user.getUserName(), newName);
 
         user.setName(newName);
     }
 
-    public void changeFamily(String newFamily) throws PermissionDeniedException, ServerConnectionFailedException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, DatabaseFailedException, ServerInvalidObjectException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static void changeFamily(String newFamily) throws PermissionDeniedException, ServerConnectionFailedException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, DatabaseFailedException, ServerInvalidObjectException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         User user = getCurrentUser();
-        modelCommands.changeFamily(user.getUserName(), newFamily);
+        ModelCommands.changeFamily(user.getUserName(), newFamily);
 
         user.setFamily(newFamily);
     }
 
-    public void changeEmail(String newEmail) throws PermissionDeniedException, EmailFormatException, ServerConnectionFailedException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, DatabaseFailedException, ServerInvalidObjectException, ServerInvalidCommandException, CountryException, UserNotFoundException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static void changeEmail(String newEmail) throws PermissionDeniedException, EmailFormatException, ServerConnectionFailedException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, DatabaseFailedException, ServerInvalidObjectException, ServerInvalidCommandException, CountryException, UserNotFoundException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         User user = getCurrentUser();
 
         Verification.verifyEmail(newEmail);
 
-        modelCommands.changeEmail(user.getUserName(), newEmail);
+        ModelCommands.changeEmail(user.getUserName(), newEmail);
 
         user.setEmail(newEmail);
     }
 
-    public void changePhoneNumber(String newPhoneNumber) throws PermissionDeniedException, ServerConnectionFailedException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, DatabaseFailedException, ServerInvalidObjectException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static void changePhoneNumber(String newPhoneNumber) throws PermissionDeniedException, ServerConnectionFailedException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, DatabaseFailedException, ServerInvalidObjectException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         User user = getCurrentUser();
-        modelCommands.changePhoneNumber(user.getUserName(), newPhoneNumber);
+        ModelCommands.changePhoneNumber(user.getUserName(), newPhoneNumber);
 
         user.setPhoneNumber(newPhoneNumber);
     }
 
-    public void changeBirthDate(int year, int month, int day) throws PermissionDeniedException, ServerConnectionFailedException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, DatabaseFailedException, ServerInvalidObjectException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static void changeBirthDate(int year, int month, int day) throws PermissionDeniedException, ServerConnectionFailedException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, DatabaseFailedException, ServerInvalidObjectException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         User user = getCurrentUser();
-        modelCommands.changeBirthDate(user.getUserName(), LocalDate.of(year, month, day));
+        ModelCommands.changeBirthDate(user.getUserName(), LocalDate.of(year, month, day));
 
         user.setBirthDate(LocalDate.of(year, month, day));
     }
 
-    public void changeCountry(String newCountry) throws PermissionDeniedException, CountryException, ServerConnectionFailedException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, DatabaseFailedException, ServerInvalidObjectException, ServerInvalidCommandException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static void changeCountry(String newCountry) throws PermissionDeniedException, CountryException, ServerConnectionFailedException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, DatabaseFailedException, ServerInvalidObjectException, ServerInvalidCommandException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         User user = getCurrentUser();
 
         Verification.verifyCountry(newCountry);
 
-        modelCommands.changeCountry(user.getUserName(), newCountry);
+        ModelCommands.changeCountry(user.getUserName(), newCountry);
 
         user.setCountry(newCountry);
     }
 
-    public void changeBio(String newBio) throws PermissionDeniedException, TextTooLongException, ServerConnectionFailedException, ServerRespondFailedException, UnknownException, InvalidPasswordException, DatabaseFailedException, ServerInvalidObjectException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static void changeBio(String newBio) throws PermissionDeniedException, TextTooLongException, ServerConnectionFailedException, ServerRespondFailedException, UnknownException, InvalidPasswordException, DatabaseFailedException, ServerInvalidObjectException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         User user = getCurrentUser();
 
         Verification.verifyBio(newBio);
 
-        modelCommands.changeBio(user.getUserName(), new Bio(newBio));
+        ModelCommands.changeBio(user.getUserName(), new Bio(newBio));
 
         user.setBio(new Bio(newBio));
     }
 
-    public void changeLocation(String newLocation) throws PermissionDeniedException, ServerConnectionFailedException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, DatabaseFailedException, ServerInvalidObjectException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static void changeLocation(String newLocation) throws PermissionDeniedException, ServerConnectionFailedException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, DatabaseFailedException, ServerInvalidObjectException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         User user = getCurrentUser();
 
-        modelCommands.changeLocation(user.getUserName(), newLocation);
+        ModelCommands.changeLocation(user.getUserName(), newLocation);
 
         user.setLocation(newLocation);
     }
 
-    public void changeWebsite(String newWebsite) throws PermissionDeniedException, ServerConnectionFailedException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, DatabaseFailedException, ServerInvalidObjectException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static void changeWebsite(String newWebsite) throws PermissionDeniedException, ServerConnectionFailedException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, DatabaseFailedException, ServerInvalidObjectException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         User user = getCurrentUser();
 
-        modelCommands.changeWebsite(user.getUserName(), newWebsite);
+        ModelCommands.changeWebsite(user.getUserName(), newWebsite);
 
         user.setWebsite(newWebsite);
     }
@@ -222,48 +215,48 @@ public class ControllerCommands
 //        user.setWebsite(website);
 //    }
 
-    public Followers showFollowers(String userName) throws ServerConnectionFailedException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, DatabaseFailedException, ServerInvalidObjectException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static Followers showFollowers(String userName) throws ServerConnectionFailedException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, DatabaseFailedException, ServerInvalidObjectException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
-        return modelCommands.showFollowers(userName);
+        return ModelCommands.showFollowers(userName);
     }
 
-    public Followers showFollowers() throws ServerConnectionFailedException, ServerRespondFailedException, DatabaseFailedException, ServerInvalidObjectException, UnknownException, InvalidPasswordException, TextTooLongException, PermissionDeniedException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
-    {
-        User user = getCurrentUser();
-        return modelCommands.showFollowers(user.getUserName());
-    }
-
-    public Followings showFollowings(String userName) throws ServerConnectionFailedException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, DatabaseFailedException, ServerInvalidObjectException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
-    {
-        return modelCommands.showFollowings(userName);
-    }
-
-    public Followings showFollowings() throws ServerConnectionFailedException, ServerRespondFailedException, DatabaseFailedException, ServerInvalidObjectException, UnknownException, InvalidPasswordException, TextTooLongException, PermissionDeniedException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static Followers showFollowers() throws ServerConnectionFailedException, ServerRespondFailedException, DatabaseFailedException, ServerInvalidObjectException, UnknownException, InvalidPasswordException, TextTooLongException, PermissionDeniedException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         User user = getCurrentUser();
-        return modelCommands.showFollowings(user.getUserName());
+        return ModelCommands.showFollowers(user.getUserName());
     }
 
-    public void follow(String userName) throws ServerConnectionFailedException, ServerRespondFailedException, DatabaseFailedException, ServerInvalidObjectException, UnknownException, InvalidPasswordException, TextTooLongException, PermissionDeniedException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static Followings showFollowings(String userName) throws ServerConnectionFailedException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, DatabaseFailedException, ServerInvalidObjectException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    {
+        return ModelCommands.showFollowings(userName);
+    }
+
+    public static Followings showFollowings() throws ServerConnectionFailedException, ServerRespondFailedException, DatabaseFailedException, ServerInvalidObjectException, UnknownException, InvalidPasswordException, TextTooLongException, PermissionDeniedException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    {
+        User user = getCurrentUser();
+        return ModelCommands.showFollowings(user.getUserName());
+    }
+
+    public static void follow(String userName) throws ServerConnectionFailedException, ServerRespondFailedException, DatabaseFailedException, ServerInvalidObjectException, UnknownException, InvalidPasswordException, TextTooLongException, PermissionDeniedException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         // TODO : give the userName and followedUserName instead of FollowRelation
         User user = getCurrentUser();
-        modelCommands.follow(user.getUserName(), userName);
+        ModelCommands.follow(user.getUserName(), userName);
     }
 
-    public void unfollow(String userName) throws ServerConnectionFailedException, ServerRespondFailedException, DatabaseFailedException, ServerInvalidObjectException, UnknownException, InvalidPasswordException, TextTooLongException, PermissionDeniedException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static void unfollow(String userName) throws ServerConnectionFailedException, ServerRespondFailedException, DatabaseFailedException, ServerInvalidObjectException, UnknownException, InvalidPasswordException, TextTooLongException, PermissionDeniedException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         // TODO : give the userName and followedUserName instead of FollowRelation
         User user = getCurrentUser();
-        modelCommands.unfollow(user.getUserName(), userName);
+        ModelCommands.unfollow(user.getUserName(), userName);
     }
 
-    public MiniUser showUser(MiniUser miniUser) throws ServerConnectionFailedException, ServerRespondFailedException, DatabaseFailedException, ServerInvalidObjectException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static MiniUser showUser(MiniUser miniUser) throws ServerConnectionFailedException, ServerRespondFailedException, DatabaseFailedException, ServerInvalidObjectException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
-        return modelCommands.showUser(miniUser.getUserName());
+        return ModelCommands.showUser(miniUser.getUserName());
     }
 
-    public void sendTweet(String text, String imagePath) throws TextTooLongException, ServerConnectionFailedException, ServerRespondFailedException, DatabaseFailedException, ServerInvalidObjectException, UnknownException, InvalidPasswordException, PermissionDeniedException, ServerInvalidCommandException, ImageSizeException, FileSizeException, FileNotExistException, FileNotImageException, HashtagException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static void sendTweet(String text, String imagePath) throws TextTooLongException, ServerConnectionFailedException, ServerRespondFailedException, DatabaseFailedException, ServerInvalidObjectException, UnknownException, InvalidPasswordException, PermissionDeniedException, ServerInvalidCommandException, ImageSizeException, FileSizeException, FileNotExistException, FileNotImageException, HashtagException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         User user = getCurrentUser();
 
@@ -273,20 +266,20 @@ public class ControllerCommands
         else
             tweet = new Tweet(user.toMiniUser(), new TextContent(text), new ImageContent(imagePath));
 
-        modelCommands.sendTweet(tweet);
+        ModelCommands.sendTweet(tweet);
     }
 
-    public void sendRetweet(String tweetId) throws NumberFormatException, PermissionDeniedException, ServerConnectionFailedException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, DatabaseFailedException, ServerInvalidObjectException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static void sendRetweet(String tweetId) throws NumberFormatException, PermissionDeniedException, ServerConnectionFailedException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, DatabaseFailedException, ServerInvalidObjectException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         User user = getCurrentUser();
         long id = Long.parseLong(tweetId);
         // Tweet tweet = Data.getInstance().getTimeLine().getTweet(id);
         // Retweet retweet = new Retweet(tweet, user.toMiniUser());
 
-        modelCommands.sendRetweet(id, user.getUserName());
+        ModelCommands.sendRetweet(id, user.getUserName());
     }
 
-    public void sendQuote(String tweetId, String text, String imagePath) throws NumberFormatException, PermissionDeniedException, ServerConnectionFailedException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, DatabaseFailedException, ServerInvalidObjectException, ImageSizeException, FileSizeException, FileNotExistException, FileNotImageException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static void sendQuote(String tweetId, String text, String imagePath) throws NumberFormatException, PermissionDeniedException, ServerConnectionFailedException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, DatabaseFailedException, ServerInvalidObjectException, ImageSizeException, FileSizeException, FileNotExistException, FileNotImageException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         User user = getCurrentUser();
         long id = Long.parseLong(tweetId);
@@ -295,10 +288,10 @@ public class ControllerCommands
         ImageContent imageContent = imagePath == null ? null : new ImageContent(imagePath);
         Quote quote = new Quote(null, user.toMiniUser(), new TextContent(text), imageContent);
 
-        modelCommands.sendQuote(id, quote);
+        ModelCommands.sendQuote(id, quote);
     }
 
-    public void sendReply(String tweetId, String text) throws PermissionDeniedException, TextTooLongException, ServerConnectionFailedException, ServerRespondFailedException, UnknownException, InvalidPasswordException, ServerInvalidCommandException, DatabaseFailedException, ServerInvalidObjectException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static void sendReply(String tweetId, String text) throws PermissionDeniedException, TextTooLongException, ServerConnectionFailedException, ServerRespondFailedException, UnknownException, InvalidPasswordException, ServerInvalidCommandException, DatabaseFailedException, ServerInvalidObjectException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         User user = getCurrentUser();
         long id = Long.parseLong(tweetId);
@@ -306,37 +299,37 @@ public class ControllerCommands
 
         Reply reply = new Reply(null, user.toMiniUser(), new TextContent(text));
 
-        modelCommands.sendReply(id, reply);
+        ModelCommands.sendReply(id, reply);
     }
 
-    public void likeTweet(String tweetId) throws NumberFormatException, PermissionDeniedException, ServerConnectionFailedException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, DatabaseFailedException, ServerInvalidObjectException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static void likeTweet(String tweetId) throws NumberFormatException, PermissionDeniedException, ServerConnectionFailedException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, DatabaseFailedException, ServerInvalidObjectException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         User user = getCurrentUser();
         long id = Long.parseLong(tweetId);
         Tweet tweet = Data.getInstance().getTimeLine().getTweet(id);
 
-        modelCommands.likeTweet(tweet, user.getUserName());
+        ModelCommands.likeTweet(tweet, user.getUserName());
     }
 
-    public void dislikeTweet(String tweetId) throws NumberFormatException, PermissionDeniedException, ServerConnectionFailedException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, DatabaseFailedException, ServerInvalidObjectException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static void dislikeTweet(String tweetId) throws NumberFormatException, PermissionDeniedException, ServerConnectionFailedException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, DatabaseFailedException, ServerInvalidObjectException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         User user = getCurrentUser();
         long id = Long.parseLong(tweetId);
         Tweet tweet = Data.getInstance().getTimeLine().getTweet(id);
 
-        modelCommands.dislikeTweet(tweet, user.getUserName());
+        ModelCommands.dislikeTweet(tweet, user.getUserName());
     }
 
-    public TimeLine showTimeLine() throws PermissionDeniedException, ServerConnectionFailedException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, DatabaseFailedException, ServerInvalidObjectException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static TimeLine showTimeLine() throws PermissionDeniedException, ServerConnectionFailedException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, DatabaseFailedException, ServerInvalidObjectException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         User user = getCurrentUser();
-        TimeLine timeLine = modelCommands.showTimeLine(user.getUserName());
+        TimeLine timeLine = ModelCommands.showTimeLine(user.getUserName());
         Data.getInstance().setTimeLine(timeLine);
 
         return timeLine;
     }
 
-    public TimeLine searchForHashtag(String hashtagNames) throws HashtagException, ServerConnectionFailedException, ServerRespondFailedException, UnknownException, InvalidPasswordException, PermissionDeniedException, TextTooLongException, ServerInvalidCommandException, DatabaseFailedException, ServerInvalidObjectException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static TimeLine searchForHashtag(String hashtagNames) throws HashtagException, ServerConnectionFailedException, ServerRespondFailedException, UnknownException, InvalidPasswordException, PermissionDeniedException, TextTooLongException, ServerInvalidCommandException, DatabaseFailedException, ServerInvalidObjectException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         Hashtags hashtags = new Hashtags(hashtagNames);
         TimeLine timeLine = showTimeLine();
@@ -352,21 +345,21 @@ public class ControllerCommands
         return timeLine;
     }
 
-    public void block(String userName) throws PermissionDeniedException, ServerConnectionFailedException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, DatabaseFailedException, ServerInvalidObjectException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static void block(String userName) throws PermissionDeniedException, ServerConnectionFailedException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, DatabaseFailedException, ServerInvalidObjectException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         User user = getCurrentUser();
-        modelCommands.block(user.getUserName(), userName);
+        ModelCommands.block(user.getUserName(), userName);
     }
 
-    public void unblock(String userName) throws PermissionDeniedException, ServerConnectionFailedException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, DatabaseFailedException, ServerInvalidObjectException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static void unblock(String userName) throws PermissionDeniedException, ServerConnectionFailedException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, DatabaseFailedException, ServerInvalidObjectException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         User user = getCurrentUser();
-        modelCommands.unblock(user.getUserName(), userName);
+        ModelCommands.unblock(user.getUserName(), userName);
     }
 
-    public BlackList showBlackList() throws PermissionDeniedException, ServerConnectionFailedException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, DatabaseFailedException, ServerInvalidObjectException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
+    public static BlackList showBlackList() throws PermissionDeniedException, ServerConnectionFailedException, ServerRespondFailedException, UnknownException, InvalidPasswordException, TextTooLongException, ServerInvalidCommandException, DatabaseFailedException, ServerInvalidObjectException, CountryException, UserNotFoundException, EmailFormatException, DuplicateLikeRequestException, BlockRelationNotFoundException, LikeRelationNotFoundException, DuplicateUserNameException, DuplicateBlockRequestException, DuplicateFollowRequestException, TweetNotFoundException, FollowRelationNotFoundException
     {
         User user = getCurrentUser();
-        return modelCommands.showBlackList(user.getUserName());
+        return ModelCommands.showBlackList(user.getUserName());
     }
 }
