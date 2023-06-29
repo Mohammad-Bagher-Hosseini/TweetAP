@@ -45,10 +45,9 @@ public class Data implements Serializable
 
     private void verifyUser()
     {
-        ModelCommands modelCommands = new ModelCommands();
         try
         {
-            user = modelCommands.signIn(user.getUserName(), user.getPassHash());
+            user = ModelCommands.signIn(user.getUserName(), user.getPassHash());
         } catch (TwitException e)
         {
             programState = ProgramState.LOGGED_OUT;
@@ -100,5 +99,10 @@ public class Data implements Serializable
     private boolean save()
     {
         return settingIO.save();
+    }
+
+    public static void changeScene()
+    {
+        // TODO
     }
 }
