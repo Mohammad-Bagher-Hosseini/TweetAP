@@ -84,6 +84,6 @@ public class SignUpPageController
     @FXML
     public void signUpSignUpButtonOnAction(ActionEvent actionEvent)
     {
-        // TODO : handle when user pressed 'Enter' switch to next field and save this text to suitable variable
+        // TODO : process input variables and show result and switch in SignInScene
     }
 }
