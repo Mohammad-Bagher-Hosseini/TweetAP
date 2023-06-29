@@ -1,5 +1,6 @@
-package com.tweetap.client.controller;
+package com.tweetap.client.controller.graphic;
 
+import com.tweetap.client.controller.ControllerCommands;
 import com.tweetap.entities.exception.TwitException;
 import com.tweetap.entities.exception.UnknownException;
 import com.tweetap.entities.exception.io.server.ServerException;

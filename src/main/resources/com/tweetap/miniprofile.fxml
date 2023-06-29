@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="81.0" prefWidth="382.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="81.0" prefWidth="382.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tweetap.client.controller.graphic.MiniProfileController">
    <children>
-      <Label layoutX="87.0" layoutY="33.0" text="Label" />
+      <Label fx:id="miniProfileUserNameLabel" layoutX="87.0" layoutY="33.0" onMouseClicked="#miniProfileUserNameLabelOnMouseClicked" text="Label" />
       <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="14.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

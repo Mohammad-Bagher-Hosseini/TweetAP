@@ -31,5 +31,6 @@ module com.tweetap {
     opens com.tweetap.client.model;
     opens com.tweetap.client.controller;
     opens com.tweetap.client.view;
+    opens com.tweetap.client.controller.graphic;
 
 }

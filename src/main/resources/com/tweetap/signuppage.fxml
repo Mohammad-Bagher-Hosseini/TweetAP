@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="400.0" maxWidth="506.0" minHeight="400.0" minWidth="506.0" prefHeight="400.0" prefWidth="506.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tweetap.client.controller.SignUpPageController">
+<AnchorPane maxHeight="400.0" maxWidth="506.0" minHeight="400.0" minWidth="506.0" prefHeight="400.0" prefWidth="506.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tweetap.client.controller.graphic.SignUpPageController">
    <children>
       <AnchorPane layoutX="-21.0" prefHeight="400.0" prefWidth="186.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 25;">
          <children>

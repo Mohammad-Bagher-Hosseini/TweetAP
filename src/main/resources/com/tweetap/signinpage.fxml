@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="506.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tweetap.client.controller.SignInPageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="506.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tweetap.client.controller.graphic.SignInPageController">
    <children>
       <AnchorPane layoutX="-24.0" prefHeight="400.0" prefWidth="186.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 25;">
          <children>

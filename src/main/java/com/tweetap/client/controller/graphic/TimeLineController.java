@@ -1,4 +1,4 @@
-package com.tweetap.client.controller;
+package com.tweetap.client.controller.graphic;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

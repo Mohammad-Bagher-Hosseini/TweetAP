@@ -1,7 +1,6 @@
 package com.tweetap;
 
-import com.tweetap.client.controller.Program;
-import com.tweetap.client.controller.SignInPageController;
+import com.tweetap.client.controller.graphic.SignInPageController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
