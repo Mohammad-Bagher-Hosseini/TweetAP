@@ -12,6 +12,6 @@ public class MiniProfileController
     @FXML
     public void miniProfileUserNameLabelOnMouseClicked(MouseEvent mouseEvent)
     {
-        //TODO : show the selected user profile
+        //TODO : show the selected user profile, and check the block and follow relation and initialize the followrelation and blockrelation buttons
     }
 }
