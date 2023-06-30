@@ -54,12 +54,12 @@ public class ReplyViewController
     @FXML
     public void replyViewReplyButtonOnAction(ActionEvent actionEvent)
     {
-        //TODO : show reply scene
+        //TODO : show sendreply scene
     }
 
     @FXML
     public void replyViewRetweetButtonOnAction(ActionEvent actionEvent)
     {
-        //TODO : show retweet scene
+        //TODO : show sendretweet scene
     }
 }

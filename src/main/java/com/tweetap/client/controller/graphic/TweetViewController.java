@@ -50,12 +50,12 @@ public class TweetViewController
     @FXML
     public void tweetViewReplyButtonOnAction(ActionEvent actionEvent)
     {
-        //TODO : show reply scene, this is a pop-up
+        //TODO : show sendreply scene, this is a pop-up
     }
 
     @FXML
     public void tweetViewRetweetButtonOnAction(ActionEvent actionEvent)
     {
-        //TODO : show retweet scene, this is a pop-up
+        //TODO : show sendretweet scene, this is a pop-up
     }
 }
