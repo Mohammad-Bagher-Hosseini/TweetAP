@@ -33,6 +33,8 @@ public class ObserverProfileController
     public Button observerProfileBlockRelationButton;
     @FXML
     public ImageView observerProfileAvatarImageView;
+    @FXML
+    public Button observerProfileBackButton;
 
     @FXML
     public void observerProfileFollowRelationButtonOnAction(ActionEvent actionEvent)
@@ -56,5 +58,11 @@ public class ObserverProfileController
     public void observerProfileBlockRelationButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : block if not block unblock if is block
+    }
+
+    @FXML
+    public void observerProfileBackButtonOnAction(ActionEvent actionEvent)
+    {
+        // TODO : close the pop_up
     }
 }
