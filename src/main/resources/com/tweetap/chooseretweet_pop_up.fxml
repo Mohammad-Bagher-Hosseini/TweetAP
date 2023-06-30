@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="93.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tweetap.client.controller.graphic.ChooseRetweetController">
+   <children>
+      <Button fx:id="chooseRetweetRetweetButton" mnemonicParsing="false" onAction="#chooseRetweetRetweetButtonOnAction" prefHeight="26.0" prefWidth="87.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 10;" text="  Retweet" textFill="WHITE">
+         <graphic>
+            <FontAwesomeIconView glyphName="RETWEET" size="15">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </FontAwesomeIconView>
+         </graphic>
+      </Button>
+      <Button fx:id="chooseRetweetQuoteButton" layoutX="10.0" layoutY="54.0" mnemonicParsing="false" onAction="#chooseRetweetQuoteButtonOnAction" prefHeight="26.0" prefWidth="87.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 10;" text="   Quote" textFill="WHITE">
+         <graphic>
+            <FontAwesomeIconView glyphName="PENCIL" size="15">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </FontAwesomeIconView>
+         </graphic>
+         <VBox.margin>
+            <Insets top="20.0" />
+         </VBox.margin>
+      </Button>
+   </children>
+</VBox>
