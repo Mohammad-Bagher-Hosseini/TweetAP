@@ -11,10 +11,19 @@ public class SendReplyController
     public TextArea sendReplyTextArea;
     @FXML
     public Button sendReplySendReplyButton;
+    @FXML
+    public Button sendReplyBackButton;
+
 
     @FXML
     public void sendReplySendReplyButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : send reply and close the pop_up
+    }
+
+    @FXML
+    public void sendReplyBackButtonOnAction(ActionEvent actionEvent)
+    {
+        //TODO : close the pop_up
     }
 }

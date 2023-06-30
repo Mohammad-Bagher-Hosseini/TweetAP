@@ -19,6 +19,8 @@ public class SendQuoteController
     public Button sendQuoteSendQuoteButton;
     @FXML
     public TextArea sendQuoteTextArea;
+    @FXML
+    public Button sendQuoteBackButton;
 
     @FXML
     public void sendQuoteSearchImagePathButtonOnAction(ActionEvent actionEvent)
@@ -30,5 +32,11 @@ public class SendQuoteController
     public void sendQuoteSendQuoteButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : send quote and close the pop_up
+    }
+
+    @FXML
+    public void sendQuoteBackButtonOnAction(ActionEvent actionEvent)
+    {
+        //TODO : close the pop_up
     }
 }

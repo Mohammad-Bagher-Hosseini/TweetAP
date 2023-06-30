@@ -20,5 +20,10 @@
             <Font size="14.0" />
          </font>
       </Button>
+      <Button fx:id="sendReplyBackButton" layoutY="1.0" mnemonicParsing="false" onAction="#sendReplyBackButtonOnAction" prefHeight="24.0" prefWidth="39.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 10;">
+         <graphic>
+            <FontAwesomeIconView glyphName="ARROW_LEFT" size="18" />
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

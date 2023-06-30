@@ -27,6 +27,8 @@ public class SignUpPageController
     public PasswordField signUpConfirmPasswordField;
     @FXML
     public Button signUpSignUpButton;
+    @FXML
+    public Button signUpBackButton;
 
     @FXML
     public void signUpUserNameTextFieldOnKeyPressed(KeyEvent keyEvent)
@@ -85,5 +87,11 @@ public class SignUpPageController
     public void signUpSignUpButtonOnAction(ActionEvent actionEvent)
     {
         // TODO : process input variables and show result and switch in SignInScene
+    }
+
+    @FXML
+    public void signUpBackButtonOnAction(ActionEvent actionEvent)
+    {
+        //TODO : switch to signIn scene
     }
 }
