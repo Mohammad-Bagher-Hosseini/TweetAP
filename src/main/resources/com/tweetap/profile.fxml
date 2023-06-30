@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.fontawesome.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="514.0" prefWidth="463.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tweetap.client.controller.graphic.ProfileController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="514.0" prefWidth="463.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tweetap.client.controller.graphic.ProfileController">
     <children>
         <AnchorPane layoutX="-1.0" layoutY="-4.0" prefHeight="407.0" prefWidth="129.0">
             <children>
@@ -72,11 +76,11 @@
                 </VBox>
             </children>
         </AnchorPane>
-        <AnchorPane layoutX="119.0" layoutY="8.0" prefHeight="514.0" prefWidth="335.0">
+        <AnchorPane layoutX="129.0" prefHeight="514.0" prefWidth="335.0">
             <children>
                 <Separator layoutX="-3.0" orientation="VERTICAL" prefHeight="514.0" prefWidth="0.0" style="-fx-background-color: #000000;" />
             <ImageView fx:id="profileHeaderImageView" fitHeight="144.0" fitWidth="329.0" layoutX="5.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" />
-            <Button fx:id="profileEditProfileButton" layoutX="178.0" layoutY="166.0" mnemonicParsing="false" onAction="#profileEditProfileButtonOnAction" prefHeight="30.0" prefWidth="102.0" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2); -fx-background-radius: 15;" text="      Edit Profile" textFill="WHITE">
+            <Button fx:id="profileEditProfileButton" layoutX="207.0" layoutY="166.0" mnemonicParsing="false" onAction="#profileEditProfileButtonOnAction" prefHeight="30.0" prefWidth="102.0" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2); -fx-background-radius: 15;" text="      Edit Profile" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
@@ -110,7 +114,12 @@
             <Label layoutX="265.0" layoutY="373.0" prefHeight="30.0" prefWidth="42.0" text="numb" />
             <TextArea fx:id="profileBioTextArea" editable="false" layoutX="38.0" layoutY="243.0" prefHeight="62.0" prefWidth="264.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 15;" />
             <ImageView fx:id="profileAvatarImageView" fitHeight="100.0" fitWidth="100.0" layoutX="35.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true" />
-            <FontAwesomeIconView glyphName="EDIT" layoutX="189.0" layoutY="186.0" size="15" />
+            <FontAwesomeIconView glyphName="EDIT" layoutX="218.0" layoutY="186.0" size="15" />
+            <Button fx:id="profileSignOutButton" layoutX="151.0" layoutY="166.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="26.0" mnemonicParsing="false" onAction="#profileSignOutButton" prefHeight="30.0" prefWidth="54.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 15;">
+               <graphic>
+                  <FontAwesomeIconView glyphName="SIGN_OUT" size="18" />
+               </graphic>
+            </Button>
             </children>
         </AnchorPane>
     </children>

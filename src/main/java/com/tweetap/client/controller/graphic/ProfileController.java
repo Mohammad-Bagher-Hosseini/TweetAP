@@ -36,6 +36,8 @@ public class ProfileController
     public TextArea profileBioTextArea;
     @FXML
     public ImageView profileAvatarImageView;
+    @FXML
+    public Button profileSignOutButton;
 
     @FXML
     public void profileHomeButtonOnAction(ActionEvent actionEvent)
@@ -77,5 +79,11 @@ public class ProfileController
     public void profileFollowersButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : switch to suitable scene
+    }
+
+    @FXML
+    public void profileSignOutButton(ActionEvent actionEvent)
+    {
+        // TODO : sign out and switch to signIn scene
     }
 }
