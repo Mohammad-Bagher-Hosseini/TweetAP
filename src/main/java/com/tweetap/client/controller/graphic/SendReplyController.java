@@ -8,21 +8,21 @@ import javafx.scene.control.TextArea;
 public class SendReplyController
 {
     @FXML
-    public TextArea sendReplyTextArea;
+    public TextArea textArea;
     @FXML
-    public Button sendReplySendReplyButton;
+    public Button sendReplyButton;
     @FXML
-    public Button sendReplyBackButton;
+    public Button backButton;
 
 
     @FXML
-    public void sendReplySendReplyButtonOnAction(ActionEvent actionEvent)
+    public void sendReplyButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : send reply and close the pop_up
     }
 
     @FXML
-    public void sendReplyBackButtonOnAction(ActionEvent actionEvent)
+    public void backButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : close the pop_up
     }

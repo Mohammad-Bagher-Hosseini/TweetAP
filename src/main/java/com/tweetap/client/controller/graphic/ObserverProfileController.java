@@ -10,58 +10,58 @@ import javafx.scene.image.ImageView;
 public class ObserverProfileController
 {
     @FXML
-    public Button observerProfileFollowRelationButton;
+    public Button followRelationButton;
     @FXML
-    public Label observerProfileNameTextField;
+    public Label nameTextField;
     @FXML
-    public ImageView observerProfileHeaderImageView;
+    public ImageView headerImageView;
     @FXML
-    public Label observerProfileUserNameTextField;
+    public Label userNameTextField;
     @FXML
-    public Label observerProfileSignInDateTextField;
+    public Label signInDateTextField;
     @FXML
-    public Button observerProfileFollowingsButton;
+    public Button followingsButton;
     @FXML
-    public Label observerProfileFollowingsNumberLabel;
+    public Label followingsNumberLabel;
     @FXML
-    public Button observerProfileFollowersButton;
+    public Button followersButton;
     @FXML
-    public Label observerProfileFollowersNumberLabel;
+    public Label followersNumberLabel;
     @FXML
-    public TextArea observerProfileBioTextArea;
+    public TextArea bioTextArea;
     @FXML
-    public Button observerProfileBlockRelationButton;
+    public Button blockRelationButton;
     @FXML
-    public ImageView observerProfileAvatarImageView;
+    public ImageView avatarImageView;
     @FXML
-    public Button observerProfileBackButton;
+    public Button backButton;
 
     @FXML
-    public void observerProfileFollowRelationButtonOnAction(ActionEvent actionEvent)
+    public void followRelationButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : follow if not follow unfollow if is follow
     }
 
     @FXML
-    public void observerProfileFollowingsButtonOnAction(ActionEvent actionEvent)
+    public void followingsButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : show the user's followings in the showfollows scene
     }
 
     @FXML
-    public void observerProfileFollowersButtonOnAction(ActionEvent actionEvent)
+    public void followersButtonOnAction(ActionEvent actionEvent)
     {
         // TODO : show the user's followers in the showfollows scene
     }
 
     @FXML
-    public void observerProfileBlockRelationButtonOnAction(ActionEvent actionEvent)
+    public void blockRelationButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : block if not block unblock if is block
     }
 
     @FXML
-    public void observerProfileBackButtonOnAction(ActionEvent actionEvent)
+    public void backButtonOnAction(ActionEvent actionEvent)
     {
         // TODO : close the pop_up
     }

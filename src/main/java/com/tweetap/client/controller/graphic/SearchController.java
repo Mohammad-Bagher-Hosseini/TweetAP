@@ -9,44 +9,44 @@ public class SearchController
 {
 
     @FXML
-    public Button searchHomeButton;
+    public Button homeButton;
     @FXML
-    public Button searchProfileButton;
+    public Button profileButton;
     @FXML
-    public Button searchTweetButton;
+    public Button tweetButton;
     @FXML
-    public Button searchExitButton;
+    public Button exitButton;
     @FXML
-    public Button searchSearchSearchButton;
+    public Button searchSearchButton;
     @FXML
     public VBox findUsersVBox;
 
     @FXML
-    public void searchHomeButtonOnAction(ActionEvent actionEvent)
+    public void homeButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : switch to suitable scene
     }
 
     @FXML
-    public void searchProfileButtonOnAction(ActionEvent actionEvent)
+    public void profileButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : switch to suitable scene
     }
 
     @FXML
-    public void searchTweetButtonOnAction(ActionEvent actionEvent)
+    public void tweetButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : switch to suitable scene
     }
 
     @FXML
-    public void searchExitButtonOnAction(ActionEvent actionEvent)
+    public void exitButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : Exit
     }
 
     @FXML
-    public void searchSearchSearchButtonOnAction(ActionEvent actionEvent)
+    public void searchSearchButtonOnAction(ActionEvent actionEvent)
     {
         // TODO : process input variables and show results
     }

@@ -7,18 +7,18 @@ import javafx.scene.control.Button;
 public class ChooseRetweetController
 {
     @FXML
-    public Button chooseRetweetRetweetButton;
+    public Button retweetButton;
     @FXML
-    public Button chooseRetweetQuoteButton;
+    public Button quoteButton;
 
     @FXML
-    public void chooseRetweetRetweetButtonOnAction(ActionEvent actionEvent)
+    public void retweetButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : retweet the selected tweet
     }
 
     @FXML
-    public void chooseRetweetQuoteButtonOnAction(ActionEvent actionEvent)
+    public void quoteButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : close this pop_up and open the sendquote_pop_up
     }

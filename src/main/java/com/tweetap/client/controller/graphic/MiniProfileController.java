@@ -7,10 +7,10 @@ import javafx.scene.input.MouseEvent;
 public class MiniProfileController
 {
     @FXML
-    public Label miniProfileUserNameLabel;
+    public Label userNameLabel;
 
     @FXML
-    public void miniProfileUserNameLabelOnMouseClicked(MouseEvent mouseEvent)
+    public void userNameLabelOnMouseClicked(MouseEvent mouseEvent)
     {
         //TODO : show the selected user profile, and check the block and follow relation and initialize the followrelation and blockrelation buttons
     }

@@ -10,32 +10,32 @@ import javafx.scene.image.ImageView;
 public class SendQuoteController
 {
     @FXML
-    public TextField sendQuoteImagePathTextFiled;
+    public TextField imagePathTextFiled;
     @FXML
-    public Button sendQuoteSearchImagePathButton;
+    public Button searchImagePathButton;
     @FXML
-    public ImageView sendQuoteImageView;
+    public ImageView imageView;
     @FXML
-    public Button sendQuoteSendQuoteButton;
+    public Button sendQuoteButton;
     @FXML
-    public TextArea sendQuoteTextArea;
+    public TextArea textArea;
     @FXML
-    public Button sendQuoteBackButton;
+    public Button backButton;
 
     @FXML
-    public void sendQuoteSearchImagePathButtonOnAction(ActionEvent actionEvent)
+    public void searchImagePathButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : set image
     }
 
     @FXML
-    public void sendQuoteSendQuoteButtonOnAction(ActionEvent actionEvent)
+    public void sendQuoteButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : send quote and close the pop_up
     }
 
     @FXML
-    public void sendQuoteBackButtonOnAction(ActionEvent actionEvent)
+    public void backButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : close the pop_up
     }

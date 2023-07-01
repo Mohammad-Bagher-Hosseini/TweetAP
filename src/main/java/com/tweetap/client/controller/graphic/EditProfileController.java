@@ -7,46 +7,46 @@ import javafx.scene.control.*;
 public class EditProfileController
 {
     @FXML
-    public Button editProfileBackButton;
+    public Button backButton;
     @FXML
-    public TextField editProfileHeaderImagePathTextFiled;
+    public TextField headerImagePathTextFiled;
     @FXML
-    public Button editProfileHeaderImagePathSearchButton;
+    public Button headerImagePathSearchButton;
     @FXML
-    public TextField editProfileAvatarImagePathTextFiled;
+    public TextField avatarImagePathTextFiled;
     @FXML
-    public Button editProfileAvatarImagePathSearchButton;
+    public Button avatarImagePathSearchButton;
     @FXML
-    public TextArea editProfileBioTextArea;
+    public TextArea bioTextArea;
     @FXML
-    public TextField editProfileNameTextField;
+    public TextField nameTextField;
     @FXML
-    public ComboBox editProfileCountryComboBox;
+    public ComboBox<String> countryComboBox;
     @FXML
-    public DatePicker editProfileBirthDateDatePicker;
+    public DatePicker birthDateDatePicker;
     @FXML
-    public Button editProfileSaveButton;
+    public Button saveButton;
 
     @FXML
-    public void editProfileBackButtonOnAction(ActionEvent actionEvent)
+    public void backButtonOnAction(ActionEvent actionEvent)
     {
         // TODO : close pop_up
     }
 
     @FXML
-    public void editProfileHeaderImagePathSearchButtonOnAction(ActionEvent actionEvent)
+    public void headerImagePathSearchButtonOnAction(ActionEvent actionEvent)
     {
         // TODO : search and show image or error
     }
 
     @FXML
-    public void editProfileAvatarImagePathSearchButtonOnAction(ActionEvent actionEvent)
+    public void avatarImagePathSearchButtonOnAction(ActionEvent actionEvent)
     {
         // TODO : search and show image or error
     }
 
     @FXML
-    public void editProfileSaveButtonOnAction(ActionEvent actionEvent)
+    public void saveButtonOnAction(ActionEvent actionEvent)
     {
         // TODO : process inputs and save
     }

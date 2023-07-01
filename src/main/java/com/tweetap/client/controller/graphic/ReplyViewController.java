@@ -12,53 +12,53 @@ import javafx.scene.input.MouseEvent;
 public class ReplyViewController
 {
     @FXML
-    public Label replyViewReplierLabel;
+    public Label replierLabel;
     @FXML
-    public Label replyViewRepliedLabel;
+    public Label repliedLabel;
     @FXML
-    public TextArea replyViewTextArea;
+    public TextArea textArea;
     @FXML
-    public Button replyViewLikeButton;
+    public Button likeButton;
     @FXML
-    public FontAwesomeIconView replyViewLikeIcon;
+    public FontAwesomeIconView likeIcon;
     @FXML
-    public Label replyViewLikeNumberLabel;
+    public Label likeNumberLabel;
     @FXML
-    public Button replyViewReplyButton;
+    public Button replyButton;
     @FXML
-    public Label replyViewReplyNumberLabel;
+    public Label replyNumberLabel;
     @FXML
-    public Button replyViewRetweetButton;
+    public Button retweetButton;
     @FXML
-    public Label replyViewRetweetNumberLabel;
+    public Label retweetNumberLabel;
     @FXML
-    public ImageView replyViewAvatarImageView;
+    public ImageView avatarImageView;
     @FXML
-    public void replyViewReplierLabelOnMouseClicked(MouseEvent mouseEvent)
+    public void replierLabelOnMouseClicked(MouseEvent mouseEvent)
     {
         //TODO : show the selected user's profile
     }
 
     @FXML
-    public void replyViewRepliedLabelOnMouseClicked(MouseEvent mouseEvent)
+    public void repliedLabelOnMouseClicked(MouseEvent mouseEvent)
     {
         //TODO : show the selected user's profile
     }
 
     @FXML
-    public void replyViewLikeButtonOnAction(ActionEvent actionEvent)
+    public void likeButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : Like if likable
     }
 
     @FXML
-    public void replyViewReplyButtonOnAction(ActionEvent actionEvent)
+    public void replyButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : show sendreply scene
     }
 
     @FXML
-    public void replyViewRetweetButtonOnAction(ActionEvent actionEvent)
+    public void retweetButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : show sendretweet scene
     }

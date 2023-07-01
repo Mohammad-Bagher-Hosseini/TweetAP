@@ -7,26 +7,26 @@ import javafx.scene.control.Button;
 public class ShowFollowsController
 {
     @FXML
-    public Button showFollowsFollowersButton;
+    public Button followersButton;
     @FXML
-    public Button showFollowsFollowingsButton;
+    public Button followingsButton;
     @FXML
-    public Button showFollowsBackButton;
+    public Button backButton;
 
     @FXML
-    public void showFollowsFollowersButtonOnAction(ActionEvent actionEvent)
+    public void followersButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : show user's followers miniProfiles
     }
 
     @FXML
-    public void showFollowsFollowingsButtonOnAction(ActionEvent actionEvent)
+    public void followingsButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : show user's followings miniProfiles
     }
 
     @FXML
-    public void showFollowsBackButtonOnAction(ActionEvent actionEvent)
+    public void backButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : switch to user's profile scene
     }

@@ -7,12 +7,12 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="280.0" style="-fx-background-radius: 15; -fx-background-color: #ffffff ;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tweetap.client.controller.graphic.ShowFollowsController">
    <children>
-      <Button fx:id="showFollowsFollowersButton" layoutX="37.0" layoutY="75.0" mnemonicParsing="false" onAction="#showFollowsFollowersButtonOnAction" prefHeight="42.0" prefWidth="90.0" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2); -fx-background-radius: 15;" text="Followers" textFill="WHITE">
+      <Button fx:id="followersButton" layoutX="37.0" layoutY="75.0" mnemonicParsing="false" onAction="#followersButtonOnAction" prefHeight="42.0" prefWidth="90.0" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2); -fx-background-radius: 15;" text="Followers" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button fx:id="showFollowsFollowingsButton" layoutX="162.0" layoutY="75.0" mnemonicParsing="false" onAction="#showFollowsFollowingsButtonOnAction" prefHeight="42.0" prefWidth="90.0" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2); -fx-background-radius: 15;" text="Followings" textFill="WHITE">
+      <Button fx:id="followingsButton" layoutX="162.0" layoutY="75.0" mnemonicParsing="false" onAction="#followingsButtonOnAction" prefHeight="42.0" prefWidth="90.0" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2); -fx-background-radius: 15;" text="Followings" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
@@ -22,7 +22,7 @@
             <VBox prefHeight="266.0" prefWidth="259.0" />
          </content>
       </ScrollPane>
-      <Button fx:id="showFollowsBackButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#showFollowsBackButtonOnAction" prefHeight="24.0" prefWidth="39.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 10;">
+      <Button fx:id="backButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backButtonOnAction" prefHeight="24.0" prefWidth="39.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 10;">
          <graphic>
             <FontAwesomeIconView glyphName="ARROW_LEFT" size="18" />
          </graphic>

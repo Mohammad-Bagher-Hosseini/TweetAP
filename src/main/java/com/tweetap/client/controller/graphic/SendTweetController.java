@@ -12,60 +12,60 @@ public class SendTweetController
 {
 
     @FXML
-    public Button sendTweetHomeButton;
+    public Button homeButton;
     @FXML
-    public Button sendTweetSearchButton;
+    public Button searchButton;
     @FXML
-    public Button sendTweetProfileButton;
+    public Button profileButton;
     @FXML
-    public Button sendTweetExitButton;
+    public Button exitButton;
     @FXML
-    public Label sendTweetUserNameLabel;
+    public Label userNameLabel;
     @FXML
-    public TextArea sendTweetInputTextArea;
+    public TextArea inputTextArea;
     @FXML
-    public ImageView sendTweetInputImageView;
+    public ImageView inputImageView;
     @FXML
-    public TextField sendTweetImagePathTextFiled;
+    public TextField imagePathTextFiled;
     @FXML
-    public Button sendTweetSearchImagePathButton;
+    public Button searchImagePathButton;
     @FXML
-    public ImageView sendTweetAvatarImageView;
+    public ImageView avatarImageView;
     @FXML
-    public Button sendTweetSendTweetButton;
+    public Button sendTweetButton;
 
     @FXML
-    public void sendTweetHomeButtonOnAction(ActionEvent actionEvent)
+    public void homeButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : switch to suitable scene
     }
 
     @FXML
-    public void sendTweetSearchButtonOnAction(ActionEvent actionEvent)
+    public void searchButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : switch to suitable scene
     }
 
     @FXML
-    public void sendTweetProfileButtonOnAction(ActionEvent actionEvent)
+    public void profileButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : switch to suitable scene
     }
 
     @FXML
-    public void sendTweetExitButtonOnAction(ActionEvent actionEvent)
+    public void exitButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : Exit
     }
 
     @FXML
-    public void sendTweetSearchImagePathButtonOnAction(ActionEvent actionEvent)
+    public void searchImagePathButtonOnAction(ActionEvent actionEvent)
     {
         // TODO : process input variables
     }
 
     @FXML
-    public void sendTweetSendTweetButtonOnAction(ActionEvent actionEvent)
+    public void sendTweetButtonOnAction(ActionEvent actionEvent)
     {
         // TODO : process input variables
     }

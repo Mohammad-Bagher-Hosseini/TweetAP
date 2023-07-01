@@ -18,13 +18,13 @@ import java.io.IOException;
 public class TimeLineController
 {
     @FXML
-    public Button timeLineSearchButton;
+    public Button searchButton;
     @FXML
-    public Button timeLineProfileButton;
+    public Button profileButton;
     @FXML
-    public Button timeLineTweetButton;
+    public Button tweetButton;
     @FXML
-    public Button timeLineExitButton;
+    public Button exitButton;
     @FXML
     public VBox tweetsVBox;
 
@@ -100,25 +100,25 @@ public class TimeLineController
     }
 
     @FXML
-    public void timeLineSearchButtonOnAction(ActionEvent actionEvent)
+    public void searchButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : switch to suitable scene
     }
 
     @FXML
-    public void timeLineProfileButtonOnAction(ActionEvent actionEvent)
+    public void profileButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : switch to suitable scene
     }
 
     @FXML
-    public void timeLineTweetButtonOnAction(ActionEvent actionEvent)
+    public void tweetButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : switch to suitable scene
     }
 
     @FXML
-    public void timeLineExitButtonOnAction(ActionEvent actionEvent)
+    public void exitButtonOnAction(ActionEvent actionEvent)
     {
         Data.getInstance().save();
         System.exit(0);
