@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.fontawesome.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="599.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tweetap.client.controller.graphic.EditProfileController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="609.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tweetap.client.controller.graphic.EditProfileController">
    <children>
       <Button fx:id="backButton" layoutX="10.0" layoutY="11.0" mnemonicParsing="false" onAction="#backButtonOnAction" prefHeight="24.0" prefWidth="39.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 10;">
          <graphic>
@@ -23,7 +27,7 @@
       <ImageView fitHeight="80.0" fitWidth="127.0" layoutX="422.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true" />
       <TextArea fx:id="bioTextArea" layoutX="30.0" layoutY="205.0" prefHeight="133.0" prefWidth="200.0" promptText="Bio" style="-fx-border-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 15;" />
       <TextField fx:id="nameTextField" layoutX="257.0" layoutY="311.0" prefHeight="27.0" prefWidth="158.0" promptText="Name" style="-fx-border-color: linear-gradient( to right top,#facd68, #fc76b3);" />
-      <ComboBox fx:id="countryComboBox" editable="true" layoutX="433.0" layoutY="258.0" prefHeight="28.0" prefWidth="158.0" promptText="Country" style="-fx-border-color: linear-gradient( to right top,#facd68, #fc76b3);" visibleRowCount="4" />
+      <ComboBox fx:id="countryComboBox" editable="true" layoutX="442.0" layoutY="205.0" prefHeight="28.0" prefWidth="158.0" promptText="Country" style="-fx-border-color: linear-gradient( to right top,#facd68, #fc76b3);" visibleRowCount="4" />
       <DatePicker fx:id="birthDateDatePicker" editable="false" layoutX="257.0" layoutY="205.0" prefHeight="28.0" prefWidth="158.0" promptText="Birth Day" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3);" />
       <Button fx:id="saveButton" layoutX="497.0" layoutY="9.0" mnemonicParsing="false" onAction="#saveButtonOnAction" prefHeight="30.0" prefWidth="86.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 10;" text="       SAVE" textFill="WHITE">
          <font>
@@ -31,5 +35,6 @@
          </font>
       </Button>
       <FontAwesomeIconView glyphName="CHECK" layoutX="503.0" layoutY="31.0" size="18" text="" />
+      <TextField fx:id="familyTextField" layoutX="442.0" layoutY="311.0" prefHeight="27.0" prefWidth="158.0" promptText="Family" style="-fx-border-color: linear-gradient( to right top,#facd68, #fc76b3);" />
    </children>
 </AnchorPane>

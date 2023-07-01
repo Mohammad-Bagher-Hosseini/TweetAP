@@ -27,6 +27,8 @@ public class EditProfileController implements HasStage
     public DatePicker birthDateDatePicker;
     @FXML
     public Button saveButton;
+    @FXML
+    public TextField familyTextField;
     private Stage stage;
 
     @FXML
