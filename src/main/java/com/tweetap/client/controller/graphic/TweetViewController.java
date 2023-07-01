@@ -61,23 +61,7 @@ public class TweetViewController implements HasStage
     @FXML
     public void userNameLabelOnMouseClicked(MouseEvent mouseEvent)
     {
-        try
-        {
-            Stage popupStage = new Stage();
-            FXMLLoader fxmlLoader = new FXMLLoader(MainClient.class.getResource("observerprofile_pop_up.fxml"));
-            Parent root = fxmlLoader.load();
-            popupStage.setScene(root.getScene());
-
-            ObserverProfileController observerProfileController = fxmlLoader.getController();
-            observerProfileController.setStage(stage);
-
-            popupStage.initModality(Modality.APPLICATION_MODAL);
-            popupStage.initOwner(stage);
-            popupStage.showAndWait();
-        } catch (IOException e)
-        {
-            // TODO
-        }
+        MainClient.loadPopup(stage, "observerprofile_pop_up.fxml");
     }
 
     @FXML
@@ -98,7 +82,8 @@ public class TweetViewController implements HasStage
     @FXML
     public void replyButtonOnAction(ActionEvent actionEvent)
     {
-        //TODO : show sendreply scene, this is a pop-up
+        SendReplyController sendReplyController = MainClient.loadPopup(stage, "sendreply_pop_up.fxml");
+        sendReplyController.setTweetId(tweetId);
     }
 
     @FXML

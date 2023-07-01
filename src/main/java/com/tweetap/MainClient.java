@@ -2,6 +2,7 @@ package com.tweetap;
 
 import com.tweetap.client.controller.Data;
 import com.tweetap.client.controller.graphic.HasStage;
+import com.tweetap.client.controller.graphic.ObserverProfileController;
 import com.tweetap.client.controller.graphic.SignInPageController;
 import com.tweetap.client.controller.graphic.TimeLineController;
 import com.tweetap.client.view.ProgramState;
@@ -11,6 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -74,12 +76,13 @@ public class MainClient extends Application
 
     public static <T extends HasStage> T loadPage(Pane pane, String page)
     {
-        FXMLLoader fxmlLoader = null;
+        T t = null;
         try
         {
-            fxmlLoader = new FXMLLoader(MainClient.class.getResource(page));
+            FXMLLoader fxmlLoader = new FXMLLoader(MainClient.class.getResource(page));
             Parent root = fxmlLoader.load();
             pane.getChildren().add(root);
+            t = fxmlLoader.getController();
         } catch (IOException e)
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -87,6 +90,32 @@ public class MainClient extends Application
             alert.show();
         }
 
-        return fxmlLoader.getController();
+        return t;
+    }
+
+    public static <T extends HasStage> T loadPopup(Stage stage, String page)
+    {
+        T t = null;
+        try
+        {
+            Stage popupStage = new Stage();
+            FXMLLoader fxmlLoader = new FXMLLoader(MainClient.class.getResource(page));
+            Parent root = fxmlLoader.load();
+            popupStage.setScene(root.getScene());
+
+            t = fxmlLoader.getController();
+            t.setStage(stage);
+
+            popupStage.initModality(Modality.APPLICATION_MODAL);
+            popupStage.initOwner(stage);
+            popupStage.showAndWait();
+        } catch (IOException e)
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Something went wrong while loading " + page + " file");
+            alert.show();
+        }
+
+        return t;
     }
 }
