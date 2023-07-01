@@ -4,7 +4,9 @@ import com.tweetap.MainClient;
 import com.tweetap.client.controller.ControllerCommands;
 import com.tweetap.entities.exception.TwitException;
 import com.tweetap.entities.exception.hashtag.HashtagException;
+import com.tweetap.entities.exception.io.server.UserNotFoundException;
 import com.tweetap.entities.tweet.*;
+import com.tweetap.entities.user.MiniUser;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -113,6 +115,20 @@ public class SearchController implements HasStage
     @FXML
     public void searchUserButtonOnAction(ActionEvent actionEvent)
     {
-
+        try
+        {
+            MiniUser miniUser = ControllerCommands.showUser(searchTextField.getText());
+            ObserverProfileController observerProfileController = MainClient.loadPopup(stage, "observerprofile_pop_up.fxml", (controller) -> controller.setUsername(miniUser.getUserName()));
+        } catch (UserNotFoundException e)
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("User not found!");
+            alert.show();
+        } catch (TwitException e)
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Something went wrong while loading a user");
+            alert.show();
+        }
     }
 }

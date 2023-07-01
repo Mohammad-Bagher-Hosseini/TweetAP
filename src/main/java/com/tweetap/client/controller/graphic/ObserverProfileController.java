@@ -61,7 +61,8 @@ public class ObserverProfileController implements HasStage
         ByteArrayOutputStream byteImage = new ByteArrayOutputStream();
         try
         {
-            ImageIO.write(miniUser.getHeader().getImage(), "jpg", byteImage);
+            if(miniUser.getHeader() != null)
+                ImageIO.write(miniUser.getHeader().getImage(), "jpg", byteImage);
         }
         catch (IOException e)
         {
@@ -93,7 +94,8 @@ public class ObserverProfileController implements HasStage
         byteImage.reset();
         try
         {
-            ImageIO.write(miniUser.getAvatar().getImage(), "jpg", byteImage);
+            if(miniUser.getAvatar() != null)
+                ImageIO.write(miniUser.getAvatar().getImage(), "jpg", byteImage);
         } catch (IOException e)
         {
             //TODO : error
