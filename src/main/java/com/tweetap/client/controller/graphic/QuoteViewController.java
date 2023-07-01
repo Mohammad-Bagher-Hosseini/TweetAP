@@ -1,5 +1,6 @@
 package com.tweetap.client.controller.graphic;
 
+import com.tweetap.entities.tweet.Quote;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -54,5 +55,10 @@ public class QuoteViewController
     public void quoteViewRetweetButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : show sendretweet scene
+    }
+
+    public void showQuote(Quote quote)
+    {
+        // TODO
     }
 }

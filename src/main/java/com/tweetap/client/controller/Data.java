@@ -96,7 +96,7 @@ public class Data implements Serializable
         save();
     }
 
-    private boolean save()
+    public boolean save()
     {
         return settingIO.save();
     }

@@ -6,80 +6,88 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="514.0" prefWidth="463.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tweetap.client.controller.graphic.TimeLineController">
-    <children>
-        <AnchorPane layoutX="-1.0" layoutY="-4.0" prefHeight="407.0" prefWidth="129.0">
-            <children>
-                <VBox alignment="TOP_CENTER" layoutX="-1.0" layoutY="3.0" prefHeight="514.0" prefWidth="130.0" style="-fx-background-color: linear-gradient(#ff4a32, #ffffff);">
-                    <children>
-                        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="47.0" prefWidth="105.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 15;" text="   HOME" textFill="WHITE">
-                            <VBox.margin>
-                                <Insets top="50.0" />
-                            </VBox.margin>
-                            <font>
-                                <Font size="14.0" />
-                            </font>
-                            <graphic>
-                                <FontAwesomeIconView glyphName="HOME" size="20" wrappingWidth="14.0" />
-                            </graphic>
-                        </Button>
-                        <Button fx:id="timeLineSearchButton" layoutX="23.0" layoutY="60.0" mnemonicParsing="false" onAction="#timeLineSearchButtonOnAction" prefHeight="47.0" prefWidth="105.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 15;" text=" SEARCH" textFill="WHITE">
-                            <VBox.margin>
-                                <Insets top="50.0" />
-                            </VBox.margin>
-                            <graphic>
-                                <FontAwesomeIconView glyphName="SEARCH" size="20" />
-                            </graphic>
-                            <font>
-                                <Font size="14.0" />
-                            </font>
-                        </Button>
-                        <Button fx:id="timeLineProfileButton" layoutX="23.0" layoutY="108.0" mnemonicParsing="false" onAction="#timeLineProfileButtonOnAction" prefHeight="47.0" prefWidth="105.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 15;" text=" PROFILE" textFill="WHITE">
-                            <VBox.margin>
-                                <Insets top="50.0" />
-                            </VBox.margin>
-                            <graphic>
-                                <FontAwesomeIconView glyphName="USER" size="20" />
-                            </graphic>
-                            <font>
-                                <Font size="14.0" />
-                            </font>
-                        </Button>
-                        <Button fx:id="timeLineTweetButton" layoutX="23.0" layoutY="108.0" mnemonicParsing="false" onAction="#timeLineTweetButtonOnAction" prefHeight="47.0" prefWidth="105.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 15;" text="  TWEET" textFill="WHITE">
-                            <VBox.margin>
-                                <Insets top="50.0" />
-                            </VBox.margin>
-                            <graphic>
-                                <FontAwesomeIconView glyphName="COMMENT" size="20" />
-                            </graphic>
-                            <font>
-                                <Font size="14.0" />
-                            </font>
-                        </Button>
-                        <Button fx:id="timeLineExitButton" mnemonicParsing="false" onAction="#timeLineExitButtonOnAction" prefHeight="35.0" prefWidth="80.0" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2); -fx-background-radius: 15;" text="EXIT" textFill="#d91515">
-                            <VBox.margin>
-                                <Insets top="80.0" />
-                            </VBox.margin>
-                            <graphic>
-                                <FontAwesomeIconView glyphName="POWER_OFF" size="20" />
-                            </graphic>
-                            <font>
-                                <Font size="13.0" />
-                            </font>
-                        </Button>
-                    </children>
-                </VBox>
-            </children>
-        </AnchorPane>
-        <AnchorPane layoutX="128.0" prefHeight="514.0" prefWidth="335.0">
-            <children>
-                <Separator layoutX="-3.0" orientation="VERTICAL" prefHeight="514.0" prefWidth="0.0" style="-fx-background-color: #000000;" />
-            <ScrollPane layoutX="4.0" prefHeight="514.0" prefWidth="335.0">
-               <content>
-                  <VBox prefHeight="502.0" prefWidth="323.0" />
-               </content>
-            </ScrollPane>
-            </children>
-        </AnchorPane>
-    </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="514.0"
+            prefWidth="463.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.tweetap.client.controller.graphic.TimeLineController">
+    <AnchorPane layoutX="-1.0" layoutY="-4.0" prefHeight="407.0" prefWidth="129.0">
+        <VBox alignment="TOP_CENTER" layoutX="-1.0" layoutY="3.0" prefHeight="514.0" prefWidth="130.0"
+              style="-fx-background-color: linear-gradient(#ff4a32, #ffffff);">
+            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="47.0" prefWidth="105.0"
+                    style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 15;"
+                    text="   HOME" textFill="WHITE">
+                <VBox.margin>
+                    <Insets top="50.0"/>
+                </VBox.margin>
+                <font>
+                    <Font size="14.0"/>
+                </font>
+                <graphic>
+                    <FontAwesomeIconView glyphName="HOME" size="20" wrappingWidth="14.0"/>
+                </graphic>
+            </Button>
+            <Button fx:id="timeLineSearchButton" layoutX="23.0" layoutY="60.0" mnemonicParsing="false"
+                    onAction="#timeLineSearchButtonOnAction" prefHeight="47.0" prefWidth="105.0"
+                    style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 15;"
+                    text=" SEARCH" textFill="WHITE">
+                <VBox.margin>
+                    <Insets top="50.0"/>
+                </VBox.margin>
+                <graphic>
+                    <FontAwesomeIconView glyphName="SEARCH" size="20"/>
+                </graphic>
+                <font>
+                    <Font size="14.0"/>
+                </font>
+            </Button>
+            <Button fx:id="timeLineProfileButton" layoutX="23.0" layoutY="108.0" mnemonicParsing="false"
+                    onAction="#timeLineProfileButtonOnAction" prefHeight="47.0" prefWidth="105.0"
+                    style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 15;"
+                    text=" PROFILE" textFill="WHITE">
+                <VBox.margin>
+                    <Insets top="50.0"/>
+                </VBox.margin>
+                <graphic>
+                    <FontAwesomeIconView glyphName="USER" size="20"/>
+                </graphic>
+                <font>
+                    <Font size="14.0"/>
+                </font>
+            </Button>
+            <Button fx:id="timeLineTweetButton" layoutX="23.0" layoutY="108.0" mnemonicParsing="false"
+                    onAction="#timeLineTweetButtonOnAction" prefHeight="47.0" prefWidth="105.0"
+                    style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 15;"
+                    text="  TWEET" textFill="WHITE">
+                <VBox.margin>
+                    <Insets top="50.0"/>
+                </VBox.margin>
+                <graphic>
+                    <FontAwesomeIconView glyphName="COMMENT" size="20"/>
+                </graphic>
+                <font>
+                    <Font size="14.0"/>
+                </font>
+            </Button>
+            <Button fx:id="timeLineExitButton" mnemonicParsing="false" onAction="#timeLineExitButtonOnAction"
+                    prefHeight="35.0" prefWidth="80.0"
+                    style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2); -fx-background-radius: 15;"
+                    text="EXIT" textFill="#d91515">
+                <VBox.margin>
+                    <Insets top="80.0"/>
+                </VBox.margin>
+                <graphic>
+                    <FontAwesomeIconView glyphName="POWER_OFF" size="20"/>
+                </graphic>
+                <font>
+                    <Font size="13.0"/>
+                </font>
+            </Button>
+        </VBox>
+    </AnchorPane>
+    <AnchorPane layoutX="128.0" prefHeight="514.0" prefWidth="335.0">
+        <Separator layoutX="-3.0" orientation="VERTICAL" prefHeight="514.0" prefWidth="0.0"
+                   style="-fx-background-color: #000000;"/>
+        <ScrollPane layoutX="4.0" prefHeight="514.0" prefWidth="335.0">
+            <VBox fx:id="tweetsVBox" prefHeight="502.0" prefWidth="323.0"/>
+        </ScrollPane>
+    </AnchorPane>
 </AnchorPane>

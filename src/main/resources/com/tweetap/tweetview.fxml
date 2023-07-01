@@ -7,11 +7,11 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="277.0" prefWidth="256.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tweetap.client.controller.graphic.TweetViewController">
    <children>
-      <Label fx:id="tweetViewUserNameLabel" layoutX="68.0" layoutY="20.0" onMouseClicked="#tweetViewUserNameLabelOnMouseClicked" prefHeight="18.0" prefWidth="84.0" text="Label" />
-      <TextArea fx:id="tweetViewTweetTextArea" layoutX="8.0" layoutY="56.0" prefHeight="82.0" prefWidth="239.0" />
-      <ImageView fx:id="tweetViewTweetImageView" fitHeight="90.0" fitWidth="200.0" layoutX="28.0" layoutY="138.0" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="tweetViewLikeButton" layoutX="8.0" layoutY="240.0" mnemonicParsing="false" onAction="#tweetViewLikeButtonOnAction" prefHeight="26.0" prefWidth="69.0" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2); -fx-background-radius: 10;" />
-      <Button fx:id="tweetViewReplyButton" layoutX="93.0" layoutY="240.0" mnemonicParsing="false" onAction="#tweetViewReplyButtonOnAction" prefHeight="26.0" prefWidth="69.0" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2); -fx-background-radius: 10;" />
+      <Label fx:id="userNameLabel" layoutX="68.0" layoutY="20.0" onMouseClicked="#tweetViewUserNameLabelOnMouseClicked" prefHeight="18.0" prefWidth="84.0" text="Label" />
+      <TextArea fx:id="tweetTextArea" layoutX="8.0" layoutY="56.0" prefHeight="82.0" prefWidth="239.0" />
+      <ImageView fx:id="tweetImageView" fitHeight="90.0" fitWidth="200.0" layoutX="28.0" layoutY="138.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="likeButton" layoutX="8.0" layoutY="240.0" mnemonicParsing="false" onAction="#tweetViewLikeButtonOnAction" prefHeight="26.0" prefWidth="69.0" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2); -fx-background-radius: 10;" />
+      <Button fx:id="replyButton" layoutX="93.0" layoutY="240.0" mnemonicParsing="false" onAction="#tweetViewReplyButtonOnAction" prefHeight="26.0" prefWidth="69.0" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2); -fx-background-radius: 10;" />
       <Button fx:id="tweetViewRetweetButton" layoutX="177.0" layoutY="240.0" mnemonicParsing="false" onAction="#tweetViewRetweetButtonOnAction" prefHeight="26.0" prefWidth="69.0" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2); -fx-background-radius: 10;" />
       <FontAwesomeIconView fx:id="tweetViewLikeIcon" glyphName="THUMBS_UP" layoutX="14.0" layoutY="259.0" size="17" />
       <Label fx:id="tweetViewLikeNumberLabel" layoutX="36.0" layoutY="245.0" prefHeight="18.0" prefWidth="36.0" text="numb" />

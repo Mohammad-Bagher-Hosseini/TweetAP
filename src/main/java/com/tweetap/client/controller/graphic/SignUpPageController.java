@@ -98,6 +98,17 @@ public class SignUpPageController
         birthDayDatePicker.setStyle(greenTextStyle);
         passwordField.setStyle(greenTextStyle);
         confirmPasswordField.setStyle(greenTextStyle);
+
+        userNameLabel.setText("");
+        nameLabel.setText("");
+        familyLabel.setText("");
+        emailLabel.setText("");
+        phoneLabel.setText("");
+        countryLabel.setText("");
+        birthDateLabel.setText("");
+        passwordLabel.setText("");
+        confirmPasswordLabel.setText("");
+        errorLabel.setText("");
     }
 
     @FXML
@@ -122,7 +133,7 @@ public class SignUpPageController
             if (nameTextField.getText().equals(""))
                 nameTextField.setStyle(redTextStyle);
             else
-                nameTextField.requestFocus();
+                familyTextField.requestFocus();
         }
     }
 
@@ -144,7 +155,7 @@ public class SignUpPageController
         if(keyEvent.getCode() == KeyCode.ENTER)
         {
             refreshControls();
-            if(!emailTextField.getText().equals("") && Verification.isEmailValid(emailTextField.getText()))
+            if(!emailTextField.getText().equals("") && !Verification.isEmailValid(emailTextField.getText()))
             {
                 emailTextField.setStyle(redTextStyle);
                 emailLabel.setText("Email format not accepted");
@@ -223,6 +234,8 @@ public class SignUpPageController
 
     public void signUp()
     {
+        refreshControls();
+
         String username = userNameTextField.getText();
         String name = nameTextField.getText();
         String family = familyTextField.getText();
@@ -237,6 +250,10 @@ public class SignUpPageController
         {
             ControllerCommands.signUp(username, name, family, email, phone, password, confirmPassword, country,
                     birthdate.getYear(), birthdate.getMonthValue(), birthdate.getDayOfMonth());
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setHeaderText("Hooray!!!");
+            alert.setContentText("You signed up successfully");
+            alert.show();
         } catch (PasswordConfirmException e)
         {
             passwordField.setStyle(redTextStyle);
@@ -282,7 +299,7 @@ public class SignUpPageController
     {
         try
         {
-            FXMLLoader fxmlLoader = new FXMLLoader(MainClient.class.getResource("signuppage.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(MainClient.class.getResource("signinpage.fxml"));
             Parent root = fxmlLoader.load();
             Scene scene = new Scene(root);
             stage.setScene(scene);
@@ -293,7 +310,7 @@ public class SignUpPageController
             stage.show();
         } catch (IOException e)
         {
-            errorLabel.setText("Something went wrong while going to signup page!");
+            errorLabel.setText("Something went wrong while going to signin page!");
         }
     }
 

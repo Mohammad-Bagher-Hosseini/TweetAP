@@ -1,5 +1,6 @@
 package com.tweetap.client.controller.graphic;
 
+import com.tweetap.entities.tweet.Tweet;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,15 +14,15 @@ public class TweetViewController
 {
 
     @FXML
-    public Label tweetViewUserNameLabel;
+    public Label userNameLabel;
     @FXML
-    public TextArea tweetViewTweetTextArea;
+    public TextArea tweetTextArea;
     @FXML
-    public ImageView tweetViewTweetImageView;
+    public ImageView tweetImageView;
     @FXML
-    public Button tweetViewLikeButton;
+    public Button likeButton;
     @FXML
-    public Button tweetViewReplyButton;
+    public Button replyButton;
     @FXML
     public Button tweetViewRetweetButton;
     @FXML
@@ -57,5 +58,10 @@ public class TweetViewController
     public void tweetViewRetweetButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : show sendretweet scene, this is a pop-up
+    }
+
+    public void showTweet(Tweet tweet)
+    {
+        // TODO
     }
 }
