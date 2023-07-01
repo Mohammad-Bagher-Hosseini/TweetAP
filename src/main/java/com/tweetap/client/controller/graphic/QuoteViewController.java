@@ -9,56 +9,59 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 
 public class QuoteViewController
 {
     @FXML
-    public Label quoteViewUserNameLabel;
+    public Label userNameLabel;
     @FXML
-    public TextArea quoteViewTextArea;
+    public TextArea textArea;
     @FXML
-    public ImageView quoteViewImageView;
+    public ImageView imageView;
     @FXML
-    public Button quoteViewLikeButton;
+    public Button likeButton;
     @FXML
-    public Button quoteViewReplyButton;
+    public Button replyButton;
     @FXML
-    public Button quoteViewRetweetButton;
+    public Button retweetButton;
     @FXML
-    public FontAwesomeIconView quoteViewLikeIcon;
+    public FontAwesomeIconView likeIcon;
     @FXML
-    public Label quoteViewLikeNumberLabel;
+    public Label likeNumberLabel;
     @FXML
-    public Label quoteViewReplyNumberLabel;
+    public Label replyNumberLabel;
     @FXML
-    public Label quoteViewRetweetNumberLabel;
+    public Label retweetNumberLabel;
+    public VBox tweetVBox;
 
     @FXML
-    public void quoteViewUserNameLabelOnMouseClicked(MouseEvent mouseEvent)
+    public void userNameLabelOnMouseClicked(MouseEvent mouseEvent)
     {
         // TODO : show selected user's profile
     }
 
     @FXML
-    public void quoteViewLikeButtonOnAction(ActionEvent actionEvent)
+    public void likeButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : like quote
     }
 
     @FXML
-    public void quoteViewReplyButtonOnAction(ActionEvent actionEvent)
+    public void replyButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : show sendreply scene
     }
 
     @FXML
-    public void quoteViewRetweetButtonOnAction(ActionEvent actionEvent)
+    public void retweetButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : show sendretweet scene
     }
 
     public void showQuote(Quote quote)
     {
-        // TODO
+        userNameLabel.setText(quote.getUserName());
+
     }
 }

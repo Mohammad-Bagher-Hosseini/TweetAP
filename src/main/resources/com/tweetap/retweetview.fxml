@@ -9,7 +9,7 @@
    <children>
       <AnchorPane prefHeight="138.0" prefWidth="256.0">
          <children>
-            <Label fx:id="retweetViewUserNameLabel" layoutX="31.0" layoutY="19.0" onMouseClicked="#retweetViewUserNameLabelOnMouseClicked" prefHeight="18.0" prefWidth="172.0" text="Label">
+            <Label fx:id="userNameLabel" layoutX="31.0" layoutY="19.0" onMouseClicked="#userNameLabelOnMouseClicked" prefHeight="18.0" prefWidth="172.0" text="Label">
                <font>
                   <Font size="14.0" />
                </font>

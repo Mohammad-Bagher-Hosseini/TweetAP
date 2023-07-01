@@ -7,8 +7,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
 
 public class TweetViewController
 {
@@ -62,6 +66,12 @@ public class TweetViewController
 
     public void showTweet(Tweet tweet)
     {
-        // TODO
+        userNameLabel.setText(tweet.getUserName());
+        tweetTextArea.setText(tweet.getTextContent().toString());
+        // TODO: tweetImageView.setImage((Image) tweet.getImageContent().getImage());
+        likeNumberLabel.setText(Integer.toString(tweet.getLikeCount()));
+        replyNumberLabel.setText(Integer.toString(tweet.getReplies().size()));
+        retweetNumberLabel.setText(Integer.toString(tweet.getRetweetCount()));
+        // TODO: set avatar imageview
     }
 }
