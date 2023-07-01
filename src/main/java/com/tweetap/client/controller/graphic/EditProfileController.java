@@ -17,9 +17,16 @@ import javafx.collections.ObservableArray;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.time.LocalDate;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.*;
 
 public class EditProfileController implements HasStage
 {
@@ -45,6 +52,10 @@ public class EditProfileController implements HasStage
     public Button saveButton;
     @FXML
     public TextField familyTextField;
+    @FXML
+    public ImageView headerImageView;
+    @FXML
+    public ImageView avatarImageView;
     private Stage stage;
     private User user;
 
@@ -69,12 +80,43 @@ public class EditProfileController implements HasStage
     public void headerImagePathSearchButtonOnAction(ActionEvent actionEvent)
     {
         // TODO : search and show image or error
+        chooseImage(headerImagePathTextFiled, headerImageView);
     }
 
     @FXML
     public void avatarImagePathSearchButtonOnAction(ActionEvent actionEvent)
     {
         // TODO : search and show image or error
+        chooseImage(avatarImagePathTextFiled, avatarImageView);
+    }
+
+    private void chooseImage(TextField imagePathTextFiled, ImageView imageView)
+    {
+        if(imagePathTextFiled.getText() == null)
+        {
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Open Image");
+            fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif"));
+            File selected = fileChooser.showOpenDialog(stage);
+            if(selected != null)
+            {
+                imageView.setImage(new Image(selected.toURI().toString()));
+            }
+        }
+        else
+        {
+            try
+            {
+                BufferedImage bImage = ImageIO.read(new File(imagePathTextFiled.getText()));
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                ImageIO.write(bImage, "jpg", byteArrayOutputStream);
+                InputStream inputImage = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
+                imageView.setImage(new Image(inputImage));
+            } catch (IOException e)
+            {
+                //TODO : do suitable work
+            }
+        }
     }
 
     @FXML
