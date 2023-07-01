@@ -24,7 +24,7 @@ public class QuoteViewController
     @FXML
     public Button replyButton;
     @FXML
-    public Button retweetButton;
+    public Button quoteViewRetweetButton;
     @FXML
     public FontAwesomeIconView likeIcon;
     @FXML

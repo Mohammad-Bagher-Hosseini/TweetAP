@@ -10,6 +10,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -39,6 +40,8 @@ public class TweetViewController
     public Label retweetNumberLabel;
     @FXML
     public ImageView avatarImageView;
+    @FXML
+    public VBox repliesVbox;
 
     @FXML
     public void userNameLabelOnMouseClicked(MouseEvent mouseEvent)
