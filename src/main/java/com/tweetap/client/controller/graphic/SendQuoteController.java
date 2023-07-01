@@ -32,7 +32,7 @@ public class SendQuoteController
     private Stage stage;
 
     @FXML
-    public void searchImagePathButtonOnAction(ActionEvent actionEvent) throws IOException
+    public void searchImagePathButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : set image
         if(imagePathTextFiled.getText() == null)
@@ -45,14 +45,24 @@ public class SendQuoteController
             {
                 imageView.setImage(new Image(selected.toURI().toString()));
             }
+            else
+            {
+                //TODO : do suitable work
+            }
         }
         else
         {
-            BufferedImage bImage = ImageIO.read(new File(imagePathTextFiled.getText()));
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            ImageIO.write(bImage, "jpg", byteArrayOutputStream);
-            InputStream inputImage = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
-            imageView.setImage(new Image(inputImage));
+            try
+            {
+                BufferedImage bImage = ImageIO.read(new File(imagePathTextFiled.getText()));
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                ImageIO.write(bImage, "jpg", byteArrayOutputStream);
+                InputStream inputImage = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
+                imageView.setImage(new Image(inputImage));
+            } catch (IOException e)
+            {
+                //TODO : do suitable work
+            }
         }
     }
 
