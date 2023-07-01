@@ -5,7 +5,14 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.*;
 
 public class SendQuoteController
 {
@@ -22,10 +29,31 @@ public class SendQuoteController
     @FXML
     public Button backButton;
 
+    private Stage stage;
+
     @FXML
-    public void searchImagePathButtonOnAction(ActionEvent actionEvent)
+    public void searchImagePathButtonOnAction(ActionEvent actionEvent) throws IOException
     {
         //TODO : set image
+        if(imagePathTextFiled.getText() == null)
+        {
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Open Image");
+            fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif"));
+            File selected = fileChooser.showOpenDialog(stage);
+            if(selected != null)
+            {
+                imageView.setImage(new Image(selected.toURI().toString()));
+            }
+        }
+        else
+        {
+            BufferedImage bImage = ImageIO.read(new File(imagePathTextFiled.getText()));
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            ImageIO.write(bImage, "jpg", byteArrayOutputStream);
+            InputStream inputImage = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
+            imageView.setImage(new Image(inputImage));
+        }
     }
 
     @FXML
@@ -38,5 +66,10 @@ public class SendQuoteController
     public void backButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : close the pop_up
+    }
+
+    public void setStage(Stage stage)
+    {
+        this.stage = stage;
     }
 }
