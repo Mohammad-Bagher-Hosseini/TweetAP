@@ -1,5 +1,6 @@
 package com.tweetap.client.controller.graphic;
 
+import com.tweetap.client.controller.ControllerCommands;
 import com.tweetap.entities.tweet.Reply;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.event.ActionEvent;
@@ -40,7 +41,7 @@ public class ReplyViewController implements HasStage
     @FXML
     public void replierLabelOnMouseClicked(MouseEvent mouseEvent)
     {
-        //TODO : show the selected user's profile
+
     }
 
     @FXML
@@ -69,8 +70,8 @@ public class ReplyViewController implements HasStage
 
     public void showReply(Reply reply)
     {
-        replierLabel.setText(reply.getUserName());
-        repliedLabel.setText(reply.getTweet().getUserName());
+        replierLabel.setText("@" + reply.getUserName() + " replied to");
+        repliedLabel.setText("@" + reply.getTweet().getUserName());
         textLabel.setText(reply.getTextContent().toString());
         likeNumberLabel.setText(Integer.toString(reply.getTweet().getLikeCount()));
         replyNumberLabel.setText(Integer.toString(reply.getTweet().getReplies().size()));

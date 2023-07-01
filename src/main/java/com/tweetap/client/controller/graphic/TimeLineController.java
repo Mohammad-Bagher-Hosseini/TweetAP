@@ -35,6 +35,11 @@ public class TimeLineController implements HasStage
 
     public void initialize()
     {
+
+    }
+
+    public void onShown()
+    {
         try
         {
             TimeLine timeLine = ControllerCommands.showTimeLine();
@@ -45,7 +50,7 @@ public class TimeLineController implements HasStage
                 else if(baseTweet instanceof Quote quote)
                     addQuote(quote);
                 else if (baseTweet instanceof Retweet retweet)
-                addRetweet(retweet);
+                    addRetweet(retweet);
             }
 
         } catch (TwitException e)
@@ -102,5 +107,6 @@ public class TimeLineController implements HasStage
     public void setStage(Stage stage)
     {
         this.stage = stage;
+        onShown();
     }
 }

@@ -4,6 +4,7 @@ import com.tweetap.MainClient;
 import com.tweetap.client.controller.ControllerCommands;
 import com.tweetap.entities.exception.TwitException;
 import com.tweetap.entities.user.MiniUser;
+import com.tweetap.entities.user.follow.ConnectedUsers;
 import com.tweetap.entities.user.follow.Followers;
 import com.tweetap.entities.user.follow.Followings;
 import javafx.event.ActionEvent;
@@ -28,6 +29,7 @@ public class ShowFollowsController implements HasStage
 
     public VBox followRelationsVBox;
     private Stage stage;
+    private MiniUser miniUser;
 
     public void initialize()
     {
@@ -46,11 +48,15 @@ public class ShowFollowsController implements HasStage
         showFollowings();
     }
 
-    private void showFollowers()
+    public void showFollowers()
     {
         try
         {
-            Followers followers = ControllerCommands.showFollowers();
+            Followers followers;
+            if(miniUser == null)
+                followers = ControllerCommands.showFollowers();
+            else
+                followers = ControllerCommands.showFollowers(miniUser.getUserName());
             for(MiniUser miniUser : followers)
             {
                 MiniProfileController miniProfileController = MainClient.loadPage(followRelationsVBox, stage, "miniprofile.fxml");
@@ -64,7 +70,7 @@ public class ShowFollowsController implements HasStage
         }
     }
 
-    private void showFollowings()
+    public void showFollowings()
     {
         try
         {
@@ -92,5 +98,10 @@ public class ShowFollowsController implements HasStage
     public void setStage(Stage stage)
     {
         this.stage = stage;
+    }
+
+    public void setMiniUser(MiniUser miniUser)
+    {
+        this.miniUser = miniUser;
     }
 }

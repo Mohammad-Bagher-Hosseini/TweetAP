@@ -31,6 +31,15 @@ public class BlackList implements Serializable, Iterable<MiniUser>
         blockedUsers.remove(miniUser);
     }
 
+    public boolean contains(String username)
+    {
+        for(MiniUser miniUser : blockedUsers)
+            if(miniUser.getUserName().equals(username))
+                return true;
+
+        return false;
+    }
+
     @NotNull
     @Override
     public Iterator<MiniUser> iterator()

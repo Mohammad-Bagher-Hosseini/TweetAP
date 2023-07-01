@@ -3,6 +3,7 @@ package com.tweetap.client.controller.graphic;
 import com.tweetap.MainClient;
 import com.tweetap.client.controller.ControllerCommands;
 import com.tweetap.entities.exception.TwitException;
+import com.tweetap.entities.exception.io.server.DuplicateLikeRequestException;
 import com.tweetap.entities.tweet.Reply;
 import com.tweetap.entities.tweet.Tweet;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
@@ -137,6 +138,15 @@ public class TweetViewController implements HasStage
             ReplyViewController replyViewController = MainClient.loadPage(repliesVbox, stage,"replyview.fxml");
             replyViewController.showReply(reply);
         }
+
+        try
+        {
+            ControllerCommands.likeTweet(Long.toString(tweetId));
+            ControllerCommands.dislikeTweet(Long.toString(tweetId));
+        } catch (DuplicateLikeRequestException e)
+        {
+            likeIcon.setGlyphName("THUMBS_DOWN");
+        } catch (TwitException ignored){}
     }
 
     private boolean like()
@@ -147,6 +157,7 @@ public class TweetViewController implements HasStage
             return true;
         } catch (TwitException e)
         {
+            e.printStackTrace(); // TODO: delete this line
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Something went wrong while liking!");
             alert.show();

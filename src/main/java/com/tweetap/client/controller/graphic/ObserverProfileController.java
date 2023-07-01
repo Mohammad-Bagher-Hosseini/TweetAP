@@ -1,7 +1,23 @@
 package com.tweetap.client.controller.graphic;
 
+import com.tweetap.MainClient;
+import com.tweetap.client.controller.ControllerCommands;
+import com.tweetap.client.controller.Data;
+import com.tweetap.entities.exception.TwitException;
+import com.tweetap.entities.exception.UnknownException;
+import com.tweetap.entities.exception.io.server.*;
+import com.tweetap.entities.exception.text.TextTooLongException;
+import com.tweetap.entities.exception.user.CountryException;
+import com.tweetap.entities.exception.user.email.EmailFormatException;
+import com.tweetap.entities.exception.user.password.InvalidPasswordException;
+import com.tweetap.entities.user.BlackList;
+import com.tweetap.entities.user.BlockRelation;
+import com.tweetap.entities.user.MiniUser;
+import com.tweetap.entities.user.follow.Followers;
+import com.tweetap.entities.user.follow.Followings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -37,39 +53,191 @@ public class ObserverProfileController implements HasStage
     @FXML
     public Button backButton;
     private Stage stage;
+    private MiniUser miniUser;
+    private Followers followers;
+    private Followings followings;
+
+    private void onShown()
+    {
+        nameTextField.setText(miniUser.getUserName() + " " + miniUser.getFamily());
+        // TODO: set headerImageView
+        userNameTextField.setText("@" + miniUser.getUserName());
+        try
+        {
+            followers = ControllerCommands.showFollowers();
+            followersNumberLabel.setText(Integer.toString(followers.size()));
+        } catch (TwitException e)
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Something went wrong while counting followers count");
+            alert.show();
+        }
+        try
+        {
+            followings = ControllerCommands.showFollowings();
+            followersNumberLabel.setText(Integer.toString(followings.size()));
+        } catch (TwitException e)
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Something went wrong while counting followings count");
+            alert.show();
+        }
+        bioLabel.setText(miniUser.getBio().getText());
+        // TODO: set avatarImageView
+
+        if(followers.getUserNames().contains(Data.getInstance().getUser().getUserName()))
+            followRelationButton.setText("Unfollow");
+        else
+            followRelationButton.setText("Follow");
+
+        try
+        {
+            BlackList blackList = ControllerCommands.showBlackList();
+            if(blackList.contains(miniUser.getUserName()))
+                blockRelationButton.setText("Unblock");
+            else
+                blockRelationButton.setText("Block");
+        } catch (TwitException e)
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Something went wrong while loading the blacklist");
+            alert.show();
+        }
+    }
 
     @FXML
     public void followRelationButtonOnAction(ActionEvent actionEvent)
     {
-        //TODO : follow if not follow unfollow if is follow
+        if(followRelationButton.getText().equals("Follow"))
+        {
+            if (follow())
+                followRelationButton.setText("Unfollow");
+        }
+        else
+        {
+            if (unfollow())
+                followRelationButton.setText("Follow");
+        }
     }
 
     @FXML
     public void followingsButtonOnAction(ActionEvent actionEvent)
     {
-        //TODO : show the user's followings in the showfollows scene
+        ShowFollowsController showFollowsController = MainClient.loadPopup(stage, "showfollows_pop_up.fxml", (controller) ->
+        {
+            controller.setMiniUser(miniUser);
+            controller.showFollowings();
+        });
     }
 
     @FXML
     public void followersButtonOnAction(ActionEvent actionEvent)
     {
-        // TODO : show the user's followers in the showfollows scene
+        ShowFollowsController showFollowsController = MainClient.loadPopup(stage, "showfollows_pop_up.fxml", (controller) ->
+        {
+            controller.setMiniUser(miniUser);
+            controller.showFollowers();
+        });
     }
 
     @FXML
     public void blockRelationButtonOnAction(ActionEvent actionEvent)
     {
-        //TODO : block if not block unblock if is block
+        if(blockRelationButton.getText().equals("Block"))
+        {
+            if (block())
+                blockRelationButton.setText("Unblock");
+        }
+        else
+        {
+            if(unblock())
+                blockRelationButton.setText("Block");
+        }
+
     }
 
     @FXML
     public void backButtonOnAction(ActionEvent actionEvent)
     {
-        // TODO : close the pop_up
+        stage.close();
+    }
+
+    private boolean follow()
+    {
+        try
+        {
+            ControllerCommands.follow(miniUser.getUserName());
+            return true;
+        } catch (TwitException e)
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Something went wrong while following @" + miniUser.getUserName() + " !");
+            alert.show();
+            return false;
+        }
+    }
+
+    private boolean unfollow()
+    {
+        try
+        {
+            ControllerCommands.unfollow(miniUser.getUserName());
+            return true;
+        } catch (TwitException e)
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Something went wrong while unfollowing @" + miniUser.getUserName() + " !");
+            alert.show();
+            return false;
+        }
+    }
+
+    private boolean block()
+    {
+        try
+        {
+            ControllerCommands.block(miniUser.getUserName());
+            return true;
+        } catch (TwitException e)
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Something went wrong while blocking @" + miniUser.getUserName() + " !");
+            alert.show();
+            return false;
+        }
+    }
+
+    private boolean unblock()
+    {
+        try
+        {
+            ControllerCommands.unblock(miniUser.getUserName());
+            return true;
+        } catch (TwitException e)
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Something went wrong while unblocking @" + miniUser.getUserName() + " !");
+            alert.show();
+            return false;
+        }
+    }
+
+    public void setUsername(String username)
+    {
+        try
+        {
+            miniUser = ControllerCommands.showUser(username);
+        } catch (TwitException e)
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Something went wrong while getting the user profile!");
+            alert.show();
+        }
     }
 
     public void setStage(Stage stage)
     {
         this.stage = stage;
+        onShown();
     }
 }

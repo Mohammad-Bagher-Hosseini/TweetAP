@@ -38,7 +38,6 @@ public class MainClient extends Application
     private void loadSignInPage(Stage stage) throws Exception
     {
         SignInPageController signInPageController = loadPage(stage, "signinpage.fxml");
-        signInPageController.setStage(stage);
         stage.setTitle("TweetAP");
         stage.show();
     }
@@ -46,7 +45,6 @@ public class MainClient extends Application
     private void loadTimeLine(Stage stage) throws Exception
     {
         TimeLineController timeLineController = loadPage(stage, "timeline.fxml");
-        timeLineController.setStage(stage);
         stage.show();
     }
 
@@ -102,7 +100,7 @@ public class MainClient extends Application
             popupStage.setScene(new Scene(root));
 
             t = fxmlLoader.getController();
-            t.setStage(stage);
+            t.setStage(popupStage);
 
             popupStage.initModality(Modality.APPLICATION_MODAL);
             popupStage.initOwner(stage);
