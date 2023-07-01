@@ -3,8 +3,9 @@ package com.tweetap.client.controller.graphic;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 
-public class EditProfileController
+public class EditProfileController implements HasStage
 {
     @FXML
     public Button backButton;
@@ -26,6 +27,7 @@ public class EditProfileController
     public DatePicker birthDateDatePicker;
     @FXML
     public Button saveButton;
+    private Stage stage;
 
     @FXML
     public void backButtonOnAction(ActionEvent actionEvent)
@@ -49,5 +51,11 @@ public class EditProfileController
     public void saveButtonOnAction(ActionEvent actionEvent)
     {
         // TODO : process inputs and save
+    }
+
+    @Override
+    public void setStage(Stage stage)
+    {
+        this.stage = stage;
     }
 }

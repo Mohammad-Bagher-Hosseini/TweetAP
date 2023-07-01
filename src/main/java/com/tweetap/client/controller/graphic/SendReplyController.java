@@ -4,8 +4,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.stage.Stage;
 
-public class SendReplyController
+public class SendReplyController implements HasStage
 {
     @FXML
     public TextArea textArea;
@@ -13,6 +14,7 @@ public class SendReplyController
     public Button sendReplyButton;
     @FXML
     public Button backButton;
+    private Stage stage;
 
 
     @FXML
@@ -25,5 +27,11 @@ public class SendReplyController
     public void backButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : close the pop_up
+    }
+
+    @Override
+    public void setStage(Stage stage)
+    {
+        this.stage = stage;
     }
 }

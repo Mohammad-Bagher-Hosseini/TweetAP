@@ -6,8 +6,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 
-public class ObserverProfileController
+public class ObserverProfileController implements HasStage
 {
     @FXML
     public Button followRelationButton;
@@ -35,6 +36,7 @@ public class ObserverProfileController
     public ImageView avatarImageView;
     @FXML
     public Button backButton;
+    private Stage stage;
 
     @FXML
     public void followRelationButtonOnAction(ActionEvent actionEvent)
@@ -64,5 +66,10 @@ public class ObserverProfileController
     public void backButtonOnAction(ActionEvent actionEvent)
     {
         // TODO : close the pop_up
+    }
+
+    public void setStage(Stage stage)
+    {
+        this.stage = stage;
     }
 }

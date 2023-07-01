@@ -1,21 +1,28 @@
 package com.tweetap.client.controller.graphic;
 
+import com.tweetap.MainClient;
+import com.tweetap.client.controller.ControllerCommands;
+import com.tweetap.entities.exception.TwitException;
+import com.tweetap.entities.tweet.Reply;
 import com.tweetap.entities.tweet.Tweet;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
-import javax.imageio.ImageIO;
-import javax.swing.*;
+import java.io.IOException;
 
-public class TweetViewController
+public class TweetViewController implements HasStage
 {
 
     @FXML
@@ -43,16 +50,49 @@ public class TweetViewController
     @FXML
     public VBox repliesVbox;
 
+    private Stage stage;
+    private Long tweetId;
+
+    public void initialize()
+    {
+
+    }
+
     @FXML
     public void userNameLabelOnMouseClicked(MouseEvent mouseEvent)
     {
-        //TODO : show selected user's profile
+        try
+        {
+            Stage popupStage = new Stage();
+            FXMLLoader fxmlLoader = new FXMLLoader(MainClient.class.getResource("observerprofile_pop_up.fxml"));
+            Parent root = fxmlLoader.load();
+            popupStage.setScene(root.getScene());
+
+            ObserverProfileController observerProfileController = fxmlLoader.getController();
+            observerProfileController.setStage(stage);
+
+            popupStage.initModality(Modality.APPLICATION_MODAL);
+            popupStage.initOwner(stage);
+            popupStage.showAndWait();
+        } catch (IOException e)
+        {
+            // TODO
+        }
     }
 
     @FXML
     public void likeButtonOnAction(ActionEvent actionEvent)
     {
-        //TODO : Like tweet if is was likable
+        if(likeIcon.getGlyphName().equals("THUMBS_UP"))
+        {
+            if(like())
+                likeIcon.setGlyphName("THUMBS_DOWN");
+        }
+        else
+        {
+            if(dislike())
+                likeIcon.setGlyphName("THUMBS_UP");
+        }
     }
 
     @FXML
@@ -76,5 +116,47 @@ public class TweetViewController
         replyNumberLabel.setText(Integer.toString(tweet.getReplies().size()));
         retweetNumberLabel.setText(Integer.toString(tweet.getRetweetCount()));
         // TODO: set avatar imageview
+        tweetId = tweet.getId();
+
+        for(Reply reply : tweet.getReplies())
+        {
+            ReplyViewController replyViewController = MainClient.loadPage(repliesVbox, "replyview.fxml");
+            replyViewController.showReply(reply);
+        }
+    }
+
+    private boolean like()
+    {
+        try
+        {
+            ControllerCommands.likeTweet(Long.toString(tweetId));
+            return true;
+        } catch (TwitException e)
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Something went wrong while liking!");
+            alert.show();
+            return false;
+        }
+    }
+
+    private boolean dislike()
+    {
+        try
+        {
+            ControllerCommands.dislikeTweet(Long.toString(tweetId));
+            return true;
+        } catch (TwitException e)
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Something went wrong while disliking!");
+            alert.show();
+            return false;
+        }
+    }
+
+    public void setStage(Stage stage)
+    {
+        this.stage = stage;
     }
 }

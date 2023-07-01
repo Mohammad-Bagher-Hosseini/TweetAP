@@ -24,7 +24,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class SignInPageController
+public class SignInPageController implements HasStage
 {
     private static final String redTextStyle = "-fx-border-color: linear-gradient( to right top,#ff5757, #ff7429); " +
             "-fx-border-width: 0px 0px 2px 0px; " +
@@ -52,9 +52,6 @@ public class SignInPageController
 
     public void initialize()
     {
-        ProgramState programState = Data.getInstance().getProgramState();
-        if(programState == ProgramState.MAIN_MENU)
-            goToTimeLine();
     }
 
     private void refreshControls()
@@ -128,40 +125,12 @@ public class SignInPageController
     @FXML
     public void signUpHyperLinkOnAction(ActionEvent actionEvent)
     {
-        try
-        {
-            FXMLLoader fxmlLoader = new FXMLLoader(MainClient.class.getResource("signuppage.fxml"));
-            Parent root = fxmlLoader.load();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-
-            SignUpPageController signUpPageController = fxmlLoader.getController();
-            signUpPageController.setStage(stage);
-
-            stage.show();
-        } catch (IOException e)
-        {
-            errorLabel.setText("Something went wrong while going to signup page!");
-        }
+        MainClient.loadPage(stage, "signuppage.fxml");
     }
 
     private void goToTimeLine()
     {
-        try
-        {
-            FXMLLoader fxmlLoader = new FXMLLoader(MainClient.class.getResource("timeline.fxml"));
-            Parent root = fxmlLoader.load();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-
-            TimeLineController timeLineController = fxmlLoader.getController();
-            timeLineController.setStage(stage);
-
-            stage.show();
-        } catch (IOException e)
-        {
-            errorLabel.setText("Something went wrong while going to timeline page!");
-        }
+        MainClient.loadPage(stage, "timeline.fxml");
     }
 
     public void setStage(Stage stage)

@@ -5,17 +5,20 @@ import com.tweetap.client.controller.ControllerCommands;
 import com.tweetap.client.controller.Data;
 import com.tweetap.entities.exception.TwitException;
 import com.tweetap.entities.tweet.*;
+import com.tweetap.server.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class TimeLineController
+public class TimeLineController implements HasStage
 {
     @FXML
     public Button searchButton;
@@ -47,74 +50,46 @@ public class TimeLineController
 
         } catch (TwitException e)
         {
-            // TODO
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Something went wrong while loading the timeline");
+            alert.show();
         }
     }
 
     private void addTweet(Tweet tweet)
     {
-        try
-        {
-            FXMLLoader fxmlLoader = new FXMLLoader(MainClient.class.getResource("tweetview.fxml"));
-            Parent tweetContainer = fxmlLoader.load();
-            tweetsVBox.getChildren().add(tweetContainer);
-
-            TweetViewController tweetViewController = fxmlLoader.getController();
-            tweetViewController.showTweet(tweet);
-        } catch (IOException e)
-        {
-            // TODO
-        }
+        TweetViewController tweetViewController = MainClient.loadPage(tweetsVBox, "tweetview.fxml");
+        tweetViewController.showTweet(tweet);
     }
 
     private void addRetweet(Retweet retweet)
     {
-        try
-        {
-            FXMLLoader fxmlLoader = new FXMLLoader(MainClient.class.getResource("retweetview.fxml"));
-            Parent tweetContainer = fxmlLoader.load();
-            tweetsVBox.getChildren().add(tweetContainer);
-
-            RetweetViewController retweetViewController = fxmlLoader.getController();
-            retweetViewController.showRetweet(retweet);
-        } catch (IOException e)
-        {
-            // TODO
-        }
+        RetweetViewController retweetViewController = MainClient.loadPage(tweetsVBox, "retweetview.fxml");
+        retweetViewController.showRetweet(retweet);
     }
 
     private void addQuote(Quote quote)
     {
-        try
-        {
-            FXMLLoader fxmlLoader = new FXMLLoader(MainClient.class.getResource("quoteview.fxml"));
-            Parent tweetContainer = fxmlLoader.load();
-            tweetsVBox.getChildren().add(tweetContainer);
-
-            QuoteViewController quoteViewController = fxmlLoader.getController();
-            quoteViewController.showQuote(quote);
-        } catch (IOException e)
-        {
-            // TODO
-        }
+        QuoteViewController quoteViewController = MainClient.loadPage(tweetsVBox, "quoteview.fxml");
+        quoteViewController.showQuote(quote);
     }
 
     @FXML
     public void searchButtonOnAction(ActionEvent actionEvent)
     {
-        //TODO : switch to suitable scene
+        MainClient.loadPage(stage, "search.fxml");
     }
 
     @FXML
     public void profileButtonOnAction(ActionEvent actionEvent)
     {
-        //TODO : switch to suitable scene
+        MainClient.loadPage(stage, "profile.fxml");
     }
 
     @FXML
     public void tweetButtonOnAction(ActionEvent actionEvent)
     {
-        //TODO : switch to suitable scene
+        MainClient.loadPage(stage, "sendtweet.fxml");
     }
 
     @FXML

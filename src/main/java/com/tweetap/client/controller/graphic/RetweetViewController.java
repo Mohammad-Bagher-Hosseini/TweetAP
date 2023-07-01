@@ -9,15 +9,17 @@ import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class RetweetViewController
+public class RetweetViewController implements HasStage
 {
     @FXML
     public Label userNameLabel;
     @FXML
     public VBox tweetVbox;
+    private Stage stage;
 
     @FXML
     public void userNameLabelOnMouseClicked(MouseEvent mouseEvent)
@@ -41,5 +43,11 @@ public class RetweetViewController
         {
             // TODO
         }
+    }
+
+    @Override
+    public void setStage(Stage stage)
+    {
+        this.stage = stage;
     }
 }

@@ -6,8 +6,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 
-public class ProfileController
+public class ProfileController implements HasStage
 {
 
     @FXML
@@ -38,6 +39,7 @@ public class ProfileController
     public ImageView avatarImageView;
     @FXML
     public Button signOutButton;
+    private Stage stage;
 
     @FXML
     public void homeButtonOnAction(ActionEvent actionEvent)
@@ -85,5 +87,10 @@ public class ProfileController
     public void signOutButton(ActionEvent actionEvent)
     {
         // TODO : sign out and switch to signIn scene
+    }
+
+    public void setStage(Stage stage)
+    {
+        this.stage = stage;
     }
 }

@@ -13,6 +13,7 @@ import com.tweetap.entities.exception.user.password.PasswordFormatException;
 import com.tweetap.entities.exception.user.password.PasswordHashException;
 import com.tweetap.entities.user.Country;
 import com.tweetap.entities.user.Verification;
+import com.tweetap.server.Main;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -27,7 +28,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.time.LocalDate;
 
-public class SignUpPageController
+public class SignUpPageController implements HasStage
 {
 
     private static final String redTextStyle = "-fx-border-color: linear-gradient( to right top,#ff5757, #ff7429); " +
@@ -297,21 +298,7 @@ public class SignUpPageController
     @FXML
     public void backButtonOnAction(ActionEvent actionEvent)
     {
-        try
-        {
-            FXMLLoader fxmlLoader = new FXMLLoader(MainClient.class.getResource("signinpage.fxml"));
-            Parent root = fxmlLoader.load();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-
-            SignInPageController signInPageController = fxmlLoader.getController();
-            signInPageController.setStage(stage);
-
-            stage.show();
-        } catch (IOException e)
-        {
-            errorLabel.setText("Something went wrong while going to signin page!");
-        }
+        MainClient.loadPage(stage, "signinpage.fxml");
     }
 
     public void setStage(Stage stage)

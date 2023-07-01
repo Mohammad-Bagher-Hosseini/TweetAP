@@ -6,8 +6,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 
-public class SendQuoteController
+public class SendQuoteController implements HasStage
 {
     @FXML
     public TextField imagePathTextFiled;
@@ -21,6 +22,7 @@ public class SendQuoteController
     public TextArea textArea;
     @FXML
     public Button backButton;
+    private Stage stage;
 
     @FXML
     public void searchImagePathButtonOnAction(ActionEvent actionEvent)
@@ -38,5 +40,11 @@ public class SendQuoteController
     public void backButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : close the pop_up
+    }
+
+    @Override
+    public void setStage(Stage stage)
+    {
+        this.stage = stage;
     }
 }
