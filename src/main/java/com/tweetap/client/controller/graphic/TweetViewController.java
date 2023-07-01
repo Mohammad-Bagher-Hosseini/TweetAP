@@ -24,38 +24,38 @@ public class TweetViewController
     @FXML
     public Button replyButton;
     @FXML
-    public Button tweetViewRetweetButton;
+    public Button RetweetButton;
     @FXML
-    public FontAwesomeIconView tweetViewLikeIcon;
+    public FontAwesomeIconView LikeIcon;
     @FXML
-    public Label tweetViewLikeNumberLabel;
+    public Label LikeNumberLabel;
     @FXML
-    public Label tweetViewReplyNumberLabel;
+    public Label ReplyNumberLabel;
     @FXML
-    public Label tweetViewRetweetNumberLabel;
+    public Label RetweetNumberLabel;
     @FXML
-    public ImageView tweetViewAvatarImageView;
+    public ImageView AvatarImageView;
 
     @FXML
-    public void tweetViewUserNameLabelOnMouseClicked(MouseEvent mouseEvent)
+    public void UserNameLabelOnMouseClicked(MouseEvent mouseEvent)
     {
         //TODO : show selected user's profile
     }
 
     @FXML
-    public void tweetViewLikeButtonOnAction(ActionEvent actionEvent)
+    public void LikeButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : Like tweet if is was likable
     }
 
     @FXML
-    public void tweetViewReplyButtonOnAction(ActionEvent actionEvent)
+    public void ReplyButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : show sendreply scene, this is a pop-up
     }
 
     @FXML
-    public void tweetViewRetweetButtonOnAction(ActionEvent actionEvent)
+    public void RetweetButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : show sendretweet scene, this is a pop-up
     }
