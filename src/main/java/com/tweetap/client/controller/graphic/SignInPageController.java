@@ -1,6 +1,9 @@
 package com.tweetap.client.controller.graphic;
 
+import com.tweetap.MainClient;
 import com.tweetap.client.controller.ControllerCommands;
+import com.tweetap.client.controller.Data;
+import com.tweetap.client.view.ProgramState;
 import com.tweetap.entities.exception.TwitException;
 import com.tweetap.entities.exception.UnknownException;
 import com.tweetap.entities.exception.io.server.ServerException;
@@ -8,7 +11,6 @@ import com.tweetap.entities.exception.io.server.UserNotFoundException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -16,10 +18,10 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
-import javax.swing.text.Style;
 import java.io.IOException;
 
 public class SignInPageController
@@ -27,49 +29,77 @@ public class SignInPageController
     private static final String redTextStyle = "-fx-border-color: linear-gradient( to right top,#ff5757, #ff7429); " +
             "-fx-border-width: 0px 0px 2px 0px; " +
             "-fx-background-color: linear-gradient( to right top,#ff0404, #f26f47);";
+    private static final String greenTextStyle = "-fx-border-color: linear-gradient( to right top,#facd68, #fc76b3); " +
+            "-fx-border-width: 0px 0px 2px 0px; " +
+            "-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2);";
 
     @FXML
-    public TextField signInUserNameTextField;
+    public TextField userNameTextField;
     @FXML
-    public PasswordField signInPasswordTextField;
+    public PasswordField passwordTextField;
     @FXML
-    public Button signInSignInButton;
+    public Button signInButton;
     @FXML
-    public Hyperlink signInSignUpHyperLink;
+    public Hyperlink signUpHyperLink;
     @FXML
-    public Label signInUserNameLabel;
+    public Label userNameLabel;
     @FXML
-    public Label signInPasswordLabel;
+    public Label passwordLabel;
+    @FXML
+    public Label errorLabel;
 
     private Stage stage;
 
-    @FXML
-    public void signInUserNameTextFieldOnKeyPressed(KeyEvent keyEvent)
+    public void initialize()
     {
-        // TODO : handle when user pressed 'Enter' switch to next field and save this text to suitable variable
+        ProgramState programState = Data.getInstance().getProgramState();
+        if(programState == ProgramState.MAIN_MENU)
+            goToTimeLine();
+    }
+
+    private void refreshControls()
+    {
+        userNameTextField.setStyle(greenTextStyle);
+        passwordTextField.setStyle(greenTextStyle);
+        userNameLabel.setText("");
+        passwordLabel.setText("");
+        errorLabel.setText("");
     }
 
     @FXML
-    public void signInPasswordTextFieldOnKeyPressed(KeyEvent keyEvent)
+    public void userNameTextFieldOnKeyPressed(KeyEvent keyEvent)
     {
-        // TODO : handle when user pressed 'Enter' switch to next field and save this text to suitable variable
+        if(keyEvent.getCode() == KeyCode.ENTER)
+            passwordTextField.requestFocus();
     }
 
     @FXML
-    public void signInSignInButtonOnAction(ActionEvent actionEvent)
+    public void passwordTextFieldOnKeyPressed(KeyEvent keyEvent)
     {
-        // TODO : process input variables and show result and switch in timelineScene
-        String username = signInUserNameTextField.getText();
-        String password = signInPasswordTextField.getText();
+        if(keyEvent.getCode() == KeyCode.ENTER)
+            signIn();
+    }
+
+    @FXML
+    public void signInButtonOnAction(ActionEvent actionEvent)
+    {
+        signIn();
+    }
+
+    private void signIn()
+    {
+        refreshControls();
+        String username = userNameTextField.getText();
+        String password = passwordTextField.getText();
 
         if (username.equals(""))
         {
-            signInUserNameTextField.setStyle(redTextStyle);
+            userNameTextField.setStyle(redTextStyle);
             return;
         }
         if (password.equals(""))
         {
-            signInPasswordTextField.setStyle(redTextStyle);
+            passwordTextField.setStyle(redTextStyle);
             return;
         }
 
@@ -79,40 +109,50 @@ public class SignInPageController
             goToTimeLine();
         } catch (UserNotFoundException e)
         {
-            // TODO: warn the user that username or password was incorrect
-            signInUserNameTextField.setStyle(redTextStyle);
-            signInPasswordTextField.setStyle(redTextStyle);
-            signInUserNameLabel.setText("username or password not found!");
+            userNameTextField.setStyle(redTextStyle);
+            passwordTextField.setStyle(redTextStyle);
+            userNameLabel.setText("username or password not found!");
+            passwordTextField.setText("");
         } catch (ServerException e)
         {
-            // TODO: warn that something happened with the server side
+            errorLabel.setText("Something went wrong from the server side!");
         } catch (UnknownException e)
         {
-            // TODO: warn that some unknown error happened
+            errorLabel.setText("Some unknown error happened!");
         } catch (TwitException e)
         {
-            // TODO: warn that some unexpected error happened
+            errorLabel.setText("Some unexpected error happened!");
         }
     }
 
     @FXML
-    public void signInSignUpHyperLinkOnAction(ActionEvent actionEvent)
-    {
-        // TODO : switch to signUpScene
-    }
-
-    private void goToTimeLine()
+    public void signUpHyperLinkOnAction(ActionEvent actionEvent)
     {
         try
         {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("timeline.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(MainClient.class.getResource("signuppage.fxml"));
             Parent root = fxmlLoader.load();
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
         } catch (IOException e)
         {
-            // TODO
+            errorLabel.setText("Something went wrong while going to signup page!");
+        }
+    }
+
+    private void goToTimeLine()
+    {
+        try
+        {
+            FXMLLoader fxmlLoader = new FXMLLoader(MainClient.class.getResource("timeline.fxml"));
+            Parent root = fxmlLoader.load();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e)
+        {
+            errorLabel.setText("Something went wrong while going to timeline page!");
         }
     }
 

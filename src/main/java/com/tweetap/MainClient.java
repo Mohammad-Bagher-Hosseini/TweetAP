@@ -21,7 +21,7 @@ public class MainClient extends Application
     {
         // TODO : specify state of sign up of user
         //if (isUserSignUp(user)) do something
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("signinpage.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainClient.class.getResource("signinpage.fxml"));
         Parent root = fxmlLoader.load();
         stage.setTitle("TweetAP");
         stage.setScene(new Scene(root));
