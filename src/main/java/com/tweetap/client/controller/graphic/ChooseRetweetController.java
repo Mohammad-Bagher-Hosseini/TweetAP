@@ -1,8 +1,11 @@
 package com.tweetap.client.controller.graphic;
 
 import com.tweetap.MainClient;
+import com.tweetap.client.controller.ControllerCommands;
+import com.tweetap.entities.exception.TwitException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
@@ -18,7 +21,15 @@ public class ChooseRetweetController implements HasStage
     @FXML
     public void retweetButtonOnAction(ActionEvent actionEvent)
     {
-        //TODO : retweet the selected tweet
+        try
+        {
+            ControllerCommands.sendRetweet(Long.toString(tweetId));
+        } catch (TwitException e)
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Something went wrong while retweeting");
+            alert.show();
+        }
     }
 
     @FXML
