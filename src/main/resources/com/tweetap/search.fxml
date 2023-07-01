@@ -16,7 +16,7 @@
                   <VBox fx:id="findUsersVBox" prefHeight="475.0" prefWidth="337.0" />
                </content>
             </ScrollPane>
-            <Button fx:id="searchSearchButton" layoutX="340.0" layoutY="14.0" mnemonicParsing="false" onAction="#searchSearchButtonOnAction" prefHeight="35.0" prefWidth="36.0" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2);">
+            <Button fx:id="searchSearchButton" layoutX="340.0" layoutY="14.0" mnemonicParsing="false" onAction="#searchButtonOnAction" prefHeight="35.0" prefWidth="36.0" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2);">
                <graphic>
                   <FontAwesomeIconView glyphName="SEARCH" size="20" />
                </graphic>
