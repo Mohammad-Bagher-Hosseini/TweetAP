@@ -25,8 +25,6 @@ public class SearchController implements HasStage
     @FXML
     public Button exitButton;
     @FXML
-    public Button searchSearchSearchButton;
-    @FXML
     public TextField searchTextField;
     private Stage stage;
     public Button searchButton;
