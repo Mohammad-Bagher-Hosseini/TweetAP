@@ -18,7 +18,7 @@ public class ReplyViewController implements HasStage
     @FXML
     public Label repliedLabel;
     @FXML
-    public TextArea textArea;
+    public Label textLabel;
     @FXML
     public Button likeButton;
     @FXML
@@ -71,7 +71,7 @@ public class ReplyViewController implements HasStage
     {
         replierLabel.setText(reply.getUserName());
         repliedLabel.setText(reply.getTweet().getUserName());
-        textArea.setText(reply.getTextContent().toString());
+        textLabel.setText(reply.getTextContent().toString());
         likeNumberLabel.setText(Integer.toString(reply.getTweet().getLikeCount()));
         replyNumberLabel.setText(Integer.toString(reply.getTweet().getReplies().size()));
         retweetNumberLabel.setText(Integer.toString(reply.getTweet().getRetweetCount()));

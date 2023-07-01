@@ -23,7 +23,7 @@ public class QuoteViewController implements HasStage
     @FXML
     public Label userNameLabel;
     @FXML
-    public TextArea textArea;
+    public Label textLabel;
     @FXML
     public ImageView imageView;
     @FXML
@@ -38,7 +38,10 @@ public class QuoteViewController implements HasStage
     public Label replyNumberLabel;
     @FXML
     public Label retweetNumberLabel;
+    @FXML
     public VBox tweetVBox;
+    @FXML
+    public Button retweetButton;
     private Stage stage;
 
     @FXML
@@ -68,7 +71,7 @@ public class QuoteViewController implements HasStage
     public void showQuote(Quote quote)
     {
         userNameLabel.setText(quote.getUserName());
-        textArea.setText(quote.getTextContent().toString());
+        textLabel.setText(quote.getTextContent().toString());
         // TODO: set imageview
         likeNumberLabel.setText(Integer.toString(quote.getTweet().getLikeCount()));
         replyNumberLabel.setText(Integer.toString(quote.getTweet().getReplies().size()));

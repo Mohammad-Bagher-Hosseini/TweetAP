@@ -8,8 +8,6 @@ import com.tweetap.entities.tweet.Tweet;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -17,10 +15,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-
-import java.io.IOException;
 
 public class TweetViewController implements HasStage
 {
@@ -28,7 +23,7 @@ public class TweetViewController implements HasStage
     @FXML
     public Label userNameLabel;
     @FXML
-    public TextArea tweetTextArea;
+    public Label tweetTextLabel;
     @FXML
     public ImageView tweetImageView;
     @FXML
@@ -94,7 +89,7 @@ public class TweetViewController implements HasStage
     public void showTweet(Tweet tweet)
     {
         userNameLabel.setText(tweet.getUserName());
-        tweetTextArea.setText(tweet.getTextContent().toString());
+        tweetTextLabel.setText(tweet.getTextContent().toString());
         // TODO: tweetImageView.setImage((Image) tweet.getImageContent().getImage());
         likeNumberLabel.setText(Integer.toString(tweet.getLikeCount()));
         replyNumberLabel.setText(Integer.toString(tweet.getReplies().size()));

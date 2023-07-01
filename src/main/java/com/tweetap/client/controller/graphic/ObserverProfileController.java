@@ -29,7 +29,7 @@ public class ObserverProfileController implements HasStage
     @FXML
     public Label followersNumberLabel;
     @FXML
-    public TextArea bioTextArea;
+    public Label bioLabel;
     @FXML
     public Button blockRelationButton;
     @FXML

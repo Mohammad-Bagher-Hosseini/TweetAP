@@ -34,7 +34,7 @@ public class ProfileController implements HasStage
     @FXML
     public Button followersButton;
     @FXML
-    public TextArea bioTextArea;
+    public Label bioLabel;
     @FXML
     public ImageView avatarImageView;
     @FXML

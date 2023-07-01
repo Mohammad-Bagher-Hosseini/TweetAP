@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -45,7 +45,6 @@
          </font>
       </Button>
       <Label fx:id="followersNumberLabel" layoutX="265.0" layoutY="422.0" prefHeight="30.0" prefWidth="42.0" text="numb" />
-      <TextArea fx:id="bioTextArea" editable="false" layoutX="38.0" layoutY="292.0" prefHeight="62.0" prefWidth="264.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 15;" />
       <Button fx:id="blockRelationButton" layoutX="204.0" layoutY="246.0" mnemonicParsing="false" onAction="#blockRelationButtonOnAction" prefHeight="30.0" prefWidth="102.0" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2); -fx-background-radius: 15;" text="Block or unBlock" textFill="WHITE">
          <font>
             <Font size="14.0" />
@@ -57,5 +56,10 @@
             <FontAwesomeIconView glyphName="ARROW_LEFT" size="18" />
          </graphic>
       </Button>
+      <Label fx:id="bioLabel" alignment="TOP_LEFT" layoutX="41.0" layoutY="285.0" prefHeight="74.0" prefWidth="257.0" style="-fx-background-radius: 15; -fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-padding: 5;" text="Label" wrapText="true">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Label>
    </children>
 </AnchorPane>
