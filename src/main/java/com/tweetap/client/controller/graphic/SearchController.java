@@ -3,6 +3,7 @@ package com.tweetap.client.controller.graphic;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.layout.VBox;
 
@@ -19,8 +20,10 @@ public class SearchController implements HasStage
     public Button exitButton;
     @FXML
     public Button searchSearchSearchButton;
+    @FXML
+    public TextField searchTextField;
     private Stage stage;
-    public Button searchSearchButton;
+    public Button searchButton;
     @FXML
     public VBox findUsersVBox;
 
@@ -49,7 +52,7 @@ public class SearchController implements HasStage
     }
 
     @FXML
-    public void searchSearchButtonOnAction(ActionEvent actionEvent)
+    public void searchButtonOnAction(ActionEvent actionEvent)
     {
         // TODO : process input variables and show results
     }

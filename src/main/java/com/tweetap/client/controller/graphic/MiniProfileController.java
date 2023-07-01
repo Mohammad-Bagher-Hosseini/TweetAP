@@ -43,7 +43,6 @@ public class MiniProfileController implements HasStage
             System.out.println("MiniProfile -> showMiniUser -> writeImage in byteArray error : can't work with userAvatar!");
         }
         avatarImageView.setImage(new Image(new ByteArrayInputStream(byteImage.toByteArray())));
-        // TODO: avatar
     }
 
     @Override

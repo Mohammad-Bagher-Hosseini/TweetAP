@@ -79,7 +79,6 @@ public class ObserverProfileController implements HasStage
             //TODO : error
         }
         headerImageView.setImage(new Image(new ByteArrayInputStream(byteImage.toByteArray())));
-        // TODO: set headerImageView
         userNameTextField.setText("@" + miniUser.getUserName());
         try
         {
@@ -111,7 +110,6 @@ public class ObserverProfileController implements HasStage
             //TODO : error
         }
         avatarImageView.setImage(new Image(new ByteArrayInputStream(byteImage.toByteArray())));
-        // TODO: set avatarImageView
 
         if(followers.getUserNames().contains(Data.getInstance().getUser().getUserName()))
             followRelationButton.setText("Unfollow");
