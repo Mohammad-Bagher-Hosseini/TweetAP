@@ -23,12 +23,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="userNameTextField" layoutX="41.0" layoutY="407.0" prefHeight="30.0" prefWidth="94.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 10;" text="\@user name">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="signInDateTextField" layoutX="41.0" layoutY="446.0" prefHeight="30.0" prefWidth="94.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 10;" text="sign in date">
+      <Label fx:id="userNameTextField" layoutX="41.0" layoutY="406.0" prefHeight="30.0" prefWidth="94.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 10;" text="\@user name">
          <font>
             <Font size="14.0" />
          </font>
@@ -60,6 +55,11 @@
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
+      </Label>
+      <Label fx:id="familyTextField" layoutX="41.0" layoutY="445.0" prefHeight="30.0" prefWidth="94.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 10;" text="family">
+         <font>
+            <Font size="14.0" />
+         </font>
       </Label>
    </children>
 </AnchorPane>

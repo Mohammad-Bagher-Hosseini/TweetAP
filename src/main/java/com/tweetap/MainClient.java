@@ -9,8 +9,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
@@ -56,6 +58,7 @@ public class MainClient extends Application
             FXMLLoader fxmlLoader = new FXMLLoader(MainClient.class.getResource(page));
             Parent root = fxmlLoader.load();
             Scene scene = new Scene(root);
+//            form(stage, scene);
             stage.setScene(scene);
             t = fxmlLoader.getController();
             t.setStage(stage);
@@ -78,6 +81,7 @@ public class MainClient extends Application
             Parent root = fxmlLoader.load();
             pane.getChildren().add(root);
             t = fxmlLoader.getController();
+//            form(stage, stage.getScene());
             t.setStage(stage);
         } catch (IOException e)
         {
@@ -98,7 +102,7 @@ public class MainClient extends Application
             FXMLLoader fxmlLoader = new FXMLLoader(MainClient.class.getResource(page));
             Parent root = fxmlLoader.load();
             popupStage.setScene(new Scene(root));
-
+//            form(popupStage, popupStage.getScene());
             t = fxmlLoader.getController();
             t.setStage(popupStage);
 
@@ -114,5 +118,11 @@ public class MainClient extends Application
         }
 
         return t;
+    }
+
+    public static void form(Stage stage, Scene scene)
+    {
+        scene.setFill(Color.TRANSPARENT);
+        stage.initStyle(StageStyle.TRANSPARENT);
     }
 }

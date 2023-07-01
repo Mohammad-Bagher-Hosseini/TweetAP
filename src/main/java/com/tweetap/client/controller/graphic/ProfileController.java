@@ -39,6 +39,8 @@ public class ProfileController implements HasStage
     public ImageView avatarImageView;
     @FXML
     public Button signOutButton;
+    @FXML
+    public Label familyTextField;
     private Stage stage;
 
     @FXML

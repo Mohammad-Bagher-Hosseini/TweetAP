@@ -13,6 +13,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -30,8 +32,11 @@ public class TimeLineController implements HasStage
     public Button exitButton;
     @FXML
     public VBox tweetsVBox;
+    @FXML
+    public AnchorPane rootPane;
 
     private Stage stage;
+    private double x = 0, y = 0;
 
     public void initialize()
     {
@@ -108,5 +113,19 @@ public class TimeLineController implements HasStage
     {
         this.stage = stage;
         onShown();
+    }
+
+    @FXML
+    public void rootPaneOnMouseDragged(MouseEvent mouseEvent)
+    {
+//        x = mouseEvent.getSceneX();
+//        y = mouseEvent.getSceneY();
+    }
+
+    @FXML
+    public void rootPaneOnMousePressed(MouseEvent mouseEvent)
+    {
+//        stage.setX(mouseEvent.getX() - x);
+//        stage.setY(mouseEvent.getY() - y);
     }
 }

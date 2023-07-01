@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
@@ -7,13 +8,14 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="186.0" prefWidth="256.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tweetap.client.controller.graphic.ReplyViewController">
    <children>
-      <Label fx:id="replierLabel" layoutX="67.0" layoutY="14.0" onMouseClicked="#replierLabelOnMouseClicked" text="Label" />
-      <Label fx:id="repliedLabel" layoutX="67.0" layoutY="42.0" onMouseClicked="#repliedLabelOnMouseClicked" text="Label" />
-      <ImageView fx:id="avatarImageView" fitHeight="50.0" fitWidth="50.0" layoutX="13.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="replierLabel" layoutX="95.0" layoutY="13.0" onMouseClicked="#replierLabelOnMouseClicked" text="Label" />
+      <Label fx:id="repliedLabel" layoutX="95.0" layoutY="39.0" onMouseClicked="#repliedLabelOnMouseClicked" text="Label" />
+      <ImageView fx:id="avatarImageView" fitHeight="50.0" fitWidth="50.0" layoutX="36.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
       <Label fx:id="textLabel" alignment="TOP_LEFT" layoutX="-1.0" layoutY="77.0" prefHeight="74.0" prefWidth="257.0" style="-fx-background-radius: 15; -fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-padding: 5;" text="Label" wrapText="true">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
       </Label>
+      <FontAwesomeIconView glyphName="REPLY" layoutX="6.0" layoutY="28.0" size="17" />
    </children>
 </AnchorPane>

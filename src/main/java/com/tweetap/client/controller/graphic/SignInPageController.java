@@ -20,6 +20,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -47,8 +49,13 @@ public class SignInPageController implements HasStage
     public Label passwordLabel;
     @FXML
     public Label errorLabel;
+    @FXML
+    public AnchorPane rootPane;
+    @FXML
+    public Button exitButton;
 
     private Stage stage;
+    private double x = 0, y = 0;
 
     public void initialize()
     {
@@ -136,5 +143,25 @@ public class SignInPageController implements HasStage
     public void setStage(Stage stage)
     {
         this.stage = stage;
+    }
+
+    @FXML
+    public void rootPaneOnMouseDragged(MouseEvent mouseEvent)
+    {
+//        x = mouseEvent.getSceneX();
+//        y = mouseEvent.getSceneY();
+    }
+
+    @FXML
+    public void rootPaneOnMousePressed(MouseEvent mouseEvent)
+    {
+//        stage.setX(mouseEvent.getX() - x);
+//        stage.setY(mouseEvent.getY() - y);
+    }
+
+    @FXML
+    public void exitButtonOnAction(ActionEvent actionEvent)
+    {
+        ((Stage)exitButton.getScene().getWindow()).close();
     }
 }

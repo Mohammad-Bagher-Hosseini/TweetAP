@@ -52,6 +52,8 @@ public class ObserverProfileController implements HasStage
     public ImageView avatarImageView;
     @FXML
     public Button backButton;
+    @FXML
+    public Label familyTextField;
     private Stage stage;
     private MiniUser miniUser;
     private Followers followers;

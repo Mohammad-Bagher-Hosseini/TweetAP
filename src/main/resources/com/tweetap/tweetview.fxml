@@ -20,7 +20,7 @@
       <FontAwesomeIconView glyphName="RETWEET" layoutX="177.0" layoutY="448.0" size="17" />
       <Label fx:id="retweetNumberLabel" layoutX="206.0" layoutY="435.0" prefHeight="18.0" prefWidth="36.0" text="numb" />
       <ImageView fx:id="avatarImageView" fitHeight="50.0" fitWidth="50.0" layoutX="11.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
-      <VBox fx:id="repliesVbox" layoutX="6.0" layoutY="228.0" prefHeight="200.0" prefWidth="239.0" />
+      <VBox fx:id="repliesVbox" layoutX="16.0" layoutY="217.0" prefHeight="200.0" prefWidth="239.0" />
       <Label fx:id="tweetTextLabel" alignment="TOP_LEFT" layoutX="-1.0" layoutY="63.0" prefHeight="74.0" prefWidth="257.0" style="-fx-background-radius: 15; -fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-padding: 5;" text="Label" wrapText="true">
          <opaqueInsets>
             <Insets />

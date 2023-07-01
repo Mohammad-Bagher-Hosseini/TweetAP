@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="590.0" prefWidth="526.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tweetap.client.controller.graphic.TimeLineController">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#rootPaneOnMouseDragged" onMousePressed="#rootPaneOnMousePressed" prefHeight="590.0" prefWidth="526.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tweetap.client.controller.graphic.TimeLineController">
     <children>
         <AnchorPane layoutX="127.0" layoutY="18.0" prefHeight="546.0" prefWidth="398.0" style="-fx-background-radius: 25; -fx-background-color: #ffffff;">
          <children>

@@ -23,6 +23,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -80,8 +82,13 @@ public class SignUpPageController implements HasStage
     public Label confirmPasswordLabel;
     @FXML
     public Label errorLabel;
+    @FXML
+    public Button exitButton;
+    @FXML
+    public AnchorPane rootPane;
 
     private Stage stage;
+    private double x = 0, y = 0;
 
     public void initialize()
     {
@@ -304,5 +311,25 @@ public class SignUpPageController implements HasStage
     public void setStage(Stage stage)
     {
         this.stage = stage;
+    }
+
+    @FXML
+    public void exitButtonOnAction(ActionEvent actionEvent)
+    {
+        ((Stage)exitButton.getScene().getWindow()).close();
+    }
+
+    @FXML
+    public void rootPaneOnMouseDragged(MouseEvent mouseEvent)
+    {
+//        x = mouseEvent.getSceneX();
+//        y = mouseEvent.getSceneY();
+    }
+
+    @FXML
+    public void rootPaneOnMousePressed(MouseEvent mouseEvent)
+    {
+//        stage.setX(mouseEvent.getX() - x);
+//        stage.setY(mouseEvent.getY() - y);
     }
 }
