@@ -16,7 +16,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.*;
 
 public class SendTweetController implements HasStage
 {
@@ -84,8 +89,35 @@ public class SendTweetController implements HasStage
     @FXML
     public void searchImagePathButtonOnAction(ActionEvent actionEvent)
     {
-        Image image = new Image(imagePathTextFiled.getText());
-        inputImageView.setImage(image);
+        if(imagePathTextFiled.getText().equals(""))
+        {
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Open Image");
+            fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif"));
+            File selected = fileChooser.showOpenDialog(stage);
+            if(selected != null)
+            {
+                inputImageView.setImage(new Image(selected.toURI().toString()));
+            }
+            else
+            {
+                //TODO : do suitable work
+            }
+        }
+        else
+        {
+            try
+            {
+                BufferedImage bImage = ImageIO.read(new File(imagePathTextFiled.getText()));
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                ImageIO.write(bImage, "jpg", byteArrayOutputStream);
+                InputStream inputImage = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
+                inputImageView.setImage(new Image(inputImage));
+            } catch (IOException e)
+            {
+                //TODO : do suitable work
+            }
+        }
     }
 
     @FXML

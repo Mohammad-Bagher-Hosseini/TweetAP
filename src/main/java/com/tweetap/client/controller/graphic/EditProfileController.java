@@ -91,7 +91,7 @@ public class EditProfileController implements HasStage
     //TODO : this must be a general method in a util class
     public void chooseImage(TextField imagePathTextFiled, ImageView imageView)
     {
-        if(imagePathTextFiled.getText() == null)
+        if(imagePathTextFiled.getText().equals(""))
         {
             FileChooser fileChooser = new FileChooser();
             fileChooser.setTitle("Open Image");

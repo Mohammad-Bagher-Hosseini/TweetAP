@@ -42,7 +42,7 @@ public class SendQuoteController implements HasStage
     @FXML
     public void searchImagePathButtonOnAction(ActionEvent actionEvent)
     {
-        if(imagePathTextFiled.getText() == null)
+        if(imagePathTextFiled.getText().equals(""))
         {
             FileChooser fileChooser = new FileChooser();
             fileChooser.setTitle("Open Image");
