@@ -90,7 +90,8 @@ public class EditProfileController implements HasStage
         chooseImage(avatarImagePathTextFiled, avatarImageView);
     }
 
-    private void chooseImage(TextField imagePathTextFiled, ImageView imageView)
+    //TODO : this must be a general method in a util class
+    public void chooseImage(TextField imagePathTextFiled, ImageView imageView)
     {
         if(imagePathTextFiled.getText() == null)
         {
