@@ -26,8 +26,11 @@ public class SearchController implements HasStage
     public Button exitButton;
     @FXML
     public TextField searchTextField;
+    @FXML
+    public Button searchUserButton;
+    @FXML
+    public Button searchHashtagButton;
     private Stage stage;
-    public Button searchButton;
     @FXML
     public VBox findUsersVBox;
 
@@ -56,7 +59,7 @@ public class SearchController implements HasStage
     }
 
     @FXML
-    public void searchButtonOnAction(ActionEvent actionEvent)
+    public void searchHashtagButtonOnAction(ActionEvent actionEvent)
     {
         String hashtags = searchTextField.getText();
         try
@@ -105,5 +108,11 @@ public class SearchController implements HasStage
     public void setStage(Stage stage)
     {
         this.stage = stage;
+    }
+
+    @FXML
+    public void searchUserButtonOnAction(ActionEvent actionEvent)
+    {
+
     }
 }
