@@ -12,10 +12,16 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
+import javax.imageio.ImageIO;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 
 public class TweetViewController implements HasStage
 {
@@ -100,16 +106,35 @@ public class TweetViewController implements HasStage
     {
         userNameLabel.setText(tweet.getUserName());
         tweetTextLabel.setText(tweet.getTextContent().toString());
+        ByteArrayOutputStream byteImage = new ByteArrayOutputStream();
+        try
+        {
+            ImageIO.write(tweet.getImageContent().getImage(), "jpg", byteImage);
+        }
+        catch (IOException e)
+        {
+            System.out.println("TweetView -> showTweet -> writeImage in byteArray error : can't work with tweetImage!");
+        }
+        tweetImageView.setImage(new Image(new ByteArrayInputStream(byteImage.toByteArray())));
         // TODO: tweetImageView.setImage((Image) tweet.getImageContent().getImage());
         likeNumberLabel.setText(Integer.toString(tweet.getLikeCount()));
         replyNumberLabel.setText(Integer.toString(tweet.getReplies().size()));
         retweetNumberLabel.setText(Integer.toString(tweet.getRetweetCount()));
+        byteImage.reset();
+        try
+        {
+            ImageIO.write(tweet.getOwner().getAvatar().getImage(), "jpg", byteImage);
+        } catch (IOException e)
+        {
+            System.out.println("TweetView -> showTweet -> writeImage in byteArray error : can't work with userAvatar!");
+        }
+        avatarImageView.setImage(new Image(new ByteArrayInputStream(byteImage.toByteArray())));
         // TODO: set avatar imageview
         tweetId = tweet.getId();
 
         for(Reply reply : tweet.getReplies())
         {
-            ReplyViewController replyViewController = MainClient.loadPage(repliesVbox, stage, "replyview.fxml");
+            ReplyViewController replyViewController = MainClient.loadPage(repliesVbox, stage,"replyview.fxml");
             replyViewController.showReply(reply);
         }
     }
