@@ -99,7 +99,7 @@ public class TweetViewController implements HasStage
 
         for(Reply reply : tweet.getReplies())
         {
-            ReplyViewController replyViewController = MainClient.loadPage(repliesVbox, "replyview.fxml");
+            ReplyViewController replyViewController = MainClient.loadPage(repliesVbox, stage, "replyview.fxml");
             replyViewController.showReply(reply);
         }
     }

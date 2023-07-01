@@ -58,19 +58,19 @@ public class TimeLineController implements HasStage
 
     private void addTweet(Tweet tweet)
     {
-        TweetViewController tweetViewController = MainClient.loadPage(tweetsVBox, "tweetview.fxml");
+        TweetViewController tweetViewController = MainClient.loadPage(tweetsVBox, stage, "tweetview.fxml");
         tweetViewController.showTweet(tweet);
     }
 
     private void addRetweet(Retweet retweet)
     {
-        RetweetViewController retweetViewController = MainClient.loadPage(tweetsVBox, "retweetview.fxml");
+        RetweetViewController retweetViewController = MainClient.loadPage(tweetsVBox, stage, "retweetview.fxml");
         retweetViewController.showRetweet(retweet);
     }
 
     private void addQuote(Quote quote)
     {
-        QuoteViewController quoteViewController = MainClient.loadPage(tweetsVBox, "quoteview.fxml");
+        QuoteViewController quoteViewController = MainClient.loadPage(tweetsVBox, stage, "quoteview.fxml");
         quoteViewController.showQuote(quote);
     }
 

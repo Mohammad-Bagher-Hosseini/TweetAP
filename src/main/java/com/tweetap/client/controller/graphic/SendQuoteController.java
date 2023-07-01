@@ -1,7 +1,21 @@
 package com.tweetap.client.controller.graphic;
 
+import com.tweetap.client.controller.ControllerCommands;
+import com.tweetap.entities.exception.TwitException;
+import com.tweetap.entities.exception.UnknownException;
+import com.tweetap.entities.exception.io.FileNotExistException;
+import com.tweetap.entities.exception.io.FileNotImageException;
+import com.tweetap.entities.exception.io.FileSizeException;
+import com.tweetap.entities.exception.io.ImageSizeException;
+import com.tweetap.entities.exception.io.server.*;
+import com.tweetap.entities.exception.text.TextTooLongException;
+import com.tweetap.entities.exception.user.CountryException;
+import com.tweetap.entities.exception.user.PermissionDeniedException;
+import com.tweetap.entities.exception.user.email.EmailFormatException;
+import com.tweetap.entities.exception.user.password.InvalidPasswordException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -70,7 +84,38 @@ public class SendQuoteController implements HasStage
     @FXML
     public void sendQuoteButtonOnAction(ActionEvent actionEvent)
     {
-        //TODO : send quote and close the pop_up
+        try
+        {
+            String text = textArea.getText();
+            String imagePath = imagePathTextFiled.getText();
+            ControllerCommands.sendQuote(Long.toString(tweetId), text, imagePath);
+            stage.close();
+        } catch (TwitException e)
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Something went wrong while sending your quote!");
+            alert.show();
+        } catch (ImageSizeException e)
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Image size not accepted!");
+            alert.show();
+        } catch (FileSizeException e)
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("File size too big!");
+            alert.show();
+        } catch (FileNotExistException e)
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("The file doesn't exist");
+            alert.show();
+        } catch (FileNotImageException e)
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("The file was not an image");
+            alert.show();
+        }
     }
 
     @FXML

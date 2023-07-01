@@ -78,18 +78,8 @@ public class QuoteViewController implements HasStage
         retweetNumberLabel.setText(Integer.toString(quote.getTweet().getRetweetCount()));
 
         Tweet tweet = quote.getTweet();
-        try
-        {
-            FXMLLoader fxmlLoader = new FXMLLoader(MainClient.class.getResource("tweetview.fxml"));
-            Parent tweetContainer = fxmlLoader.load();
-            tweetVBox.getChildren().add(tweetContainer);
-
-            TweetViewController tweetViewController = fxmlLoader.getController();
-            tweetViewController.showTweet(tweet);
-        } catch (IOException e)
-        {
-            // TODO
-        }
+        TweetViewController tweetViewController = MainClient.loadPage(tweetVBox, stage, "tweetview.fxml");
+        tweetViewController.showTweet(tweet);
     }
 
     @Override

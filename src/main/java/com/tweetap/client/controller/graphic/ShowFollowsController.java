@@ -53,7 +53,7 @@ public class ShowFollowsController implements HasStage
             Followers followers = ControllerCommands.showFollowers();
             for(MiniUser miniUser : followers)
             {
-                MiniProfileController miniProfileController = MainClient.loadPage(followRelationsVBox, "miniprofile.fxml");
+                MiniProfileController miniProfileController = MainClient.loadPage(followRelationsVBox, stage, "miniprofile.fxml");
                 miniProfileController.showMiniUser(miniUser);
             }
         } catch (TwitException e)
@@ -71,7 +71,7 @@ public class ShowFollowsController implements HasStage
             Followings followings = ControllerCommands.showFollowings();
             for(MiniUser miniUser : followings)
             {
-                MiniProfileController miniProfileController = MainClient.loadPage(followRelationsVBox, "miniprofile.fxml");
+                MiniProfileController miniProfileController = MainClient.loadPage(followRelationsVBox, stage, "miniprofile.fxml");
                 miniProfileController.showMiniUser(miniUser);
             }
         } catch (TwitException e)

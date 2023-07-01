@@ -24,10 +24,8 @@ public class ChooseRetweetController implements HasStage
     @FXML
     public void quoteButtonOnAction(ActionEvent actionEvent)
     {
-        //TODO : close this pop_up and open the sendquote_pop_up
         SendQuoteController sendQuoteController = MainClient.loadPopup(stage, "sendquote_pop_up.fxml", (controller) -> controller.setTweetId(tweetId));
         stage.close();
-
     }
 
     @Override

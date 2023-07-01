@@ -31,18 +31,8 @@ public class RetweetViewController implements HasStage
     {
         userNameLabel.setText(retweet.getUserName());
         Tweet tweet = retweet.getTweet();
-        try
-        {
-            FXMLLoader fxmlLoader = new FXMLLoader(MainClient.class.getResource("tweetview.fxml"));
-            Parent tweetContainer = fxmlLoader.load();
-            tweetVbox.getChildren().add(tweetContainer);
-
-            TweetViewController tweetViewController = fxmlLoader.getController();
-            tweetViewController.showTweet(tweet);
-        } catch (IOException e)
-        {
-            // TODO
-        }
+        TweetViewController tweetViewController = MainClient.loadPage(tweetVbox, stage, "tweetview.fxml");
+        tweetViewController.showTweet(tweet);
     }
 
     @Override

@@ -71,7 +71,7 @@ public class MainClient extends Application
         return t;
     }
 
-    public static <T extends HasStage> T loadPage(Pane pane, String page)
+    public static <T extends HasStage> T loadPage(Pane pane, Stage stage, String page)
     {
         T t = null;
         try
@@ -80,6 +80,7 @@ public class MainClient extends Application
             Parent root = fxmlLoader.load();
             pane.getChildren().add(root);
             t = fxmlLoader.getController();
+            t.setStage(stage);
         } catch (IOException e)
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -98,7 +99,7 @@ public class MainClient extends Application
             Stage popupStage = new Stage();
             FXMLLoader fxmlLoader = new FXMLLoader(MainClient.class.getResource(page));
             Parent root = fxmlLoader.load();
-            popupStage.setScene(root.getScene());
+            popupStage.setScene(new Scene(root));
 
             t = fxmlLoader.getController();
             t.setStage(stage);

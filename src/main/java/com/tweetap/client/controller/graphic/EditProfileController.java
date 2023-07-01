@@ -32,7 +32,7 @@ public class EditProfileController implements HasStage
     @FXML
     public void backButtonOnAction(ActionEvent actionEvent)
     {
-        // TODO : close pop_up
+        stage.close();
     }
 
     @FXML
