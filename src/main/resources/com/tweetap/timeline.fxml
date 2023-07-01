@@ -12,7 +12,7 @@
          <children>
             <ScrollPane layoutX="39.0" layoutY="37.0" prefHeight="504.0" prefWidth="358.0">
                <content>
-                  <VBox fx:id="tweetsVBox" prefHeight="501.0" prefWidth="355.0" />
+                  <VBox fx:id="tweetsVBox" prefHeight="501.0" prefWidth="355.0" spacing="10.0" />
                </content>
             </ScrollPane>
          </children></AnchorPane>

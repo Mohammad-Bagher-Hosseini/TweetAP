@@ -89,7 +89,7 @@ public class SendTweetController implements HasStage
     @FXML
     public void searchImagePathButtonOnAction(ActionEvent actionEvent)
     {
-        if(imagePathTextFiled.getText().equals(""))
+        if(imagePathTextFiled.getText().equals("") || imagePathTextFiled.getText() == null)
         {
             FileChooser fileChooser = new FileChooser();
             fileChooser.setTitle("Open Image");
