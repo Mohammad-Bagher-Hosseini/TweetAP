@@ -1,7 +1,12 @@
 package com.tweetap.client.controller.graphic;
 
+import com.tweetap.MainClient;
+import com.tweetap.client.controller.ControllerCommands;
+import com.tweetap.client.controller.Data;
+import com.tweetap.entities.exception.user.PermissionDeniedException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -43,56 +48,71 @@ public class ProfileController implements HasStage
     public Label familyTextField;
     private Stage stage;
 
+    private void onShown()
+    {
+
+    }
+
     @FXML
     public void homeButtonOnAction(ActionEvent actionEvent)
     {
-        //TODO : switch to suitable scene
+        MainClient.loadPage(stage, "timeline.fxml");
     }
 
     @FXML
     public void searchButtonOnAction(ActionEvent actionEvent)
     {
-        //TODO : switch to suitable scene
+        MainClient.loadPage(stage, "search.fxml");
     }
 
     @FXML
     public void tweetButtonOnAction(ActionEvent actionEvent)
     {
-        //TODO : switch to suitable scene
+        MainClient.loadPage(stage, "sendtweet.fxml");
     }
 
     @FXML
     public void exitButtonOnAction(ActionEvent actionEvent)
     {
-        //TODO : Exit
+        System.exit(0);
     }
 
     @FXML
     public void editProfileButtonOnAction(ActionEvent actionEvent)
     {
-        //TODO : switch to editProfile scene
+        MainClient.loadPopup(stage, "editprofile.fxml", (controller) -> {});
     }
 
     @FXML
     public void followingsButtonOnAction(ActionEvent actionEvent)
     {
-        //TODO : switch to suitable scene
+        MainClient.loadPopup(stage, "showfollows", ShowFollowsController::showFollowings);
     }
 
     @FXML
     public void followersButtonOnAction(ActionEvent actionEvent)
     {
-        //TODO : switch to suitable scene
+        MainClient.loadPopup(stage, "showfollows", ShowFollowsController::showFollowers);
     }
 
     @FXML
     public void signOutButton(ActionEvent actionEvent)
     {
-        // TODO : sign out and switch to signIn scene
+        try
+        {
+            ControllerCommands.signOut();
+            MainClient.loadPage(stage, "signinpage.fxml");
+        } catch (PermissionDeniedException e)
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Something went wrong while signing out!");
+            alert.show();
+        }
     }
 
     public void setStage(Stage stage)
     {
         this.stage = stage;
+        onShown();
     }
 }
