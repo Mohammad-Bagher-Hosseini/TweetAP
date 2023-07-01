@@ -10,8 +10,14 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+
+import javax.imageio.ImageIO;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 
 public class ProfileController implements HasStage
 {
@@ -51,13 +57,30 @@ public class ProfileController implements HasStage
     private void onShown()
     {
         User user = Data.getInstance().getUser();
-        // TODO: headerImageView
+        ByteArrayOutputStream byteImage = new ByteArrayOutputStream();
+        try
+        {
+            ImageIO.write(user.getHeader().getImage(), "jpg", byteImage);
+        } catch (IOException e)
+        {
+            //TODO : error
+        }
+        headerImageView.setImage(new Image(new ByteArrayInputStream(byteImage.toByteArray())));
+
         nameTextField.setText(user.getName());
         familyTextField.setText(user.getFamily());
         userNameTextField.setText(user.getUserName());
         signUpDateTextField.setText(user.getSignUpDate().toString());
         bioLabel.setText(user.getBio().getText());
-        // TODO: avatarImageView
+        byteImage.reset();
+        try
+        {
+            ImageIO.write(user.getAvatar().getImage(), "jpg", byteImage);
+        } catch (IOException e)
+        {
+            //TODO : error
+        }
+        avatarImageView.setImage(new Image(new ByteArrayInputStream(byteImage.toByteArray())));
     }
 
     @FXML
