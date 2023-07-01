@@ -24,8 +24,7 @@ public class RetweetViewController implements HasStage
     @FXML
     public void userNameLabelOnMouseClicked(MouseEvent mouseEvent)
     {
-        //TODO : show selected user's profile
-    }
+        ObserverProfileController observerProfileController = MainClient.loadPopup(stage, "observerprofile_pop_up.fxml", (controller) -> controller.setUsername(userNameLabel.getText()));}
 
     public void showRetweet(Retweet retweet)
     {

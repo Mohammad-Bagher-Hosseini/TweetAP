@@ -1,6 +1,7 @@
 package com.tweetap.client.controller.graphic;
 
 import com.tweetap.MainClient;
+import com.tweetap.client.controller.ControllerCommands;
 import com.tweetap.entities.tweet.Quote;
 import com.tweetap.entities.tweet.Tweet;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
@@ -27,12 +28,6 @@ public class QuoteViewController implements HasStage
     @FXML
     public ImageView imageView;
     @FXML
-    public Button likeButton;
-    @FXML
-    public Button replyButton;
-    @FXML
-    public FontAwesomeIconView likeIcon;
-    @FXML
     public Label likeNumberLabel;
     @FXML
     public Label replyNumberLabel;
@@ -40,32 +35,12 @@ public class QuoteViewController implements HasStage
     public Label retweetNumberLabel;
     @FXML
     public VBox tweetVBox;
-    @FXML
-    public Button retweetButton;
     private Stage stage;
 
     @FXML
     public void userNameLabelOnMouseClicked(MouseEvent mouseEvent)
     {
-        // TODO : show selected user's profile
-    }
-
-    @FXML
-    public void likeButtonOnAction(ActionEvent actionEvent)
-    {
-        //TODO : like quote
-    }
-
-    @FXML
-    public void replyButtonOnAction(ActionEvent actionEvent)
-    {
-        //TODO : show sendreply scene
-    }
-
-    @FXML
-    public void retweetButtonOnAction(ActionEvent actionEvent)
-    {
-        //TODO : show sendretweet scene
+        ObserverProfileController observerProfileController = MainClient.loadPopup(stage, "observerprofile_pop_up.fxml", (controller) -> controller.setUsername(userNameLabel.getText()));
     }
 
     public void showQuote(Quote quote)

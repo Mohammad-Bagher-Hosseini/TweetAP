@@ -1,5 +1,6 @@
 package com.tweetap.client.controller.graphic;
 
+import com.tweetap.MainClient;
 import com.tweetap.client.controller.ControllerCommands;
 import com.tweetap.entities.tweet.Reply;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
@@ -21,17 +22,9 @@ public class ReplyViewController implements HasStage
     @FXML
     public Label textLabel;
     @FXML
-    public Button likeButton;
-    @FXML
-    public FontAwesomeIconView likeIcon;
-    @FXML
     public Label likeNumberLabel;
     @FXML
-    public Button replyButton;
-    @FXML
     public Label replyNumberLabel;
-    @FXML
-    public Button retweetButton;
     @FXML
     public Label retweetNumberLabel;
     @FXML
@@ -41,31 +34,13 @@ public class ReplyViewController implements HasStage
     @FXML
     public void replierLabelOnMouseClicked(MouseEvent mouseEvent)
     {
-
+        ObserverProfileController observerProfileController = MainClient.loadPopup(stage, "observerprofile_pop_up.fxml", (controller) -> controller.setUsername(replierLabel.getText()));
     }
 
     @FXML
     public void repliedLabelOnMouseClicked(MouseEvent mouseEvent)
     {
-        //TODO : show the selected user's profile
-    }
-
-    @FXML
-    public void likeButtonOnAction(ActionEvent actionEvent)
-    {
-        //TODO : Like if likable
-    }
-
-    @FXML
-    public void replyButtonOnAction(ActionEvent actionEvent)
-    {
-        //TODO : show sendreply scene
-    }
-
-    @FXML
-    public void retweetButtonOnAction(ActionEvent actionEvent)
-    {
-        //TODO : show sendretweet scene
+        ObserverProfileController observerProfileController = MainClient.loadPopup(stage, "observerprofile_pop_up.fxml", (controller) -> controller.setUsername(repliedLabel.getText()));
     }
 
     public void showReply(Reply reply)
