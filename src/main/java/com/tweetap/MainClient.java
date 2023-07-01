@@ -104,11 +104,11 @@ public class MainClient extends Application
             popupStage.setScene(new Scene(root));
 //            form(popupStage, popupStage.getScene());
             t = fxmlLoader.getController();
+            middleFunction.function(t);
             t.setStage(popupStage);
 
             popupStage.initModality(Modality.APPLICATION_MODAL);
             popupStage.initOwner(stage);
-            middleFunction.function(t);
             popupStage.showAndWait();
         } catch (IOException e)
         {
