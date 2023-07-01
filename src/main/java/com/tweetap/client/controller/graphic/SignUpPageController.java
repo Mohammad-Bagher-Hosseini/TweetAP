@@ -244,7 +244,19 @@ public class SignUpPageController implements HasStage
         String email = emailTextField.getText();
         String phone = phoneTextField.getText();
         String country = countryComboBox.getValue();
+        if(country.equals(""))
+        {
+            countryLabel.setText("Country should not be empty");
+            countryComboBox.setStyle(redTextStyle);
+            return;
+        }
         LocalDate birthdate = birthDayDatePicker.getValue();
+        if(birthdate == null)
+        {
+            birthDateLabel.setText("Birthdate should not be empty");
+            birthDayDatePicker.setStyle(redTextStyle);
+            return;
+        }
         String password = passwordField.getText();
         String confirmPassword = confirmPasswordField.getText();
 

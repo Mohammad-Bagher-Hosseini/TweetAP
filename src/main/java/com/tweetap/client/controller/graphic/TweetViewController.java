@@ -62,7 +62,7 @@ public class TweetViewController implements HasStage
     @FXML
     public void userNameLabelOnMouseClicked(MouseEvent mouseEvent)
     {
-        MainClient.loadPopup(stage, "observerprofile_pop_up.fxml", (controller) -> {});
+        ObserverProfileController observerProfileController = MainClient.loadPopup(stage, "observerprofile_pop_up.fxml", (controller) -> controller.setUsername(userNameLabel.getText()));
     }
 
     @FXML
@@ -109,7 +109,7 @@ public class TweetViewController implements HasStage
         ByteArrayOutputStream byteImage = new ByteArrayOutputStream();
         try
         {
-            if(tweet.getImageContent() != null)
+            if(tweet.getImageContent() != null && tweet.getImageContent().getImage() != null)
                 ImageIO.write(tweet.getImageContent().getImage(), "jpg", byteImage);
         }
         catch (IOException e)

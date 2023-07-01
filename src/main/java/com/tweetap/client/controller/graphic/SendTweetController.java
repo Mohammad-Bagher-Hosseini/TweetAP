@@ -98,6 +98,7 @@ public class SendTweetController implements HasStage
             if(selected != null)
             {
                 inputImageView.setImage(new Image(selected.toURI().toString()));
+                imagePathTextFiled.setText(selected.getPath());
             }
             else
             {

@@ -17,7 +17,7 @@ import java.util.Base64;
 public abstract class TwitterImage implements Serializable
 {
     @Transient
-    private BufferedImage image;
+    private transient BufferedImage image;
     @Lob
     private String encodedImage;
 
@@ -82,6 +82,16 @@ public abstract class TwitterImage implements Serializable
         try
         {
             ImageIO.write(image,"jpg",byteArrayOutputStream);
+            encodedImage = Base64.getEncoder().encodeToString(byteArrayOutputStream.toByteArray());
+            if(!encodedImage.equals(""))
+                return;
+
+            ImageIO.write(image,"png",byteArrayOutputStream);
+            encodedImage = Base64.getEncoder().encodeToString(byteArrayOutputStream.toByteArray());
+            if(!encodedImage.equals(""))
+                return;
+
+            ImageIO.write(image,"gif",byteArrayOutputStream);
             encodedImage = Base64.getEncoder().encodeToString(byteArrayOutputStream.toByteArray());
         } catch (IOException e)
         {

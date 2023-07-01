@@ -3,8 +3,11 @@ package com.tweetap.client.controller.graphic;
 import com.tweetap.MainClient;
 import com.tweetap.client.controller.ControllerCommands;
 import com.tweetap.client.controller.Data;
+import com.tweetap.entities.exception.TwitException;
 import com.tweetap.entities.exception.user.PermissionDeniedException;
 import com.tweetap.entities.user.User;
+import com.tweetap.entities.user.follow.Followers;
+import com.tweetap.entities.user.follow.Followings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -52,6 +55,8 @@ public class ProfileController implements HasStage
     public Button signOutButton;
     @FXML
     public Label familyTextField;
+    public Label followingNumberLabel;
+    public Label followerNumberLabel;
     private Stage stage;
 
     private void onShown()
@@ -60,7 +65,8 @@ public class ProfileController implements HasStage
         ByteArrayOutputStream byteImage = new ByteArrayOutputStream();
         try
         {
-            ImageIO.write(user.getHeader().getImage(), "jpg", byteImage);
+            if(user.getHeader() != null)
+                ImageIO.write(user.getHeader().getImage(), "jpg", byteImage);
         } catch (IOException e)
         {
             //TODO : error
@@ -75,12 +81,34 @@ public class ProfileController implements HasStage
         byteImage.reset();
         try
         {
-            ImageIO.write(user.getAvatar().getImage(), "jpg", byteImage);
+            if(user.getAvatar() != null)
+                ImageIO.write(user.getAvatar().getImage(), "jpg", byteImage);
         } catch (IOException e)
         {
             //TODO : error
         }
         avatarImageView.setImage(new Image(new ByteArrayInputStream(byteImage.toByteArray())));
+
+        try
+        {
+            Followers followers = ControllerCommands.showFollowers();
+            followerNumberLabel.setText(Integer.toString(followers.size()));
+        } catch (TwitException e)
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Something went wrong while counting followers count");
+            alert.show();
+        }
+        try
+        {
+            Followings followings = ControllerCommands.showFollowings();
+            followingNumberLabel.setText(Integer.toString(followings.size()));
+        } catch (TwitException e)
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Something went wrong while counting followings count");
+            alert.show();
+        }
     }
 
     @FXML
