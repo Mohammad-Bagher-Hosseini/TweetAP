@@ -7,6 +7,6 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="81.0" prefWidth="382.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tweetap.client.controller.graphic.MiniProfileController">
    <children>
       <Label fx:id="userNameLabel" layoutX="87.0" layoutY="33.0" onMouseClicked="#userNameLabelOnMouseClicked" text="Label" />
-      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="14.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="avatarImageView" fitHeight="50.0" fitWidth="50.0" layoutX="14.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>
