@@ -3,6 +3,7 @@ package com.tweetap.client.controller.graphic;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
 public class TimeLineController
 {
@@ -14,6 +15,8 @@ public class TimeLineController
     public Button timeLineTweetButton;
     @FXML
     public Button timeLineExitButton;
+
+    private Stage stage;
 
     @FXML
     public void timeLineSearchButtonOnAction(ActionEvent actionEvent)
@@ -37,5 +40,10 @@ public class TimeLineController
     public void timeLineExitButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : Exit
+    }
+
+    public void setStage(Stage stage)
+    {
+        this.stage = stage;
     }
 }

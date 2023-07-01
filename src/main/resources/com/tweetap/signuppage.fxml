@@ -76,7 +76,7 @@
                      <Insets />
                   </VBox.margin>
                   <FontAwesomeIconView glyphName="MAP_MARKER" layoutX="21.0" layoutY="27.0" size="20" wrappingWidth="12.0" />
-                  <ComboBox fx:id="countryComboText" editable="true" layoutX="40.0" layoutY="17.0" onKeyPressed="#countryComboTextOnKeyPressed" prefHeight="28.0" prefWidth="158.0" promptText="Country" style="-fx-border-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-border-width: 0px 0px 2px 0px; -fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2);" visibleRowCount="5" />
+                  <ComboBox fx:id="countryComboBox" editable="true" layoutX="40.0" layoutY="17.0" onKeyPressed="#countryComboBoxOnKeyPressed" prefHeight="28.0" prefWidth="158.0" promptText="Country" style="-fx-border-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-border-width: 0px 0px 2px 0px; -fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2);" visibleRowCount="5" />
                   <Label fx:id="countryLabel" layoutX="42.0" layoutY="53.0" textFill="#cf1212" />
                </AnchorPane>
                <AnchorPane prefHeight="66.0" prefWidth="204.0">
@@ -103,7 +103,7 @@
                      <Insets bottom="20.0" />
                   </VBox.margin>
                </AnchorPane>
-               <Label fx:id="signUpLabel" textFill="#cf1212">
+               <Label fx:id="errorLabel" textFill="#cf1212">
                   <VBox.margin>
                      <Insets bottom="50.0" />
                   </VBox.margin>

@@ -1,10 +1,31 @@
 package com.tweetap.client.controller.graphic;
 
+import com.tweetap.MainClient;
+import com.tweetap.client.controller.ControllerCommands;
+import com.tweetap.entities.exception.TwitException;
+import com.tweetap.entities.exception.UnknownException;
+import com.tweetap.entities.exception.io.server.*;
+import com.tweetap.entities.exception.user.CountryException;
+import com.tweetap.entities.exception.user.EmailOrPhoneRequiredException;
+import com.tweetap.entities.exception.user.email.EmailFormatException;
+import com.tweetap.entities.exception.user.password.PasswordConfirmException;
+import com.tweetap.entities.exception.user.password.PasswordFormatException;
+import com.tweetap.entities.exception.user.password.PasswordHashException;
+import com.tweetap.entities.user.Country;
+import com.tweetap.entities.user.Verification;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.time.LocalDate;
 
 public class SignUpPageController
 {
@@ -27,7 +48,7 @@ public class SignUpPageController
     @FXML
     public TextField phoneTextField;
     @FXML
-    public ComboBox<String> countryComboText;
+    public ComboBox<String> countryComboBox;
     @FXML
     public DatePicker birthDayDatePicker;
     @FXML
@@ -57,7 +78,14 @@ public class SignUpPageController
     @FXML
     public Label confirmPasswordLabel;
     @FXML
-    public Label signUpLabel;
+    public Label errorLabel;
+
+    private Stage stage;
+
+    public void initialize()
+    {
+        countryComboBox.setItems(FXCollections.observableArrayList(Country.getInstance().getCountries()));
+    }
 
     private void refreshControls()
     {
@@ -66,7 +94,7 @@ public class SignUpPageController
         familyTextField.setStyle(greenTextStyle);
         emailTextField.setStyle(greenTextStyle);
         phoneTextField.setStyle(greenTextStyle);
-        countryComboText.setStyle(greenTextStyle);
+        countryComboBox.setStyle(greenTextStyle);
         birthDayDatePicker.setStyle(greenTextStyle);
         passwordField.setStyle(greenTextStyle);
         confirmPasswordField.setStyle(greenTextStyle);
@@ -88,7 +116,6 @@ public class SignUpPageController
     @FXML
     public void nameTextFieldOnKeyPressed(KeyEvent keyEvent)
     {
-        // TODO : handle when user pressed 'Enter' switch to next field and save this text to suitable variable
         if(keyEvent.getCode() == KeyCode.ENTER)
         {
             refreshControls();
@@ -101,7 +128,6 @@ public class SignUpPageController
 
     public void familyTextFieldOnKeyPressed(KeyEvent keyEvent)
     {
-        // TODO : handle when user pressed 'Enter' switch to next field and save this text to suitable variable
         if(keyEvent.getCode() == KeyCode.ENTER)
         {
             refreshControls();
@@ -115,12 +141,14 @@ public class SignUpPageController
     @FXML
     public void emailTextFieldOnKeyPressed(KeyEvent keyEvent)
     {
-        // TODO : handle when user pressed 'Enter' switch to next field and save this text to suitable variable
         if(keyEvent.getCode() == KeyCode.ENTER)
         {
             refreshControls();
-            if (emailTextField.getText().equals(""))
+            if(!emailTextField.getText().equals("") && Verification.isEmailValid(emailTextField.getText()))
+            {
                 emailTextField.setStyle(redTextStyle);
+                emailLabel.setText("Email format not accepted");
+            }
             else
                 phoneTextField.requestFocus();
         }
@@ -129,21 +157,16 @@ public class SignUpPageController
     @FXML
     public void phoneTextFieldOnKeyPressed(KeyEvent keyEvent)
     {
-        // TODO : handle when user pressed 'Enter' switch to next field and save this text to suitable variable
         if(keyEvent.getCode() == KeyCode.ENTER)
         {
             refreshControls();
-            if (phoneTextField.getText().equals(""))
-                phoneTextField.setStyle(redTextStyle);
-            else
-                countryComboText.requestFocus();
+            countryComboBox.requestFocus();
         }
     }
 
     @FXML
-    public void countryComboTextOnKeyPressed(KeyEvent keyEvent)
+    public void countryComboBoxOnKeyPressed(KeyEvent keyEvent)
     {
-        // TODO : handle when user pressed 'Enter' switch to next field and save this text to suitable variable
         if(keyEvent.getCode() == KeyCode.ENTER)
         {
             refreshControls();
@@ -154,7 +177,6 @@ public class SignUpPageController
     @FXML
     public void birthDatePickerOnKeyPressed(KeyEvent keyEvent)
     {
-        // TODO : handle when user pressed 'Enter' switch to next field and save this text to suitable variable
         if(keyEvent.getCode() == KeyCode.ENTER)
         {
             refreshControls();
@@ -165,12 +187,16 @@ public class SignUpPageController
     @FXML
     public void passwordFieldOnKeyPressed(KeyEvent keyEvent)
     {
-        // TODO : handle when user pressed 'Enter' switch to next field and save this text to suitable variable
         if(keyEvent.getCode() == KeyCode.ENTER)
         {
             refreshControls();
             if (passwordField.getText().equals(""))
                 passwordField.setStyle(redTextStyle);
+            else if(Verification.isPasswordValid(passwordField.getText()))
+            {
+                passwordField.setStyle(redTextStyle);
+                passwordLabel.setText("Password format not accepted");
+            }
             else
                 confirmPasswordField.requestFocus();
         }
@@ -179,11 +205,10 @@ public class SignUpPageController
     @FXML
     public void confirmPasswordFieldOnKeyPressed(KeyEvent keyEvent)
     {
-        // TODO : handle when user pressed 'Enter' switch to next field and save this text to suitable variable
         if(keyEvent.getCode() == KeyCode.ENTER)
         {
             refreshControls();
-            if (confirmPasswordField.getText().equals(""))
+            if (!confirmPasswordField.getText().equals(passwordField.getText()))
                 confirmPasswordField.setStyle(redTextStyle);
             else
                 signUp();
@@ -193,18 +218,87 @@ public class SignUpPageController
     @FXML
     public void signUpButtonOnAction(ActionEvent actionEvent)
     {
-        // TODO : process input variables and show result and switch in SignInScene
         signUp();
     }
 
     public void signUp()
     {
+        String username = userNameTextField.getText();
+        String name = nameTextField.getText();
+        String family = familyTextField.getText();
+        String email = emailTextField.getText();
+        String phone = phoneTextField.getText();
+        String country = countryComboBox.getValue();
+        LocalDate birthdate = birthDayDatePicker.getValue();
+        String password = passwordField.getText();
+        String confirmPassword = confirmPasswordField.getText();
 
+        try
+        {
+            ControllerCommands.signUp(username, name, family, email, phone, password, confirmPassword, country,
+                    birthdate.getYear(), birthdate.getMonthValue(), birthdate.getDayOfMonth());
+        } catch (PasswordConfirmException e)
+        {
+            passwordField.setStyle(redTextStyle);
+            confirmPasswordField.setText("Confirm-password should be the same as password");
+        } catch (EmailFormatException e)
+        {
+            emailTextField.setStyle(redTextStyle);
+            emailLabel.setText("Email format not accepted");
+        } catch (PasswordFormatException e)
+        {
+            passwordField.setStyle(redTextStyle);
+            passwordLabel.setText("Password format not accepted");
+        } catch (EmailOrPhoneRequiredException e)
+        {
+            emailTextField.setStyle(redTextStyle);
+            phoneTextField.setStyle(redTextStyle);
+            phoneLabel.setText("Email or phone-number required");
+        } catch (DuplicateUserNameException e)
+        {
+            userNameTextField.setStyle(redTextStyle);
+            userNameLabel.setText("The username is already taken");
+        } catch (PasswordHashException e)
+        {
+            errorLabel.setText("Something went wrong with password hashing");
+        } catch (CountryException e)
+        {
+            countryComboBox.setStyle(redTextStyle);
+            countryLabel.setText("Country not accepted");
+        } catch (UnknownException e)
+        {
+            errorLabel.setText("Some unknown error happened!");
+        } catch (ServerException e)
+        {
+            errorLabel.setText("Something went wrong from the server side!");
+        } catch (TwitException e)
+        {
+            errorLabel.setText("Some unexpected error happened!");
+        }
     }
 
     @FXML
     public void backButtonOnAction(ActionEvent actionEvent)
     {
-        //TODO : switch to signIn scene
+        try
+        {
+            FXMLLoader fxmlLoader = new FXMLLoader(MainClient.class.getResource("signuppage.fxml"));
+            Parent root = fxmlLoader.load();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+
+            SignInPageController signInPageController = fxmlLoader.getController();
+            signInPageController.setStage(stage);
+
+            stage.show();
+        } catch (IOException e)
+        {
+            errorLabel.setText("Something went wrong while going to signup page!");
+        }
+    }
+
+    public void setStage(Stage stage)
+    {
+        this.stage = stage;
     }
 }

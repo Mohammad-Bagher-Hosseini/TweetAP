@@ -134,6 +134,10 @@ public class SignInPageController
             Parent root = fxmlLoader.load();
             Scene scene = new Scene(root);
             stage.setScene(scene);
+
+            SignUpPageController signUpPageController = fxmlLoader.getController();
+            signUpPageController.setStage(stage);
+
             stage.show();
         } catch (IOException e)
         {
@@ -149,6 +153,10 @@ public class SignInPageController
             Parent root = fxmlLoader.load();
             Scene scene = new Scene(root);
             stage.setScene(scene);
+
+            TimeLineController timeLineController = fxmlLoader.getController();
+            timeLineController.setStage(stage);
+
             stage.show();
         } catch (IOException e)
         {
