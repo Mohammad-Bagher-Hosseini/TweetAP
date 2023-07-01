@@ -4,19 +4,14 @@ import com.tweetap.MainClient;
 import com.tweetap.client.controller.ControllerCommands;
 import com.tweetap.entities.exception.TwitException;
 import com.tweetap.entities.user.MiniUser;
-import com.tweetap.entities.user.follow.ConnectedUsers;
 import com.tweetap.entities.user.follow.Followers;
 import com.tweetap.entities.user.follow.Followings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
-import java.io.IOException;
 
 public class ShowFollowsController implements HasStage
 {

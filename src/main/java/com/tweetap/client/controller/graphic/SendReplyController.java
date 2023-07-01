@@ -2,13 +2,6 @@ package com.tweetap.client.controller.graphic;
 
 import com.tweetap.client.controller.ControllerCommands;
 import com.tweetap.entities.exception.TwitException;
-import com.tweetap.entities.exception.UnknownException;
-import com.tweetap.entities.exception.io.server.*;
-import com.tweetap.entities.exception.text.TextTooLongException;
-import com.tweetap.entities.exception.user.CountryException;
-import com.tweetap.entities.exception.user.PermissionDeniedException;
-import com.tweetap.entities.exception.user.email.EmailFormatException;
-import com.tweetap.entities.exception.user.password.InvalidPasswordException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;

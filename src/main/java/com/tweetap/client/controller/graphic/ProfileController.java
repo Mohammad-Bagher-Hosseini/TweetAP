@@ -2,14 +2,12 @@ package com.tweetap.client.controller.graphic;
 
 import com.tweetap.MainClient;
 import com.tweetap.client.controller.ControllerCommands;
-import com.tweetap.client.controller.Data;
 import com.tweetap.entities.exception.user.PermissionDeniedException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 

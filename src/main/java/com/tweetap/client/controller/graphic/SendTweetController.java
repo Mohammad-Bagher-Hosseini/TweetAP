@@ -11,18 +11,12 @@ import com.tweetap.entities.exception.io.FileSizeException;
 import com.tweetap.entities.exception.io.ImageSizeException;
 import com.tweetap.entities.exception.io.server.*;
 import com.tweetap.entities.exception.text.TextTooLongException;
-import com.tweetap.entities.user.MiniUser;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-
-import java.io.IOException;
 
 public class SendTweetController implements HasStage
 {

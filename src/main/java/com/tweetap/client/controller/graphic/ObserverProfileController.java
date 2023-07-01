@@ -4,14 +4,7 @@ import com.tweetap.MainClient;
 import com.tweetap.client.controller.ControllerCommands;
 import com.tweetap.client.controller.Data;
 import com.tweetap.entities.exception.TwitException;
-import com.tweetap.entities.exception.UnknownException;
-import com.tweetap.entities.exception.io.server.*;
-import com.tweetap.entities.exception.text.TextTooLongException;
-import com.tweetap.entities.exception.user.CountryException;
-import com.tweetap.entities.exception.user.email.EmailFormatException;
-import com.tweetap.entities.exception.user.password.InvalidPasswordException;
 import com.tweetap.entities.user.BlackList;
-import com.tweetap.entities.user.BlockRelation;
 import com.tweetap.entities.user.MiniUser;
 import com.tweetap.entities.user.follow.Followers;
 import com.tweetap.entities.user.follow.Followings;
@@ -20,7 +13,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -29,7 +21,6 @@ import javax.imageio.ImageIO;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 
 public class ObserverProfileController implements HasStage
 {
@@ -41,8 +32,6 @@ public class ObserverProfileController implements HasStage
     public ImageView headerImageView;
     @FXML
     public Label userNameTextField;
-    @FXML
-    public Label signInDateTextField;
     @FXML
     public Button followingsButton;
     @FXML

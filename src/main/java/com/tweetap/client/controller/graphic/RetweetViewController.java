@@ -4,14 +4,10 @@ import com.tweetap.MainClient;
 import com.tweetap.entities.tweet.Retweet;
 import com.tweetap.entities.tweet.Tweet;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
-import java.io.IOException;
 
 public class RetweetViewController implements HasStage
 {

@@ -2,17 +2,12 @@ package com.tweetap.client.controller.graphic;
 
 import com.tweetap.MainClient;
 import com.tweetap.client.controller.ControllerCommands;
-import com.tweetap.client.controller.Data;
-import com.tweetap.client.view.ProgramState;
 import com.tweetap.entities.exception.TwitException;
 import com.tweetap.entities.exception.UnknownException;
 import com.tweetap.entities.exception.io.server.ServerException;
 import com.tweetap.entities.exception.io.server.UserNotFoundException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
@@ -23,8 +18,6 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
-import java.io.IOException;
 
 public class SignInPageController implements HasStage
 {

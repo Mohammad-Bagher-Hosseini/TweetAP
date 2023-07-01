@@ -13,21 +13,15 @@ import com.tweetap.entities.exception.user.password.PasswordFormatException;
 import com.tweetap.entities.exception.user.password.PasswordHashException;
 import com.tweetap.entities.user.Country;
 import com.tweetap.entities.user.Verification;
-import com.tweetap.server.Main;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
-import java.io.IOException;
 import java.time.LocalDate;
 
 public class SignUpPageController implements HasStage

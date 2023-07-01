@@ -58,7 +58,7 @@ public class SearchController implements HasStage
     @FXML
     public void searchButtonOnAction(ActionEvent actionEvent)
     {
-        String hashtags = "#hello"; // TODO
+        String hashtags = searchTextField.getText();
         try
         {
             TimeLine timeLine = ControllerCommands.searchForHashtag(hashtags);

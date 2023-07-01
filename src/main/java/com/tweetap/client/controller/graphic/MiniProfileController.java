@@ -26,7 +26,6 @@ public class MiniProfileController implements HasStage
     @FXML
     public void userNameLabelOnMouseClicked(MouseEvent mouseEvent)
     {
-        //TODO : show the selected user profile, and check the block and follow relation and initialize the followrelation and blockrelation buttons
         ObserverProfileController observerProfileController = MainClient.loadPopup(stage, "observerprofile_pop_up.fxml", (controller) -> controller.setUsername(miniUser.getUserName()));
     }
 
