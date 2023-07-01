@@ -38,6 +38,26 @@ public class SignUpPageController
     public Button signUpButton;
     @FXML
     public Button backButton;
+    @FXML
+    public Label userNameLabel;
+    @FXML
+    public Label nameLabel;
+    @FXML
+    public Label familyLabel;
+    @FXML
+    public Label emailLabel;
+    @FXML
+    public Label phoneLabel;
+    @FXML
+    public Label countryLabel;
+    @FXML
+    public Label birthDateLabel;
+    @FXML
+    public Label passwordLabel;
+    @FXML
+    public Label confirmPasswordLabel;
+    @FXML
+    public Label signUpLabel;
 
     private void refreshControls()
     {
