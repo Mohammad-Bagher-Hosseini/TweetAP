@@ -64,7 +64,7 @@ public class EditProfileController implements HasStage
         user = Data.getInstance().getUser();
         bioTextArea.setText(user.getBio().getText());
         nameTextField.setText(user.getName());
-        // TODO: Family
+        familyTextField.setText(user.getFamily());
         countryComboBox.setItems(FXCollections.observableArrayList(Country.getInstance().getCountries()));
         countryComboBox.setValue(user.getCountry());
         birthDateDatePicker.setValue(LocalDate.of(user.getBirthDate().getYear(), user.getBirthDate().getMonthValue(), user.getBirthDate().getDayOfMonth()));
@@ -131,8 +131,8 @@ public class EditProfileController implements HasStage
             changeBio();
         if(!nameTextField.getText().equals(user.getName()))
             changeName();
-        // TODO if...
-        changeFamily();
+        if(!familyTextField.getText().equals(user.getFamily()))
+            changeFamily();
         if(!countryComboBox.getValue().equals(user.getCountry()))
             changeCountry();
         if(!birthDateDatePicker.getValue().equals(LocalDate.of(user.getBirthDate().getYear(), user.getBirthDate().getMonthValue(), user.getBirthDate().getDayOfMonth())))
@@ -242,7 +242,7 @@ public class EditProfileController implements HasStage
     {
         try
         {
-            ControllerCommands.changeFamily(nameTextField.getText()); // TODO: change name to family
+            ControllerCommands.changeFamily(familyTextField.getText());
         } catch (TwitException e)
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -273,7 +273,7 @@ public class EditProfileController implements HasStage
     {
         try
         {
-            ControllerCommands.changeBirthDate(birthDateDatePicker.getValue().getYear(), birthDateDatePicker.getValue().getMonthValue(), birthDateDatePicker.getValue().getDayOfMonth()); // TODO: change name to family
+            ControllerCommands.changeBirthDate(birthDateDatePicker.getValue().getYear(), birthDateDatePicker.getValue().getMonthValue(), birthDateDatePicker.getValue().getDayOfMonth());
         } catch (TwitException e)
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
