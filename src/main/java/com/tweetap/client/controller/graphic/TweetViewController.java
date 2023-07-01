@@ -65,12 +65,22 @@ public class TweetViewController implements HasStage
         if(likeIcon.getGlyphName().equals("THUMBS_UP"))
         {
             if(like())
+            {
                 likeIcon.setGlyphName("THUMBS_DOWN");
+                int likeCount = Integer.parseInt(likeNumberLabel.getText());
+                likeCount++;
+                likeNumberLabel.setText(Integer.toString(likeCount));
+            }
         }
         else
         {
             if(dislike())
+            {
                 likeIcon.setGlyphName("THUMBS_UP");
+                int likeCount = Integer.parseInt(likeNumberLabel.getText());
+                likeCount--;
+                likeNumberLabel.setText(Integer.toString(likeCount));
+            }
         }
     }
 
