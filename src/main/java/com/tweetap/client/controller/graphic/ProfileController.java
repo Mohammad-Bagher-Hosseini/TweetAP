@@ -2,7 +2,9 @@ package com.tweetap.client.controller.graphic;
 
 import com.tweetap.MainClient;
 import com.tweetap.client.controller.ControllerCommands;
+import com.tweetap.client.controller.Data;
 import com.tweetap.entities.exception.user.PermissionDeniedException;
+import com.tweetap.entities.user.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -31,7 +33,7 @@ public class ProfileController implements HasStage
     @FXML
     public Label userNameTextField;
     @FXML
-    public Label signInDateTextField;
+    public Label signUpDateTextField;
     @FXML
     public Button followingsButton;
     @FXML
@@ -48,7 +50,14 @@ public class ProfileController implements HasStage
 
     private void onShown()
     {
-
+        User user = Data.getInstance().getUser();
+        // TODO: headerImageView
+        nameTextField.setText(user.getName());
+        familyTextField.setText(user.getFamily());
+        userNameTextField.setText(user.getUserName());
+        signUpDateTextField.setText(user.getSignUpDate().toString());
+        bioLabel.setText(user.getBio().getText());
+        // TODO: avatarImageView
     }
 
     @FXML
@@ -78,7 +87,7 @@ public class ProfileController implements HasStage
     @FXML
     public void editProfileButtonOnAction(ActionEvent actionEvent)
     {
-        MainClient.loadPopup(stage, "editprofile.fxml", (controller) -> {});
+        MainClient.loadPopup(stage, "editprofile_pop_up.fxml", (controller) -> {});
     }
 
     @FXML

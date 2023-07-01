@@ -23,12 +23,6 @@ public class ReplyViewController implements HasStage
     @FXML
     public Label textLabel;
     @FXML
-    public Label likeNumberLabel;
-    @FXML
-    public Label replyNumberLabel;
-    @FXML
-    public Label retweetNumberLabel;
-    @FXML
     public ImageView avatarImageView;
     private Stage stage;
 
@@ -49,13 +43,11 @@ public class ReplyViewController implements HasStage
         replierLabel.setText("@" + reply.getUserName() + " replied to");
         repliedLabel.setText("@" + reply.getTweet().getUserName());
         textLabel.setText(reply.getTextContent().toString());
-        likeNumberLabel.setText(Integer.toString(reply.getTweet().getLikeCount()));
-        replyNumberLabel.setText(Integer.toString(reply.getTweet().getReplies().size()));
-        retweetNumberLabel.setText(Integer.toString(reply.getTweet().getRetweetCount()));
         ByteArrayOutputStream byteImage = new ByteArrayOutputStream();
         try
         {
-            ImageIO.write(reply.getTweet().getOwner().getAvatar().getImage(), "jpg", byteImage);
+            if(reply.getTweet().getOwner().getAvatar() != null)
+                ImageIO.write(reply.getTweet().getOwner().getAvatar().getImage(), "jpg", byteImage);
         }
         catch (IOException e)
         {

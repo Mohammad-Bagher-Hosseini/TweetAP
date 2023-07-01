@@ -109,7 +109,8 @@ public class TweetViewController implements HasStage
         ByteArrayOutputStream byteImage = new ByteArrayOutputStream();
         try
         {
-            ImageIO.write(tweet.getImageContent().getImage(), "jpg", byteImage);
+            if(tweet.getImageContent() != null)
+                ImageIO.write(tweet.getImageContent().getImage(), "jpg", byteImage);
         }
         catch (IOException e)
         {
@@ -123,7 +124,8 @@ public class TweetViewController implements HasStage
         byteImage.reset();
         try
         {
-            ImageIO.write(tweet.getOwner().getAvatar().getImage(), "jpg", byteImage);
+            if(tweet.getOwner().getAvatar() != null)
+                ImageIO.write(tweet.getOwner().getAvatar().getImage(), "jpg", byteImage);
         } catch (IOException e)
         {
             System.out.println("TweetView -> showTweet -> writeImage in byteArray error : can't work with userAvatar!");

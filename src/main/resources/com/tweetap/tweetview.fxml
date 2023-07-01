@@ -10,11 +10,11 @@
    <children>
       <Label fx:id="userNameLabel" layoutX="68.0" layoutY="20.0" onMouseClicked="#userNameLabelOnMouseClicked" prefHeight="18.0" prefWidth="84.0" text="Label" />
       <ImageView fx:id="tweetImageView" fitHeight="90.0" fitWidth="200.0" layoutX="28.0" layoutY="138.0" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="likeButton" layoutX="8.0" layoutY="430.0" mnemonicParsing="false" onAction="#likeButtonOnAction" prefHeight="26.0" prefWidth="69.0" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2); -fx-background-radius: 10;" />
+      <Button fx:id="likeButton" layoutX="8.0" layoutY="430.0" mnemonicParsing="false" onAction="#likeButtonOnAction" onMouseClicked="#likeButtonOnAction" prefHeight="26.0" prefWidth="69.0" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2); -fx-background-radius: 10;" />
       <Button fx:id="replyButton" layoutX="93.0" layoutY="430.0" mnemonicParsing="false" onAction="#replyButtonOnAction" prefHeight="26.0" prefWidth="69.0" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2); -fx-background-radius: 10;" />
       <Button fx:id="retweetButton" layoutX="177.0" layoutY="430.0" mnemonicParsing="false" onAction="#retweetButtonOnAction" prefHeight="26.0" prefWidth="69.0" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2); -fx-background-radius: 10;" />
-      <FontAwesomeIconView fx:id="likeIcon" glyphName="THUMBS_UP" layoutX="14.0" layoutY="449.0" size="17" />
-      <Label fx:id="likeNumberLabel" layoutX="36.0" layoutY="435.0" prefHeight="18.0" prefWidth="36.0" text="numb" />
+      <FontAwesomeIconView fx:id="likeIcon" glyphName="THUMBS_UP" layoutX="14.0" layoutY="449.0" onMouseClicked="#likeButtonOnAction" size="17" />
+      <Label fx:id="likeNumberLabel" layoutX="36.0" layoutY="435.0" onMouseClicked="#likeButtonOnAction" prefHeight="18.0" prefWidth="36.0" text="numb" />
       <FontAwesomeIconView glyphName="REPLY" layoutX="93.0" layoutY="450.0" size="17" />
       <Label fx:id="replyNumberLabel" layoutX="118.0" layoutY="435.0" prefHeight="18.0" prefWidth="36.0" text="numb" />
       <FontAwesomeIconView glyphName="RETWEET" layoutX="177.0" layoutY="448.0" size="17" />

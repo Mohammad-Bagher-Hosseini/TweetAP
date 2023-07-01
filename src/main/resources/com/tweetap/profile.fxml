@@ -34,7 +34,7 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="signInDateTextField" layoutX="78.0" layoutY="459.0" prefHeight="30.0" prefWidth="94.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 10;" text="sign in date">
+                  <Label fx:id="signUpDateTextField" layoutX="78.0" layoutY="459.0" prefHeight="30.0" prefWidth="94.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 10;" text="sign in date">
                      <font>
                         <Font size="14.0" />
                      </font>

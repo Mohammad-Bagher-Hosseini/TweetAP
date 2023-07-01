@@ -135,6 +135,7 @@ public class EditProfileController implements HasStage
             changeCountry();
         if(!birthDateDatePicker.getValue().equals(LocalDate.of(user.getBirthDate().getYear(), user.getBirthDate().getMonthValue(), user.getBirthDate().getDayOfMonth())))
             changeBirthDate();
+        stage.close();
     }
 
     private void changeHeader()
