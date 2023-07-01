@@ -12,13 +12,65 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="514.0" prefWidth="463.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tweetap.client.controller.graphic.ProfileController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="590.0" prefWidth="544.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tweetap.client.controller.graphic.ProfileController">
     <children>
-        <AnchorPane layoutX="-1.0" layoutY="-4.0" prefHeight="407.0" prefWidth="129.0">
+        <AnchorPane layoutX="127.0" layoutY="18.0" prefHeight="546.0" prefWidth="398.0" style="-fx-background-radius: 25; -fx-background-color: #ffffff;">
+         <children>
+            <AnchorPane prefHeight="524.0" prefWidth="410.0">
+               <children>
+                  <Separator layoutX="-3.0" orientation="VERTICAL" prefHeight="514.0" prefWidth="0.0" style="-fx-background-color: #000000;" />
+                  <ImageView fx:id="profileHeaderImageView" fitHeight="144.0" fitWidth="410.0" layoutX="5.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button fx:id="profileEditProfileButton" layoutX="291.0" layoutY="166.0" mnemonicParsing="false" onAction="#profileEditProfileButtonOnAction" prefHeight="30.0" prefWidth="102.0" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2); -fx-background-radius: 15;" text="      Edit Profile" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="profileNameTextField" layoutX="78.0" layoutY="320.0" prefHeight="30.0" prefWidth="94.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 10;" text="name">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="profileUserNameTextField" layoutX="78.0" layoutY="390.0" prefHeight="30.0" prefWidth="94.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 10;" text="\@user name">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="profileSignInDateTextField" layoutX="78.0" layoutY="459.0" prefHeight="30.0" prefWidth="94.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 10;" text="sign in date">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="profileFollowingsButton" layoutX="235.0" layoutY="350.0" mnemonicParsing="false" onAction="#profileFollowingsButtonOnAction" prefHeight="35.0" prefWidth="130.0" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2); -fx-background-radius: 15;" text="Followings          " textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="321.0" layoutY="352.0" prefHeight="30.0" prefWidth="42.0" text="numb" />
+                  <Button fx:id="profileFollowersButton" layoutX="235.0" layoutY="423.0" mnemonicParsing="false" onAction="#profileFollowersButtonOnAction" prefHeight="35.0" prefWidth="130.0" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2); -fx-background-radius: 15;" text="Followers          " textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="321.0" layoutY="425.0" prefHeight="30.0" prefWidth="42.0" text="numb" />
+                  <TextArea fx:id="profileBioTextArea" editable="false" layoutX="78.0" layoutY="241.0" prefHeight="62.0" prefWidth="264.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 15;" />
+                  <ImageView fx:id="profileAvatarImageView" fitHeight="100.0" fitWidth="100.0" layoutX="63.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true" />
+                  <FontAwesomeIconView glyphName="EDIT" layoutX="300.0" layoutY="186.0" size="15" />
+                  <Button fx:id="profileSignOutButton" layoutX="233.0" layoutY="166.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="26.0" mnemonicParsing="false" onAction="#profileSignOutButton" prefHeight="30.0" prefWidth="54.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 15;">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="SIGN_OUT" size="18" />
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Sign Out" wrapText="true" />
+                     </tooltip>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children></AnchorPane>
+        <AnchorPane layoutX="-15.0" prefHeight="514.0" prefWidth="142.0">
             <children>
-                <VBox alignment="TOP_CENTER" layoutX="-1.0" layoutY="3.0" prefHeight="514.0" prefWidth="130.0" style="-fx-background-color: linear-gradient(#ff4a32, #ffffff);">
+                <VBox alignment="TOP_RIGHT" layoutX="-25.0" prefHeight="590.0" prefWidth="205.0" style="-fx-background-color: linear-gradient(#ff4a32, #ffffff); -fx-background-radius: 25;">
                     <children>
-                        <Button fx:id="profileHomeButton" alignment="CENTER" mnemonicParsing="false" onAction="#profileHomeButtonOnAction" prefHeight="47.0" prefWidth="105.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 15;" text="   HOME" textFill="WHITE">
+                        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="47.0" prefWidth="105.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 15;" text="   HOME" textFill="WHITE">
                             <VBox.margin>
                                 <Insets top="50.0" />
                             </VBox.margin>
@@ -29,9 +81,9 @@
                                 <FontAwesomeIconView glyphName="HOME" size="20" wrappingWidth="14.0" />
                             </graphic>
                         </Button>
-                        <Button fx:id="profileSearchButton" layoutX="23.0" layoutY="60.0" mnemonicParsing="false" onAction="#profileSearchButtonOnAction" prefHeight="47.0" prefWidth="105.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 15;" text=" SEARCH" textFill="WHITE">
+                        <Button layoutX="23.0" layoutY="60.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="105.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 15;" text=" SEARCH" textFill="WHITE">
                             <VBox.margin>
-                                <Insets top="50.0" />
+                                <Insets top="75.0" />
                             </VBox.margin>
                             <graphic>
                                 <FontAwesomeIconView glyphName="SEARCH" size="20" />
@@ -42,7 +94,7 @@
                         </Button>
                         <Button layoutX="23.0" layoutY="108.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="105.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 15;" text=" PROFILE" textFill="WHITE">
                             <VBox.margin>
-                                <Insets top="50.0" />
+                                <Insets top="75.0" />
                             </VBox.margin>
                             <graphic>
                                 <FontAwesomeIconView glyphName="USER" size="20" />
@@ -51,9 +103,9 @@
                                 <Font size="14.0" />
                             </font>
                         </Button>
-                        <Button fx:id="profileTweetButton" layoutX="23.0" layoutY="108.0" mnemonicParsing="false" onAction="#profileTweetButtonOnAction" prefHeight="47.0" prefWidth="105.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 15;" text="  TWEET" textFill="WHITE">
+                        <Button layoutX="23.0" layoutY="108.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="105.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 15;" text="  TWEET" textFill="WHITE">
                             <VBox.margin>
-                                <Insets top="50.0" />
+                                <Insets top="75.0" />
                             </VBox.margin>
                             <graphic>
                                 <FontAwesomeIconView glyphName="COMMENT" size="20" />
@@ -62,7 +114,7 @@
                                 <Font size="14.0" />
                             </font>
                         </Button>
-                        <Button fx:id="profileExitButton" mnemonicParsing="false" onAction="#profileExitButtonOnAction" prefHeight="35.0" prefWidth="80.0" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2); -fx-background-radius: 15;" text="EXIT" textFill="#d91515">
+                        <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="80.0" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2); -fx-background-radius: 15;" text="EXIT" textFill="#d91515">
                             <VBox.margin>
                                 <Insets top="80.0" />
                             </VBox.margin>
@@ -74,56 +126,10 @@
                             </font>
                         </Button>
                     </children>
+                    <padding>
+                        <Insets right="30.0" />
+                    </padding>
                 </VBox>
-            </children>
-        </AnchorPane>
-        <AnchorPane layoutX="129.0" prefHeight="514.0" prefWidth="335.0">
-            <children>
-                <Separator layoutX="-3.0" orientation="VERTICAL" prefHeight="514.0" prefWidth="0.0" style="-fx-background-color: #000000;" />
-            <ImageView fx:id="profileHeaderImageView" fitHeight="144.0" fitWidth="329.0" layoutX="5.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" />
-            <Button fx:id="profileEditProfileButton" layoutX="207.0" layoutY="166.0" mnemonicParsing="false" onAction="#profileEditProfileButtonOnAction" prefHeight="30.0" prefWidth="102.0" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2); -fx-background-radius: 15;" text="      Edit Profile" textFill="WHITE">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-            <Label fx:id="profileNameTextField" layoutX="41.0" layoutY="319.0" prefHeight="30.0" prefWidth="94.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 10;" text="name">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <Label fx:id="profileUserNameTextField" layoutX="41.0" layoutY="358.0" prefHeight="30.0" prefWidth="94.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 10;" text="\@user name">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <Label fx:id="profileSignInDateTextField" layoutX="41.0" layoutY="397.0" prefHeight="30.0" prefWidth="94.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 10;" text="sign in date">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <Button fx:id="profileFollowingsButton" layoutX="178.0" layoutY="319.0" mnemonicParsing="false" onAction="#profileFollowingsButtonOnAction" prefHeight="35.0" prefWidth="130.0" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2); -fx-background-radius: 15;" text="Followings          " textFill="WHITE">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-            <Label layoutX="265.0" layoutY="321.0" prefHeight="30.0" prefWidth="42.0" text="numb" />
-            <Button fx:id="profileFollowersButton" layoutX="178.0" layoutY="370.0" mnemonicParsing="false" onAction="#profileFollowersButtonOnAction" prefHeight="35.0" prefWidth="130.0" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2); -fx-background-radius: 15;" text="Followers          " textFill="WHITE">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-            <Label layoutX="265.0" layoutY="373.0" prefHeight="30.0" prefWidth="42.0" text="numb" />
-            <TextArea fx:id="profileBioTextArea" editable="false" layoutX="38.0" layoutY="243.0" prefHeight="62.0" prefWidth="264.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 15;" />
-            <ImageView fx:id="profileAvatarImageView" fitHeight="100.0" fitWidth="100.0" layoutX="35.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true" />
-            <FontAwesomeIconView glyphName="EDIT" layoutX="218.0" layoutY="186.0" size="15" />
-            <Button fx:id="profileSignOutButton" layoutX="151.0" layoutY="166.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="26.0" mnemonicParsing="false" onAction="#profileSignOutButton" prefHeight="30.0" prefWidth="54.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 15;">
-               <graphic>
-                  <FontAwesomeIconView glyphName="SIGN_OUT" size="18" />
-               </graphic>
-               <tooltip>
-                  <Tooltip text="Sign Out" wrapText="true" />
-               </tooltip>
-            </Button>
             </children>
         </AnchorPane>
     </children>

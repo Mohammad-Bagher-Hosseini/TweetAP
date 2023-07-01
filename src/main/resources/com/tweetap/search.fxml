@@ -1,18 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.fontawesome.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="514.0" prefWidth="463.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tweetap.client.controller.graphic.SearchController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="590.0" prefWidth="526.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tweetap.client.controller.graphic.SearchController">
     <children>
-        <AnchorPane layoutX="-1.0" layoutY="-4.0" prefHeight="407.0" prefWidth="129.0">
+        <AnchorPane layoutX="127.0" layoutY="22.0" prefHeight="546.0" prefWidth="398.0" style="-fx-background-radius: 25; -fx-background-color: #ffffff;">
+         <children>
+            <TextField layoutX="62.0" layoutY="14.0" prefHeight="35.0" prefWidth="278.0" promptText="Search ...." style="-fx-border-color: linear-gradient( to right top,#facd68, #fc76b3);" />
+            <ScrollPane layoutX="41.0" layoutY="68.0" prefHeight="478.0" prefWidth="356.0">
+               <content>
+                  <VBox fx:id="findUsersVBox" prefHeight="475.0" prefWidth="337.0" />
+               </content>
+            </ScrollPane>
+            <Button fx:id="searchSearchSearchButton" layoutX="340.0" layoutY="14.0" mnemonicParsing="false" onAction="#searchSearchSearchButtonOnAction" prefHeight="35.0" prefWidth="36.0" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2);">
+               <graphic>
+                  <FontAwesomeIconView glyphName="SEARCH" size="20" />
+               </graphic>
+            </Button>
+         </children></AnchorPane>
+        <AnchorPane layoutX="-15.0" prefHeight="514.0" prefWidth="142.0">
             <children>
-                <VBox alignment="TOP_CENTER" layoutX="-1.0" layoutY="3.0" prefHeight="514.0" prefWidth="130.0" style="-fx-background-color: linear-gradient(#ff4a32, #ffffff);">
+                <VBox alignment="TOP_RIGHT" layoutX="-25.0" prefHeight="590.0" prefWidth="205.0" style="-fx-background-color: linear-gradient(#ff4a32, #ffffff); -fx-background-radius: 25;">
                     <children>
-                        <Button fx:id="searchHomeButton" alignment="CENTER" mnemonicParsing="false" onAction="#searchHomeButtonOnAction" prefHeight="47.0" prefWidth="105.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 15;" text="   HOME" textFill="WHITE">
+                        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="47.0" prefWidth="105.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 15;" text="   HOME" textFill="WHITE">
                             <VBox.margin>
                                 <Insets top="50.0" />
                             </VBox.margin>
@@ -25,7 +42,7 @@
                         </Button>
                         <Button layoutX="23.0" layoutY="60.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="105.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 15;" text=" SEARCH" textFill="WHITE">
                             <VBox.margin>
-                                <Insets top="50.0" />
+                                <Insets top="75.0" />
                             </VBox.margin>
                             <graphic>
                                 <FontAwesomeIconView glyphName="SEARCH" size="20" />
@@ -34,9 +51,9 @@
                                 <Font size="14.0" />
                             </font>
                         </Button>
-                        <Button fx:id="searchProfileButton" layoutX="23.0" layoutY="108.0" mnemonicParsing="false" onAction="#searchProfileButtonOnAction" prefHeight="47.0" prefWidth="105.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 15;" text=" PROFILE" textFill="WHITE">
+                        <Button layoutX="23.0" layoutY="108.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="105.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 15;" text=" PROFILE" textFill="WHITE">
                             <VBox.margin>
-                                <Insets top="50.0" />
+                                <Insets top="75.0" />
                             </VBox.margin>
                             <graphic>
                                 <FontAwesomeIconView glyphName="USER" size="20" />
@@ -45,9 +62,9 @@
                                 <Font size="14.0" />
                             </font>
                         </Button>
-                        <Button fx:id="searchTweetButton" layoutX="23.0" layoutY="108.0" mnemonicParsing="false" onAction="#searchTweetButtonOnAction" prefHeight="47.0" prefWidth="105.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 15;" text="  TWEET" textFill="WHITE">
+                        <Button layoutX="23.0" layoutY="108.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="105.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 15;" text="  TWEET" textFill="WHITE">
                             <VBox.margin>
-                                <Insets top="50.0" />
+                                <Insets top="75.0" />
                             </VBox.margin>
                             <graphic>
                                 <FontAwesomeIconView glyphName="COMMENT" size="20" />
@@ -56,7 +73,7 @@
                                 <Font size="14.0" />
                             </font>
                         </Button>
-                        <Button fx:id="searchExitButton" mnemonicParsing="false" onAction="#searchExitButtonOnAction" prefHeight="35.0" prefWidth="80.0" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2); -fx-background-radius: 15;" text="EXIT" textFill="#d91515">
+                        <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="80.0" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2); -fx-background-radius: 15;" text="EXIT" textFill="#d91515">
                             <VBox.margin>
                                 <Insets top="80.0" />
                             </VBox.margin>
@@ -68,27 +85,10 @@
                             </font>
                         </Button>
                     </children>
+                    <padding>
+                        <Insets right="30.0" />
+                    </padding>
                 </VBox>
-            </children>
-        </AnchorPane>
-        <AnchorPane layoutX="128.0" prefHeight="514.0" prefWidth="335.0">
-            <children>
-                <Separator layoutX="-3.0" orientation="VERTICAL" prefHeight="514.0" prefWidth="0.0" style="-fx-background-color: #000000;" />
-            <AnchorPane prefHeight="514.0" prefWidth="335.0">
-               <children>
-                  <Button fx:id="searchSearchSearchButton" layoutX="285.0" layoutY="14.0" mnemonicParsing="false" onAction="#searchSearchSearchButtonOnAction" prefHeight="35.0" prefWidth="36.0" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2);">
-                     <graphic>
-                        <FontAwesomeIconView glyphName="SEARCH" size="20" />
-                     </graphic>
-                  </Button>
-                  <TextField layoutX="6.0" layoutY="14.0" prefHeight="35.0" prefWidth="278.0" promptText="Search ...." style="-fx-border-color: linear-gradient( to right top,#facd68, #fc76b3);" />
-                  <ScrollPane layoutX="3.0" layoutY="76.0" prefHeight="436.0" prefWidth="330.0">
-                     <content>
-                        <VBox prefHeight="434.0" prefWidth="314.0" />
-                     </content>
-                  </ScrollPane>
-               </children>
-            </AnchorPane>
             </children>
         </AnchorPane>
     </children>

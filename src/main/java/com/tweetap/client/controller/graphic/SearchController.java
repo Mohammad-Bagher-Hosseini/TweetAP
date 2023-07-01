@@ -3,6 +3,7 @@ package com.tweetap.client.controller.graphic;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.layout.VBox;
 
 public class SearchController
 {
@@ -17,6 +18,8 @@ public class SearchController
     public Button searchExitButton;
     @FXML
     public Button searchSearchSearchButton;
+    @FXML
+    public VBox findUsersVBox;
 
     @FXML
     public void searchHomeButtonOnAction(ActionEvent actionEvent)
