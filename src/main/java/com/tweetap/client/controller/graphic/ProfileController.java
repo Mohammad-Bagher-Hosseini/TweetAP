@@ -11,78 +11,78 @@ public class ProfileController
 {
 
     @FXML
-    public Button profileHomeButton;
+    public Button homeButton;
     @FXML
-    public Button profileSearchButton;
+    public Button searchButton;
     @FXML
-    public Button profileTweetButton;
+    public Button tweetButton;
     @FXML
-    public Button profileExitButton;
+    public Button exitButton;
     @FXML
-    public ImageView profileHeaderImageView;
+    public ImageView headerImageView;
     @FXML
-    public Button profileEditProfileButton;
+    public Button editProfileButton;
     @FXML
-    public Label profileNameTextField;
+    public Label nameTextField;
     @FXML
-    public Label profileUserNameTextField;
+    public Label userNameTextField;
     @FXML
-    public Label profileSignInDateTextField;
+    public Label signInDateTextField;
     @FXML
-    public Button profileFollowingsButton;
+    public Button followingsButton;
     @FXML
-    public Button profileFollowersButton;
+    public Button followersButton;
     @FXML
-    public TextArea profileBioTextArea;
+    public TextArea bioTextArea;
     @FXML
-    public ImageView profileAvatarImageView;
+    public ImageView avatarImageView;
     @FXML
-    public Button profileSignOutButton;
+    public Button signOutButton;
 
     @FXML
-    public void profileHomeButtonOnAction(ActionEvent actionEvent)
+    public void homeButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : switch to suitable scene
     }
 
     @FXML
-    public void profileSearchButtonOnAction(ActionEvent actionEvent)
+    public void searchButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : switch to suitable scene
     }
 
     @FXML
-    public void profileTweetButtonOnAction(ActionEvent actionEvent)
+    public void tweetButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : switch to suitable scene
     }
 
     @FXML
-    public void profileExitButtonOnAction(ActionEvent actionEvent)
+    public void exitButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : Exit
     }
 
     @FXML
-    public void profileEditProfileButtonOnAction(ActionEvent actionEvent)
+    public void editProfileButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : switch to editProfile scene
     }
 
     @FXML
-    public void profileFollowingsButtonOnAction(ActionEvent actionEvent)
+    public void followingsButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : switch to suitable scene
     }
 
     @FXML
-    public void profileFollowersButtonOnAction(ActionEvent actionEvent)
+    public void followersButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : switch to suitable scene
     }
 
     @FXML
-    public void profileSignOutButton(ActionEvent actionEvent)
+    public void signOutButton(ActionEvent actionEvent)
     {
         // TODO : sign out and switch to signIn scene
     }
