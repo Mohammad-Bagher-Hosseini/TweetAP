@@ -8,89 +8,89 @@ import javafx.scene.input.KeyEvent;
 public class SignUpPageController
 {
     @FXML
-    public TextField signUpUserNameTextField;
+    public TextField userNameTextField;
     @FXML
-    public TextField signUpNameTextField;
+    public TextField nameTextField;
     @FXML
-    public TextField signUpFamilyTextField;
+    public TextField familyTextField;
     @FXML
-    public TextField signUpEmailTextField;
+    public TextField emailTextField;
     @FXML
-    public TextField signUpPhoneTextField;
+    public TextField phoneTextField;
     @FXML
-    public ComboBox signUpCountryComboText;
+    public ComboBox countryComboText;
     @FXML
-    public DatePicker signUpBirthDayDatePicker;
+    public DatePicker birthDayDatePicker;
     @FXML
-    public PasswordField signUpPasswordField;
+    public PasswordField passwordField;
     @FXML
-    public PasswordField signUpConfirmPasswordField;
+    public PasswordField confirmPasswordField;
     @FXML
-    public Button signUpSignUpButton;
+    public Button signUpButton;
     @FXML
-    public Button signUpBackButton;
+    public Button backButton;
 
     @FXML
-    public void signUpUserNameTextFieldOnKeyPressed(KeyEvent keyEvent)
+    public void userNameTextFieldOnKeyPressed(KeyEvent keyEvent)
     {
         // TODO : handle when user pressed 'Enter' switch to next field and save this text to suitable variable
     }
 
     @FXML
-    public void signUpNameTextFieldOnKeyPressed(KeyEvent keyEvent)
+    public void nameTextFieldOnKeyPressed(KeyEvent keyEvent)
     {
         // TODO : handle when user pressed 'Enter' switch to next field and save this text to suitable variable
     }
 
-    public void signUpFamilyTextFieldOnKeyPressed(KeyEvent keyEvent)
-    {
-        // TODO : handle when user pressed 'Enter' switch to next field and save this text to suitable variable
-    }
-
-    @FXML
-    public void signUpEmailTextFieldOnKeyPressed(KeyEvent keyEvent)
+    public void familyTextFieldOnKeyPressed(KeyEvent keyEvent)
     {
         // TODO : handle when user pressed 'Enter' switch to next field and save this text to suitable variable
     }
 
     @FXML
-    public void signUpPhoneTextFieldOnKeyPressed(KeyEvent keyEvent)
+    public void emailTextFieldOnKeyPressed(KeyEvent keyEvent)
     {
         // TODO : handle when user pressed 'Enter' switch to next field and save this text to suitable variable
     }
 
     @FXML
-    public void signUpCountryComboTextOnKeyPressed(KeyEvent keyEvent)
+    public void phoneTextFieldOnKeyPressed(KeyEvent keyEvent)
     {
         // TODO : handle when user pressed 'Enter' switch to next field and save this text to suitable variable
     }
 
     @FXML
-    public void signUpBirthDatePickerOnKeyPressed(KeyEvent keyEvent)
+    public void countryComboTextOnKeyPressed(KeyEvent keyEvent)
     {
         // TODO : handle when user pressed 'Enter' switch to next field and save this text to suitable variable
     }
 
     @FXML
-    public void signUpPasswordFieldOnKeyPressed(KeyEvent keyEvent)
+    public void birthDatePickerOnKeyPressed(KeyEvent keyEvent)
     {
         // TODO : handle when user pressed 'Enter' switch to next field and save this text to suitable variable
     }
 
     @FXML
-    public void signUpConfirmPasswordFieldOnKeyPressed(KeyEvent keyEvent)
+    public void passwordFieldOnKeyPressed(KeyEvent keyEvent)
     {
         // TODO : handle when user pressed 'Enter' switch to next field and save this text to suitable variable
     }
 
     @FXML
-    public void signUpSignUpButtonOnAction(ActionEvent actionEvent)
+    public void confirmPasswordFieldOnKeyPressed(KeyEvent keyEvent)
+    {
+        // TODO : handle when user pressed 'Enter' switch to next field and save this text to suitable variable
+    }
+
+    @FXML
+    public void signUpButtonOnAction(ActionEvent actionEvent)
     {
         // TODO : process input variables and show result and switch in SignInScene
     }
 
     @FXML
-    public void signUpBackButtonOnAction(ActionEvent actionEvent)
+    public void backButtonOnAction(ActionEvent actionEvent)
     {
         //TODO : switch to signIn scene
     }
