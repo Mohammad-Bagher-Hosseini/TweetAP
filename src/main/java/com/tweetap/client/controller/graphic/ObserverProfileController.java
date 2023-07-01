@@ -21,8 +21,15 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+
+import javax.imageio.ImageIO;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
 public class ObserverProfileController implements HasStage
 {
@@ -62,6 +69,16 @@ public class ObserverProfileController implements HasStage
     private void onShown()
     {
         nameTextField.setText(miniUser.getUserName() + " " + miniUser.getFamily());
+        ByteArrayOutputStream byteImage = new ByteArrayOutputStream();
+        try
+        {
+            ImageIO.write(miniUser.getHeader().getImage(), "jpg", byteImage);
+        }
+        catch (IOException e)
+        {
+            //TODO : error
+        }
+        headerImageView.setImage(new Image(new ByteArrayInputStream(byteImage.toByteArray())));
         // TODO: set headerImageView
         userNameTextField.setText("@" + miniUser.getUserName());
         try
@@ -85,6 +102,15 @@ public class ObserverProfileController implements HasStage
             alert.show();
         }
         bioLabel.setText(miniUser.getBio().getText());
+        byteImage.reset();
+        try
+        {
+            ImageIO.write(miniUser.getAvatar().getImage(), "jpg", byteImage);
+        } catch (IOException e)
+        {
+            //TODO : error
+        }
+        avatarImageView.setImage(new Image(new ByteArrayInputStream(byteImage.toByteArray())));
         // TODO: set avatarImageView
 
         if(followers.getUserNames().contains(Data.getInstance().getUser().getUserName()))
