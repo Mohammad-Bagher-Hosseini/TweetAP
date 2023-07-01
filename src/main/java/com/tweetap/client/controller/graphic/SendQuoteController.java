@@ -30,6 +30,7 @@ public class SendQuoteController implements HasStage
     @FXML
     public Button backButton;
     private Stage stage;
+    private Long tweetId;
 
     @FXML
     public void searchImagePathButtonOnAction(ActionEvent actionEvent)
@@ -75,12 +76,17 @@ public class SendQuoteController implements HasStage
     @FXML
     public void backButtonOnAction(ActionEvent actionEvent)
     {
-        //TODO : close the pop_up
+        stage.close();
     }
 
     @Override
     public void setStage(Stage stage)
     {
         this.stage = stage;
+    }
+
+    public void setTweetId(Long tweetId)
+    {
+        this.tweetId = tweetId;
     }
 }

@@ -1,10 +1,7 @@
 package com.tweetap;
 
 import com.tweetap.client.controller.Data;
-import com.tweetap.client.controller.graphic.HasStage;
-import com.tweetap.client.controller.graphic.ObserverProfileController;
-import com.tweetap.client.controller.graphic.SignInPageController;
-import com.tweetap.client.controller.graphic.TimeLineController;
+import com.tweetap.client.controller.graphic.*;
 import com.tweetap.client.view.ProgramState;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -93,7 +90,7 @@ public class MainClient extends Application
         return t;
     }
 
-    public static <T extends HasStage> T loadPopup(Stage stage, String page)
+    public static <T extends HasStage> T loadPopup(Stage stage, String page, MiddleFunction<T> middleFunction)
     {
         T t = null;
         try
@@ -108,6 +105,7 @@ public class MainClient extends Application
 
             popupStage.initModality(Modality.APPLICATION_MODAL);
             popupStage.initOwner(stage);
+            middleFunction.function(t);
             popupStage.showAndWait();
         } catch (IOException e)
         {
