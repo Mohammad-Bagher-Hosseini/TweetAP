@@ -6,9 +6,9 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="495.0" prefWidth="267.0" stylesheets="@../../styles/Button.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tweetap.client.controller.graphic.TweetViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="495.0" prefWidth="387.0" style="-fx-background-radius: 40; -fx-background-color: transparent;" stylesheets="@../../styles/Button.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tweetap.client.controller.graphic.TweetViewController">
    <children>
-      <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity">
+      <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="495.0" prefWidth="387.0">
          <top>
             <GridPane BorderPane.alignment="CENTER">
               <columnConstraints>
@@ -20,10 +20,10 @@
                   <RowConstraints maxHeight="100.0" minHeight="50.0" prefHeight="60.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <ImageView fx:id="tweetImageView" fitHeight="60.0" fitWidth="267.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2" />
-                  <Label fx:id="tweetTextLabel" alignment="TOP_LEFT" prefHeight="74.0" prefWidth="257.0" style="-fx-background-radius: 15; -fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-padding: 5;" text="Label" wrapText="true" GridPane.rowIndex="1">
+                  <ImageView fx:id="tweetImageView" fitHeight="60.0" fitWidth="321.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2" />
+                  <Label fx:id="tweetTextLabel" alignment="TOP_LEFT" contentDisplay="TOP" graphicTextGap="8.0" maxWidth="1.7976931348623157E308" prefHeight="74.0" style="-fx-background-radius: 15; -fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-padding: 5;" text="Label" wrapText="true" GridPane.rowIndex="1">
                      <opaqueInsets>
-                        <Insets />
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </opaqueInsets>
                   </Label>
                   <GridPane prefHeight="200.0">
@@ -47,17 +47,17 @@
             </GridPane>
          </top>
          <bottom>
-            <GridPane prefWidth="257.0" BorderPane.alignment="CENTER">
+            <GridPane minHeight="-Infinity" minWidth="-Infinity" BorderPane.alignment="CENTER">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.0" minWidth="10.0" prefWidth="77.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="83.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="115.0" minWidth="10.0" prefWidth="82.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button fx:id="likeButton" mnemonicParsing="false" onAction="#likeButtonOnAction" onMouseClicked="#likeButtonOnAction" prefHeight="26.0" prefWidth="69.0" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2); -fx-background-radius: 10;" styleClass="Button" GridPane.columnIndex="1">
+                  <Button fx:id="likeButton" mnemonicParsing="false" onAction="#likeButtonOnAction" onMouseClicked="#likeButtonOnAction" prefHeight="26.0" prefWidth="69.0" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2); -fx-background-radius: 10;" styleClass="Button" GridPane.columnIndex="1" GridPane.halignment="CENTER">
                      <graphic>
                         <Label fx:id="likeNumberLabel" onMouseClicked="#likeButtonOnAction" prefHeight="18.0" prefWidth="63.0" text="numb">
                            <graphic>
@@ -66,7 +66,7 @@
                         </Label>
                      </graphic>
                   </Button>
-                  <Button fx:id="replyButton" mnemonicParsing="false" onAction="#replyButtonOnAction" prefHeight="26.0" prefWidth="69.0" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2); -fx-background-radius: 10;" styleClass="Button">
+                  <Button fx:id="replyButton" mnemonicParsing="false" onAction="#replyButtonOnAction" prefHeight="26.0" prefWidth="69.0" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2); -fx-background-radius: 10;" styleClass="Button" GridPane.halignment="CENTER">
                      <graphic>
                         <Label fx:id="replyNumberLabel" prefHeight="18.0" prefWidth="59.0" text="numb">
                            <graphic>
@@ -75,7 +75,7 @@
                         </Label>
                      </graphic>
                   </Button>
-                  <Button fx:id="retweetButton" mnemonicParsing="false" onAction="#retweetButtonOnAction" prefHeight="26.0" prefWidth="69.0" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2); -fx-background-radius: 10;" styleClass="Button" GridPane.columnIndex="2">
+                  <Button fx:id="retweetButton" mnemonicParsing="false" onAction="#retweetButtonOnAction" prefHeight="26.0" prefWidth="69.0" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2); -fx-background-radius: 10;" styleClass="Button" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                      <graphic>
                         <Label fx:id="retweetNumberLabel" prefHeight="18.0" prefWidth="180.0" text="numb">
                            <graphic>
@@ -94,11 +94,22 @@
             </GridPane>
          </bottom>
          <center>
-            <ScrollPane prefHeight="36.0" prefWidth="246.0" BorderPane.alignment="CENTER">
-               <content>
-                  <VBox fx:id="repliesVbox" maxHeight="200.0" minHeight="0.0" prefHeight="0.0" prefWidth="257.0" spacing="10.0" />
-               </content>
-            </ScrollPane>
+            <GridPane prefHeight="201.0" prefWidth="320.0" BorderPane.alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" percentWidth="20.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" percentWidth="80.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <ScrollPane style="-fx-border-color: white; -fx-background-color: white;" GridPane.columnIndex="1">
+                     <content>
+                        <VBox fx:id="repliesVbox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" spacing="10.0" style="-fx-border-color: transparent; -fx-background-color: white;" />
+                     </content>
+                  </ScrollPane>
+               </children>
+            </GridPane>
          </center>
       </BorderPane>
    </children>
