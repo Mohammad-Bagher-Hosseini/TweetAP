@@ -81,6 +81,8 @@ public class SendQuoteController implements HasStage
         {
             String text = textArea.getText();
             String imagePath = imagePathTextFiled.getText();
+            if(imagePath.equals(""))
+                imagePath = null;
             ControllerCommands.sendQuote(Long.toString(tweetId), text, imagePath);
             stage.close();
         } catch (TwitException e)
