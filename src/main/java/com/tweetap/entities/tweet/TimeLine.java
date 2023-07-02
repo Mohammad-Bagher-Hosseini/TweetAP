@@ -1,5 +1,6 @@
 package com.tweetap.entities.tweet;
 
+import com.tweetap.entities.exception.UnknownException;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
@@ -43,10 +44,10 @@ public class TimeLine implements Iterable<BaseTweet>, Serializable
         return null;
     }
 
-    public Tweet getTweet(long id)
+    public Tweet getTweet(long id) throws UnknownException
     {
         for (BaseTweet tweet : tweets)
-            if(tweet.getId() == id)
+            if(tweet.toTweet().getId() == id)
             {
                 if(tweet instanceof Tweet)
                     return (Tweet) tweet;

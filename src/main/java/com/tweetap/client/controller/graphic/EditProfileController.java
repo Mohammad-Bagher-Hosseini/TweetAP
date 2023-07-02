@@ -140,9 +140,9 @@ public class EditProfileController implements HasStage
     @FXML
     public void saveButtonOnAction(ActionEvent actionEvent)
     {
-        if(!headerImagePathSearchButton.getText().equals(""))
+        if(!headerImagePathTextFiled.getText().equals(""))
             changeHeader();
-        if(!avatarImagePathSearchButton.getText().equals(""))
+        if(!avatarImagePathTextFiled.getText().equals(""))
             changeAvatar();
         if(!bioTextArea.getText().equals(user.getBio().getText()))
             changeBio();

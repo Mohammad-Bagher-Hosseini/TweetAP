@@ -56,7 +56,7 @@ public class ModelCommands
     {
         try (ServerConnectionHandler serverConnectionHandler = new ServerConnectionHandler())
         {
-            serverConnectionHandler.sendCommend("set-image");
+            serverConnectionHandler.sendCommend("set-avatar");
             serverConnectionHandler.sendObject(userName);
             serverConnectionHandler.sendObject(avatar);
             Respond respond = serverConnectionHandler.getRespond();
