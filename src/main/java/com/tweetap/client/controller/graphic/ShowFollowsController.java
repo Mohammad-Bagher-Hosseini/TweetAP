@@ -86,7 +86,7 @@ public class ShowFollowsController implements HasStage
     @FXML
     public void backButtonOnAction(ActionEvent actionEvent)
     {
-        MainClient.loadPage(stage, "profile.fxml");
+        stage.close();
     }
 
     @Override
