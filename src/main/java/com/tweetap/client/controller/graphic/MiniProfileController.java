@@ -32,11 +32,12 @@ public class MiniProfileController implements HasStage
     public void showMiniUser(MiniUser miniUser)
     {
         this.miniUser = miniUser;
-        userNameLabel.setText(miniUser.getName() + " " + miniUser.getFamily() + "@" + miniUser.getUserName());
+        userNameLabel.setText(miniUser.getName() + " " + miniUser.getFamily() + " @" + miniUser.getUserName());
         ByteArrayOutputStream byteImage = new ByteArrayOutputStream();
         try
         {
-            ImageIO.write(miniUser.getAvatar().getImage(), "jpg", byteImage);
+            if(miniUser.getAvatar() != null)
+                ImageIO.write(miniUser.getAvatar().getImage(), "jpg", byteImage);
         } catch (IOException e)
         {
             System.out.println("MiniProfile -> showMiniUser -> writeImage in byteArray error : can't work with userAvatar!");

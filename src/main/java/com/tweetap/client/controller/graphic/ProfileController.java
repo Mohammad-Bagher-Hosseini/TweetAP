@@ -150,13 +150,13 @@ public class ProfileController implements HasStage
     @FXML
     public void followingsButtonOnAction(ActionEvent actionEvent)
     {
-        MainClient.loadPopup(stage, "showfollows_pop_up.fxml", ShowFollowsController::showFollowings);
+        ShowFollowsController showFollowsController = MainClient.loadPopup(stage, "showfollows_pop_up.fxml", ShowFollowsController::showFollowings);
     }
 
     @FXML
     public void followersButtonOnAction(ActionEvent actionEvent)
     {
-        MainClient.loadPopup(stage, "showfollows_pop_up.fxml", ShowFollowsController::showFollowers);
+        ShowFollowsController showFollowsController = MainClient.loadPopup(stage, "showfollows_pop_up.fxml", ShowFollowsController::showFollowers);
     }
 
     @FXML

@@ -28,7 +28,7 @@ public class ShowFollowsController implements HasStage
 
     public void initialize()
     {
-        showFollowings();
+        // showFollowings();
     }
 
     @FXML
@@ -45,6 +45,7 @@ public class ShowFollowsController implements HasStage
 
     public void showFollowers()
     {
+        followRelationsVBox.getChildren().clear();
         try
         {
             Followers followers;
@@ -67,6 +68,7 @@ public class ShowFollowsController implements HasStage
 
     public void showFollowings()
     {
+        followRelationsVBox.getChildren().clear();
         try
         {
             Followings followings = ControllerCommands.showFollowings();

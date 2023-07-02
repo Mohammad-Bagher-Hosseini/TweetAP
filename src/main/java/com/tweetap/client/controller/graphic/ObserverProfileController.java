@@ -83,7 +83,7 @@ public class ObserverProfileController implements HasStage
         try
         {
             followings = ControllerCommands.showFollowings();
-            followersNumberLabel.setText(Integer.toString(followings.size()));
+            followingsNumberLabel.setText(Integer.toString(followings.size()));
         } catch (TwitException e)
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
