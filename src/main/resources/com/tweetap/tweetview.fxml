@@ -94,7 +94,7 @@
             </GridPane>
          </bottom>
          <center>
-            <ScrollPane prefWidth="267.0" BorderPane.alignment="CENTER">
+            <ScrollPane prefHeight="36.0" prefWidth="246.0" BorderPane.alignment="CENTER">
                <content>
                   <VBox fx:id="repliesVbox" maxHeight="200.0" minHeight="0.0" prefHeight="0.0" prefWidth="257.0" spacing="10.0" />
                </content>
