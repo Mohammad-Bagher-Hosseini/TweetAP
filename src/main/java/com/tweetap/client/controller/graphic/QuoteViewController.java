@@ -53,10 +53,17 @@ public class QuoteViewController implements HasStage
             //TODO : error
         }
         imageView.setImage(new Image(new ByteArrayInputStream(byteImage.toByteArray())));
-
+        imageView.setPreserveRatio(true);
+        try
+        {
         likeNumberLabel.setText(Integer.toString(quote.getTweet().getLikeCount()));
         replyNumberLabel.setText(Integer.toString(quote.getTweet().getReplies().size()));
         retweetNumberLabel.setText(Integer.toString(quote.getTweet().getRetweetCount()));
+        }
+        catch (NullPointerException e)
+        {
+            //TODO : error
+        }
 
         Tweet tweet = quote.getTweet();
         TweetViewController tweetViewController = MainClient.loadPage(tweetVBox, stage, "tweetview.fxml");

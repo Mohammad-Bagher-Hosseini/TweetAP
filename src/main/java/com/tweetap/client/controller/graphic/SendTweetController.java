@@ -119,6 +119,7 @@ public class SendTweetController implements HasStage
                 //TODO : do suitable work
             }
         }
+        inputImageView.setPreserveRatio(true);
     }
 
     @FXML

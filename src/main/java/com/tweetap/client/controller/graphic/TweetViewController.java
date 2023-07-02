@@ -118,6 +118,7 @@ public class TweetViewController implements HasStage
             System.out.println("TweetView -> showTweet -> writeImage in byteArray error : can't work with tweetImage!");
         }
         tweetImageView.setImage(new Image(new ByteArrayInputStream(byteImage.toByteArray())));
+        tweetImageView.setPreserveRatio(true);
         // TODO: tweetImageView.setImage((Image) tweet.getImageContent().getImage());
         likeNumberLabel.setText(Integer.toString(tweet.getLikeCount()));
         replyNumberLabel.setText(Integer.toString(tweet.getReplies().size()));

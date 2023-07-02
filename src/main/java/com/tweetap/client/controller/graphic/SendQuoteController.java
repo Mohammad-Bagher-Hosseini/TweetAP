@@ -72,6 +72,7 @@ public class SendQuoteController implements HasStage
                 //TODO : do suitable work
             }
         }
+        imageView.setPreserveRatio(true);
     }
 
     @FXML

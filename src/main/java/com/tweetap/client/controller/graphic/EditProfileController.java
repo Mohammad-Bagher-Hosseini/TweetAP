@@ -74,6 +74,7 @@ public class EditProfileController implements HasStage
             {
                 ImageIO.write(user.getHeader().getImage(), "jpg", byteImage);
                 headerImageView.setImage(new Image(new ByteArrayInputStream(byteImage.toByteArray())));
+                headerImageView.setPreserveRatio(true);
             }
             byteImage.reset();
             if(user.getAvatar() != null)
@@ -103,6 +104,7 @@ public class EditProfileController implements HasStage
     {
         // TODO : search and show image or error
         chooseImage(headerImagePathTextFiled, headerImageView);
+        headerImageView.setPreserveRatio(true);
     }
 
     @FXML
