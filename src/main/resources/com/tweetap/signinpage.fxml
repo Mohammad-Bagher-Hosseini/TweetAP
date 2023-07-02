@@ -13,7 +13,7 @@
 
 <AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#rootPaneOnMouseDragged" onMousePressed="#rootPaneOnMousePressed" prefHeight="400.0" prefWidth="534.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tweetap.client.controller.graphic.SignInPageController">
    <children>
-      <AnchorPane layoutX="134.0" layoutY="23.0" prefHeight="354.0" prefWidth="361.0" style="-fx-background-radius: 25; -fx-background-color: #ffffff;">
+      <AnchorPane layoutX="134.0" layoutY="23.0" prefHeight="354.0" prefWidth="361.0" style="-fx-background-radius: 25; -fx-background-color: #ffffff;" stylesheets="@../../styles/Button.css">
          <PasswordField fx:id="passwordTextField" layoutX="129.0" layoutY="162.0" onKeyPressed="#passwordTextFieldOnKeyPressed" promptText="Password" style="-fx-border-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-border-width: 0px 0px 2px 0px; -fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2);" />
          <TextField fx:id="userNameTextField" layoutX="129.0" layoutY="103.0" onKeyPressed="#userNameTextFieldOnKeyPressed" promptText="User Name" style="-fx-border-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-border-width: 0px 0px 2px 0px; -fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2);" />
          <FontAwesomeIconView glyphName="USER" layoutX="102.0" layoutY="110.0" size="20" wrappingWidth="12.0" />
@@ -24,7 +24,7 @@
                <Font size="14.0" />
             </font>
          </Label>
-         <Button fx:id="signInButton" layoutX="155.0" layoutY="258.0" mnemonicParsing="false" onAction="#signInButtonOnAction" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-text-fill: BOLD;" text="SignIn" textFill="#fdfffd">
+         <Button fx:id="signInButton" layoutX="155.0" layoutY="258.0" mnemonicParsing="false" onAction="#signInButtonOnAction" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-text-fill: BOLD;" styleClass="Button" text="SignIn" textFill="#fdfffd">
             <font>
                <Font size="17.0" />
             </font>
@@ -33,7 +33,7 @@
          <Label fx:id="userNameLabel" layoutX="129.0" layoutY="132.0" textFill="#cf1212" />
          <Label fx:id="passwordLabel" layoutX="129.0" layoutY="190.0" textFill="#cf1212" />
          <Label fx:id="errorLabel" layoutX="140.0" layoutY="231.0" minHeight="-Infinity" textFill="#cf1212" />
-         <Button fx:id="exitButton" layoutX="308.0" layoutY="8.0" mnemonicParsing="false" onAction="#exitButtonOnAction" prefHeight="24.0" prefWidth="39.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 10;">
+         <Button fx:id="exitButton" layoutX="308.0" layoutY="8.0" mnemonicParsing="false" onAction="#exitButtonOnAction" prefHeight="24.0" prefWidth="39.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 10;" styleClass="Button">
             <graphic>
                <FontAwesomeIconView glyphName="CLOSE" size="18" />
             </graphic>

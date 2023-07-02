@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.fontawesome.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="590.0" prefWidth="526.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tweetap.client.controller.graphic.SearchController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="590.0" prefWidth="526.0" stylesheets="@../../styles/Button.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tweetap.client.controller.graphic.SearchController">
     <children>
         <AnchorPane layoutX="127.0" layoutY="22.0" prefHeight="546.0" prefWidth="398.0" style="-fx-background-radius: 25; -fx-background-color: #ffffff;">
          <children>
@@ -16,16 +19,20 @@
                   <VBox fx:id="findUsersVBox" prefHeight="475.0" prefWidth="337.0" spacing="10.0" />
                </content>
             </ScrollPane>
-            <Button fx:id="searchUserButton" layoutX="339.0" layoutY="5.0" mnemonicParsing="false" onAction="#searchUserButtonOnAction" prefHeight="10.0" prefWidth="36.0" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2);" />
-            <Button fx:id="searchHashtagButton" layoutX="339.0" layoutY="32.0" mnemonicParsing="false" onAction="#searchHashtagButtonOnAction" prefHeight="10.0" prefWidth="36.0" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2);" />
-            <FontAwesomeIconView glyphName="SEARCH" layoutX="350.0" layoutY="23.0" size="15" />
-            <FontAwesomeIconView glyphName="HASHTAG" layoutX="349.0" layoutY="50.0" size="15" />
+            <Button fx:id="searchUserButton" layoutX="339.0" layoutY="5.0" mnemonicParsing="false" onAction="#searchUserButtonOnAction" prefHeight="24.0" prefWidth="36.0" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2);" styleClass="Button">
+               <graphic>
+                  <FontAwesomeIconView glyphName="SEARCH" size="15" />
+               </graphic></Button>
+            <Button fx:id="searchHashtagButton" layoutX="339.0" layoutY="32.0" mnemonicParsing="false" onAction="#searchHashtagButtonOnAction" prefHeight="24.0" prefWidth="36.0" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2);" styleClass="Button">
+               <graphic>
+                  <FontAwesomeIconView glyphName="HASHTAG" size="15" />
+               </graphic></Button>
          </children></AnchorPane>
         <AnchorPane layoutX="-15.0" prefHeight="514.0" prefWidth="142.0">
             <children>
                 <VBox alignment="TOP_RIGHT" layoutX="-25.0" prefHeight="590.0" prefWidth="205.0" style="-fx-background-color: linear-gradient(#ff4a32, #ffffff); -fx-background-radius: 25;">
                     <children>
-                        <Button fx:id="homeButton" alignment="CENTER" mnemonicParsing="false" onAction="#homeButtonOnAction" prefHeight="47.0" prefWidth="105.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 15;" text="   HOME" textFill="WHITE">
+                        <Button fx:id="homeButton" alignment="CENTER" mnemonicParsing="false" onAction="#homeButtonOnAction" prefHeight="47.0" prefWidth="105.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 15;" styleClass="Button" text="   HOME" textFill="WHITE">
                             <VBox.margin>
                                 <Insets top="50.0" />
                             </VBox.margin>
@@ -47,7 +54,7 @@
                                 <Font size="14.0" />
                             </font>
                         </Button>
-                        <Button fx:id="profileButton" layoutX="23.0" layoutY="108.0" mnemonicParsing="false" onAction="#profileButtonOnAction" prefHeight="47.0" prefWidth="105.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 15;" text=" PROFILE" textFill="WHITE">
+                        <Button fx:id="profileButton" layoutX="23.0" layoutY="108.0" mnemonicParsing="false" onAction="#profileButtonOnAction" prefHeight="47.0" prefWidth="105.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 15;" styleClass="Button" text=" PROFILE" textFill="WHITE">
                             <VBox.margin>
                                 <Insets top="75.0" />
                             </VBox.margin>
@@ -58,7 +65,7 @@
                                 <Font size="14.0" />
                             </font>
                         </Button>
-                        <Button fx:id="tweetButton" layoutX="23.0" layoutY="108.0" mnemonicParsing="false" onAction="#tweetButtonOnAction" prefHeight="47.0" prefWidth="105.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 15;" text="  TWEET" textFill="WHITE">
+                        <Button fx:id="tweetButton" layoutX="23.0" layoutY="108.0" mnemonicParsing="false" onAction="#tweetButtonOnAction" prefHeight="47.0" prefWidth="105.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 15;" styleClass="Button" text="  TWEET" textFill="WHITE">
                             <VBox.margin>
                                 <Insets top="75.0" />
                             </VBox.margin>
@@ -69,7 +76,7 @@
                                 <Font size="14.0" />
                             </font>
                         </Button>
-                        <Button fx:id="exitButton" mnemonicParsing="false" onAction="#exitButtonOnAction" prefHeight="35.0" prefWidth="80.0" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2); -fx-background-radius: 15;" text="EXIT" textFill="#d91515">
+                        <Button fx:id="exitButton" mnemonicParsing="false" onAction="#exitButtonOnAction" prefHeight="35.0" prefWidth="80.0" style="-fx-background-color: linear-gradient( to right top,#5effb1, #47d2f2); -fx-background-radius: 15;" styleClass="Button" text="EXIT" textFill="#d91515">
                             <VBox.margin>
                                 <Insets top="80.0" />
                             </VBox.margin>

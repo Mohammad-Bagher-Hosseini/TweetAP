@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" maxHeight="400.0" maxWidth="506.0" minHeight="400.0" minWidth="506.0" onMouseDragged="#rootPaneOnMouseDragged" onMousePressed="#rootPaneOnMousePressed" prefHeight="400.0" prefWidth="506.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tweetap.client.controller.graphic.SignUpPageController">
+<AnchorPane fx:id="rootPane" maxHeight="400.0" maxWidth="506.0" minHeight="400.0" minWidth="506.0" onMouseDragged="#rootPaneOnMouseDragged" onMousePressed="#rootPaneOnMousePressed" prefHeight="400.0" prefWidth="506.0" style="-fx-background-color: transparent;" stylesheets="@../../styles/Button.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tweetap.client.controller.graphic.SignUpPageController">
    <AnchorPane layoutX="144.0" layoutY="39.0" prefHeight="588.0" prefWidth="348.0" style="-fx-background-radius: 25; -fx-background-color: #ffffff;">
       <FontAwesomeIconView glyphName="USERS" layoutX="174.0" layoutY="32.0" size="30" />
       <Label layoutX="153.0" layoutY="49.0" style="-fx-font-weight: BOLD;" text="SignUpPage" textFill="#ec3bab">
@@ -103,7 +103,7 @@
                      <Insets bottom="50.0" />
                   </VBox.margin>
                </Label>
-               <Button fx:id="signUpButton" mnemonicParsing="false" onAction="#signUpButtonOnAction" prefHeight="34.0" prefWidth="78.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3);" text="SignUp" textFill="WHITE">
+               <Button fx:id="signUpButton" mnemonicParsing="false" onAction="#signUpButtonOnAction" prefHeight="34.0" prefWidth="78.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3);" styleClass="Button" text="SignUp" textFill="WHITE">
                   <VBox.margin>
                      <Insets top="5.0" />
                   </VBox.margin>
@@ -114,12 +114,12 @@
             </VBox>
          </AnchorPane>
       </ScrollPane>
-      <Button fx:id="backButton" layoutX="30.0" layoutY="8.0" mnemonicParsing="false" onAction="#backButtonOnAction" prefHeight="24.0" prefWidth="39.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 10;">
+      <Button fx:id="backButton" layoutX="30.0" layoutY="8.0" mnemonicParsing="false" onAction="#backButtonOnAction" prefHeight="24.0" prefWidth="39.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 10;" styleClass="Button">
          <graphic>
             <FontAwesomeIconView glyphName="ARROW_LEFT" size="18" />
          </graphic>
       </Button>
-      <Button fx:id="exitButton" layoutX="308.0" layoutY="8.0" mnemonicParsing="false" onAction="#exitButtonOnAction" prefHeight="24.0" prefWidth="39.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 10;">
+      <Button fx:id="exitButton" layoutX="308.0" layoutY="8.0" mnemonicParsing="false" onAction="#exitButtonOnAction" prefHeight="24.0" prefWidth="39.0" style="-fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-background-radius: 10;" styleClass="Button">
          <graphic>
             <FontAwesomeIconView glyphName="CLOSE" size="18" />
          </graphic>

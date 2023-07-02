@@ -1,0 +1,5 @@
+.Button:hover{
+    -fx-translate-y: -2px;
+    -fx-scale-x: 1.1;
+    -fx-cursor: hand;
+}
