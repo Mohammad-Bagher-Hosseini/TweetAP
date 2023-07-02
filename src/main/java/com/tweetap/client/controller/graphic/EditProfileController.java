@@ -95,7 +95,7 @@ public class EditProfileController implements HasStage
         {
             FileChooser fileChooser = new FileChooser();
             fileChooser.setTitle("Open Image");
-            fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif"));
+            fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Image Files", "*.jpg"));
             File selected = fileChooser.showOpenDialog(stage);
             if(selected != null)
             {
