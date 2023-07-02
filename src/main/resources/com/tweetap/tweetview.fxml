@@ -16,7 +16,7 @@
 
 <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="495.0" prefWidth="387.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tweetap.client.controller.graphic.TweetViewController">
    <top>
-      <GridPane BorderPane.alignment="CENTER">
+      <GridPane prefHeight="200.0" BorderPane.alignment="CENTER">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
          </columnConstraints>
@@ -26,7 +26,10 @@
             <RowConstraints maxHeight="100.0" minHeight="50.0" prefHeight="60.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <ImageView fx:id="tweetImageView" fitHeight="60.0" fitWidth="321.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2" />
+            <ImageView fx:id="tweetImageView" fitHeight="76.0" fitWidth="386.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
+               <viewport>
+                  <Rectangle2D />
+               </viewport></ImageView>
             <Label fx:id="tweetTextLabel" alignment="TOP_LEFT" contentDisplay="TOP" graphicTextGap="8.0" maxWidth="1.7976931348623157E308" prefHeight="74.0" style="-fx-background-radius: 15; -fx-background-color: linear-gradient( to right top,#facd68, #fc76b3); -fx-padding: 5;" text="Label" wrapText="true" GridPane.rowIndex="1">
                <opaqueInsets>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -53,7 +56,7 @@
       </GridPane>
    </top>
    <bottom>
-      <GridPane minHeight="-Infinity" minWidth="-Infinity" BorderPane.alignment="CENTER">
+      <GridPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" BorderPane.alignment="CENTER">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" />
