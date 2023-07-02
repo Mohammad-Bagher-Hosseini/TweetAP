@@ -102,7 +102,8 @@ public class ObserverProfileController implements HasStage
         }
         avatarImageView.setImage(new Image(new ByteArrayInputStream(byteImage.toByteArray())));
 
-        if(followers.getUserNames().contains(Data.getInstance().getUser().getUserName()))
+        String username = miniUser.getUserName();
+        if(followings.contains(username))
             followRelationButton.setText("Unfollow");
         else
             followRelationButton.setText("Follow");

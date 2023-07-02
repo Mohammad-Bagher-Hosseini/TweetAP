@@ -93,7 +93,7 @@
                   </Label>
                </graphic>
             </Button>
-            <FontAwesomeIconView fx:id="starIconView" glyphName="STAR" size="20" wrappingWidth="12.799988746643066" GridPane.columnIndex="1" />
+            <FontAwesomeIconView fx:id="starIconView" glyphName="STAR" size="20" wrappingWidth="12.799988746643066" GridPane.columnIndex="1" visible="false" />
          </children>
          <BorderPane.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

@@ -46,6 +46,15 @@ public class ConnectedUsers implements Serializable, Iterable<MiniUser>
         return userNames;
     }
 
+    public boolean contains(String username)
+    {
+        for(MiniUser miniUser : miniUsers)
+            if(miniUser.getUserName().equals(username))
+                return true;
+
+        return false;
+    }
+
     @Override
     public Iterator<MiniUser> iterator()
     {
