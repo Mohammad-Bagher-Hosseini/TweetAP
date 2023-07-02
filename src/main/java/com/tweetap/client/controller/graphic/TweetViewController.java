@@ -16,6 +16,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 import javax.imageio.ImageIO;
@@ -131,6 +132,11 @@ public class TweetViewController implements HasStage
             System.out.println("TweetView -> showTweet -> writeImage in byteArray error : can't work with userAvatar!");
         }
         avatarImageView.setImage(new Image(new ByteArrayInputStream(byteImage.toByteArray())));
+        Circle circle = new Circle();
+        circle.setCenterX(avatarImageView.getFitWidth() / 2);
+        circle.setCenterY(avatarImageView.getFitHeight() / 2);
+        circle.setRadius(avatarImageView.getFitWidth() / 2);
+        avatarImageView.setClip(circle);
         // TODO: set avatar imageview
         tweetId = tweet.getId();
 
