@@ -51,6 +51,8 @@ public class TweetViewController implements HasStage
     public ImageView avatarImageView;
     @FXML
     public VBox repliesVbox;
+    @FXML
+    private FontAwesomeIconView starIconView;
 
     private Stage stage;
     private Long tweetId;
@@ -155,6 +157,9 @@ public class TweetViewController implements HasStage
         {
             likeIcon.setGlyphName("THUMBS_DOWN");
         } catch (TwitException ignored){}
+
+        if(tweet.isFavstar())
+            starIconView.setVisible(true);
     }
 
     private boolean like()
