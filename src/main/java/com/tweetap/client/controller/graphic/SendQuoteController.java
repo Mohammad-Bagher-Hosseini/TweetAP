@@ -51,7 +51,7 @@ public class SendQuoteController implements HasStage
             if(selected != null)
             {
                 imageView.setImage(new Image(selected.toURI().toString()));
-                imagePathTextFiled.setText(selected.toURI().toString());
+                imagePathTextFiled.setText(selected.getPath());
             }
             else
             {

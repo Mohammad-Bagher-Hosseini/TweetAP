@@ -17,6 +17,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.shape.Circle;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -79,6 +80,11 @@ public class EditProfileController implements HasStage
             {
                 ImageIO.write(user.getAvatar().getImage(), "jpg", byteImage);
                 avatarImageView.setImage(new Image(new ByteArrayInputStream(byteImage.toByteArray())));
+                Circle circle = new Circle();
+                circle.setCenterX(avatarImageView.getFitWidth() / 2);
+                circle.setCenterY(avatarImageView.getFitHeight() / 2);
+                circle.setRadius(avatarImageView.getFitWidth() / 2);
+                avatarImageView.setClip(circle);
             }
         } catch (IOException e)
         {

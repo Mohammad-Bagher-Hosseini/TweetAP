@@ -15,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 import javax.imageio.ImageIO;
@@ -88,6 +89,11 @@ public class ProfileController implements HasStage
             //TODO : error
         }
         avatarImageView.setImage(new Image(new ByteArrayInputStream(byteImage.toByteArray())));
+        Circle circle = new Circle();
+        circle.setCenterX(avatarImageView.getFitWidth() / 2);
+        circle.setCenterY(avatarImageView.getFitHeight() / 2);
+        circle.setRadius(avatarImageView.getFitWidth() / 2);
+        avatarImageView.setClip(circle);
 
         try
         {
