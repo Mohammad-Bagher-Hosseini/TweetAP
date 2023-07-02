@@ -213,11 +213,13 @@ public class DatabaseCommands
     {
         Session session = databaseManager.sessionFactory.openSession();
         FollowRelation followRelation = new FollowRelation(databaseManager.findUser(userName, session), databaseManager.findUser(followedUserName, session));
+        BlockRelation blockRelation = new BlockRelation(databaseManager.findUser(userName, session), databaseManager.findUser(followedUserName, session));
         try
         {
             databaseManager.isFollowRelationExist(followRelation, session);
+            databaseManager.isBlockRelationExist(blockRelation, session);
             throw new DuplicateFollowRequestException();
-        } catch (FollowRelationNotFoundException e)
+        } catch (FollowRelationNotFoundException | BlockRelationNotFoundException e)
         {
             session.beginTransaction();
             session.persist(followRelation);
