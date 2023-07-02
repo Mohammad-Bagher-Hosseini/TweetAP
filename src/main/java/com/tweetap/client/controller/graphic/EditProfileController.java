@@ -66,6 +66,24 @@ public class EditProfileController implements HasStage
         countryComboBox.setItems(FXCollections.observableArrayList(Country.getInstance().getCountries()));
         countryComboBox.setValue(user.getCountry());
         birthDateDatePicker.setValue(LocalDate.of(user.getBirthDate().getYear(), user.getBirthDate().getMonthValue(), user.getBirthDate().getDayOfMonth()));
+        ByteArrayOutputStream byteImage = new ByteArrayOutputStream();
+        try
+        {
+            if(user.getHeader() != null)
+            {
+                ImageIO.write(user.getHeader().getImage(), "jpg", byteImage);
+                headerImageView.setImage(new Image(new ByteArrayInputStream(byteImage.toByteArray())));
+            }
+            byteImage.reset();
+            if(user.getAvatar() != null)
+            {
+                ImageIO.write(user.getAvatar().getImage(), "jpg", byteImage);
+                avatarImageView.setImage(new Image(new ByteArrayInputStream(byteImage.toByteArray())));
+            }
+        } catch (IOException e)
+        {
+            //TODO : error
+        }
     }
 
     @FXML
