@@ -10,7 +10,7 @@ import java.net.Socket;
 
 public class ServerConnectionHandler implements Closeable
 {
-    public static final String IP = "localhost";
+    public static final String IP = System.getenv("SERVER_HOST") != null ? System.getenv("SERVER_HOST") : "localhost";
     public static final int PORT = 5678;
     private final Socket socket;
     private final InputStream inputStream;

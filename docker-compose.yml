@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  server:
+    build: .
+    command: com.tweetap.server.Main
+    ports:
+      - "5678:5678"
+    networks:
+      - tweetap-net
+
+  client:
+    build: .
+    command: com.tweetap.MainClient
+    depends_on:
+      - server
+    environment:
+      - SERVER_HOST=server
+      - DISPLAY=${DISPLAY}
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    networks:
+      - tweetap-net
+
+networks:
+  tweetap-net:
